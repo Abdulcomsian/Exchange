@@ -56,3 +56,20 @@
 
 
     @endsection()
+
+    @section('script')
+<script>
+    const btnLink1 = document.querySelector(".list-1");
+const btnLink2 = document.querySelector(".list-2");
+
+btnLink1.addEventListener("click", function () {
+    this.classList.add("active");
+    btnLink2.classList.remove("active");
+});
+btnLink2.addEventListener("click", function () {
+    this.classList.add("active");
+    btnLink1.classList.remove("active");
+});
+</script>
+
+@endsection

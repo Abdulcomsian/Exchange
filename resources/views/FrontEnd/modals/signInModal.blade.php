@@ -146,7 +146,7 @@ body {
           ><a
             class="_1vr1v _3X2l4 continueLinker_stru"
             style="background-color: dodgerblue;"
-            href="#"
+            href="{{url('login/facebook')}}"
             ><div
               style="
                 flex-wrap: nowrap;
@@ -169,7 +169,7 @@ body {
           ><a
             class="_1vr1v _3HL25 continueLinker_stru"
             style="background: #3b5998;"
-            href="#"
+            href="{{url('login/facebook')}}"
             ><div
               style="
                 flex-wrap: nowrap;

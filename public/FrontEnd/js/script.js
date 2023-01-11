@@ -24,17 +24,7 @@ ClassicEditor.create(document.querySelector("#editor1")).catch((error) => {
 //   SellBusi.classList.toggle('hidden')
 // }
 
-const btnLink1 = document.querySelector(".list-1");
-const btnLink2 = document.querySelector(".list-2");
 
-btnLink1.addEventListener("click", function () {
-    this.classList.add("active");
-    btnLink2.classList.remove("active");
-});
-btnLink2.addEventListener("click", function () {
-    this.classList.add("active");
-    btnLink1.classList.remove("active");
-});
 
 for (let btn of btnsForward) {
     btn.addEventListener("click", function () {
