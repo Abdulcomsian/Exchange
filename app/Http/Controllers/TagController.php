@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Store;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,33 +35,16 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        if ($request->hasFile('image')) {
-            $destinationPath = 'storeImage/';
-            $productImage = date('YmdHis') . "." . $request->image->getClientOriginalExtension();
-            $request->image->move($destinationPath, $productImage);
-            $input['image'] = $productImage;
-        }
-        $store = Store::create($input);
-
-        foreach($request->tagnames as $name)
-        {
-            $tags= Tag::create([
-                'store_id'=> $store->id,
-                'name'=> $name
-            ]);
-        }
         
-        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Store $store)
+    public function show(Tag $tag)
     {
         //
     }
@@ -70,10 +52,10 @@ class StoreController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Store $store)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -82,10 +64,10 @@ class StoreController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, Tag $tag)
     {
         //
     }
@@ -93,10 +75,10 @@ class StoreController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy(Tag $tag)
     {
         //
     }

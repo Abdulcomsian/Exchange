@@ -5,17 +5,21 @@
       <div>
         <div class="sellSection-header text-center">
           <h1 class="sellSection-header__title">Sell your business</h1>
-          <h2 class="sellSection-header__subtitle">
-            List your store for sale on the fastest <br />growing marketplace
-            for entrepreneurs
-          </h2>
+          
         </div>
+      
+
+         
         <div class="tab tab-1 active">
           <!-- tab 1 -->
           <div class="sellBusinessForm">
           
             <form class="" method="POST" action="<?php echo e(route('stores.store')); ?>" style="width: 80%; margin: auto;">
              <?php echo csrf_field(); ?>
+             <label> Tags</label>
+             <select class="js-example-basic-multiple form-control"  name="tagnames[]" multiple="multiple">
+              </select>
+
               <input
               name="name"
               href="#"
@@ -23,6 +27,12 @@
                 class="marketing-input"
                 type="text"
               />
+
+             
+
+         
+
+
               <a
               href="#"
                 class="marketing-button btn-forward"
@@ -329,6 +339,8 @@
    <?php $__env->startSection('script'); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/s7elsci59jchj3dky00b296gqc0917u7oa78oha5si1mp2pe/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>  
     <script type="text/javascript">
             tinymce.init({
@@ -347,6 +359,14 @@
             content_css: '//www.tiny.cloud/css/codepen.min.css'
         });
     </script>
+    <script>
+        $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+    $(".js-example-basic-multiple").select2({
+  tags: true
+});
+});
+</script>
     
 
    <?php $__env->stopSection(); ?>
