@@ -1303,6 +1303,7 @@
                     "aliases": {
                         "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
                     }
+                }
             },
             "autoload": {
                 "psr-4": {
