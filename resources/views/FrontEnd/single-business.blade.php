@@ -105,30 +105,13 @@
                                                     <div class="common-div position-relative">
                                                         <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
                                                         <h4>Avg. revenue /month</h4>
-                                                        <p>$58,333</p>
+
                                                         <p>$ {{$store->revenue}}</p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
                                                         <h4>Avg. sessions /month</h4>
-                                                        <p>54,349</p>
-                                                    </div>
-                                                    <div class="common-div position-relative">
-                                                        <h4>Avg. profit /month</h4>
-                                                        <p>$5,000</p>
-                                                    </div>
-                                                    <div class="common-div position-relative">
-                                                        <h4>Inventory value</h4>
-                                                        <p>$10,000</p>
-                                                    </div>
-                                                    <div class="common-div position-relative">
-                                                        <h4>Profit Margin</h4>
-                                                        <p>65%</p>
-                                                    </div>
-                                                    <div class="common-div position-relative">
-                                                        <h4>Avg. sales /month</h4>
-                                                        <p>150</p>
-                                                        <p> {{$store->sessions}}</p>
+                                                        <p>{{$store->sessions}}</p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Avg. profit /month</h4>
@@ -140,12 +123,10 @@
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Profit Margin</h4>
-                                                        <p>{{$store->profit}}%</p>
+                                                        <p>{{$store->profit }} %</p>
                                                     </div>
-                                                    <div class="common-div position-relative">
-                                                        <h4>Avg. sales /month</h4>
-                                                        <p>{{$store->other_details}}</p>
-                                                    </div>
+                                                
+
                                                 </div>
                                                 <h4 class="common-detail-title">Other details about profit:</h4>
                                                 <p>The "Shopify Verified" avg. monthly revenue and avg. monthly sessions is technically correct, but that's combining the last 3 years of traffic and revenue. Current average revenue and sessions is less - please look to the charts below for accurate information. Also note that profit margins can be increased significantly by reducing operational costs and overhead. Office rent and fulfillment staff wages takes a large chunk out of our monthly profit and if the buyer were to operate out of their existing office or even out of a home, profit could be increased overnight.</p>
@@ -176,17 +157,10 @@
                                                     </p>
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Domain</span>
-                                                        <span class="d-block"><b>$100</b>/year</span>
-                                                        <span class="d-block"><b>$ {{$store->shopify_plan}}</b>/month</span>
+
+                                                        <span class="d-block"><b>$ {{$store->domain}}</b>/month</span>
                                                     </p>
-                                                    <p class="d-flex justify-content-between align-items-center">
-                                                        <span class="d-block">Inventory warehouse</span>
-                                                        <span class="d-block"><b>$ {{$store->inventory_warehouse}}</b>/month</span>
-                                                    </p>
-                                                    <p class="d-flex justify-content-between align-items-center">
-                                                        <span class="d-block">Domain</span>
-                                                        <span class="d-block"><b>$ {{$store->domain}}</b>/year</span>
-                                                    </p>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +175,7 @@
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
-                                                                <h4>Physical inventory</h4>
+                                                                
                                                                 <h4>{{$store->sales_include_1}}</h4>
                                                             </div>
                                                         </li>
@@ -210,7 +184,6 @@
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
-                                                                <h4>Logo and branding assets</h4>
                                                                 <h4>{{$store->sales_include_2}}</h4>
                                                                 <p>All marketing materials are included.</p>
                                                             </div>
@@ -220,7 +193,7 @@
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
-                                                                <h4>Personal support after sale</h4>
+                                                               
                                                                 <h4>{{$store->sales_include_3}}</h4>
                                                                 <p>In-person support for 2 full-days to assist in transfer and to help set everything up and answer any questions. Phone and video support for 1-month after sale.</p>
                                                             </div>
