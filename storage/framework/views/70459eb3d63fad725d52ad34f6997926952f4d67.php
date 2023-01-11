@@ -1,7 +1,7 @@
 
-@extends('layouts.frontEnd.master')
-    @section('content')
-    @include('layouts.FrontEnd.header')
+
+    <?php $__env->startSection('content'); ?>
+    <?php echo $__env->make('layouts.FrontEnd.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <main>
         <div class="main-wrapper">
@@ -22,7 +22,7 @@
                                     </li>
                                     <li>
                                         <a href=""> Swift / SwiftUI Developer for B2B iOS apps</a>
-                                        <a href="">{{$store->name}}</a>
+                                        <a href=""><?php echo e($store->name); ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -40,16 +40,9 @@
                                     <hr>
                                     <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> Why this business was started</h4>
 
-                                    {{$store->business_story}}
-                                    {{-- <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> Why this business was started</h4>
-                                    <p>We started this business to capitalize on a growing interest in detox tea products. We noticed most businesses were operating in Europe and Australia so shipping time to North America was very long. Our company is Canadian based and offered competitive pricing and fast shipping to customers in the U.S. and Canada primarily; although, we do receive orders from around the world.</p>
-                                    <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> The reason of selling this business</h4>
-                                    <p>It's time to move on and focus our efforts on something new.</p>
-                                    <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> What's involved in running this business</h4>
-                                    <p>Our business is a typical SMB ecommerce business with a lean operation, small SKU count, inexpensive marketing costs, and loads of growth potential.</p>
-                                    <p class="m-0 common-icon-para"><i class="fa-solid fa-calendar-days"></i> This business was founded: <span>about 9 years ago</span></p>
-                                    <p class="m-0 common-icon-para"><i class="fa-solid fa-clock"></i> Time to run this business: <span>approximately 16 hours per week</span></p>
-                                    <p class="m-0 common-icon-para"><i class="fa-solid fa-clock"></i> Time to run this business: <span>approximately 16 hours per week</span></p> --}}
+                                    <?php echo e($store->business_story); ?>
+
+                                    
                                 </div>
                                 <div class="business-list-div mt-5">
                                     <div class="tab-list">
@@ -76,25 +69,9 @@
                                                 <h5 class="common-detail-heading">DESCRIPTION</h5>
                                                 <hr>
                                                 <h4 class="common-detail-title">General description</h4>
-                                                {{$store->description}}
-                                                {{-- <h4 class="common-detail-title">General description</h4>
-                                                <p>This well established ecommerce business is a leading detox tea company within the natural health and wellness industry. We focus on developing unique health products to help customers achieve their health goals. We've had over 130,000 orders around the world amounting to over $6 million USD in total sales.</p>
-                                                <p>The company was founded in 2013 and operates out of Toronto, Canada.</p>
-                                                <p>Although sales have declined significantly from all-time highs, average monthly revenue has plateaued and is steady and predictable. This is still an easy-to-run profitable business that has an incredible amount of potential for increased growth both in the short-term and long-term.</p>
-                                                <h4 class="common-detail-title">Why should someone buy this store?</h4>
-                                                <p>The amount of potential this business has is incredible. Looking at total sales and audience size figures, it may seem like this is a well oiled machine with little room for growth. In fact, we’ve been operating an extremely lightweight operation and have put very little energy into sales and marketing initiatives.</p>
-                                                <p>Although we have an office in Toronto, Canada, where we store inventory and fulfill orders, this business could easily be run from anywhere in the world without requiring a large amount of space.</p>
-                                                <p>We have one part-time employee packing orders and a few small contractors helping with marketing. Operations could easily be run entirely by one owner.</p>
-                                                <p>We enjoy a high profit margin, high repeat purchase ratio, inexpensive customer acquisition costs, and a massive customer database.</p>
-                                                <h4 class="common-detail-title">How can the future owner improve the business?</h4>
-                                                <p>We're currently fulfilling about 10% of our total potential sales and marketing opportunities. The potential to expand our efforts is immense. We dabble in SEO, Facebook and Instagram advertising, and basic email marketing - but robust marketing strategies in these areas have not been explored yet.</p>
-                                                <p>There's potential to additionally focus on Google Adwords, affiliate marketing, influencer marketing, content marketing, media and PR outreach, and significant potential in deepening the social media marketing and SEO strategy.</p>
-                                                <p>Further, profit margins can be increased significantly by reducing operational costs and overhead. Office rent and fulfillment staff wages takes a large chunk out of our monthly profit and if the buyer were to operate out of their existing office or even out of a home profit could be increased overnight.</p>
-                                                <h4 class="common-detail-title">What work have you put into the store?</h4>
-                                                <p>This is a well-established 7 year old ecommerce business with over $6 million in sales that requires very little effort to maintain sales, but comes with an unlimited amount of potential to considerably expedite growth.</p>
-                                                <p>An incredible amount of work has gone into building the custom website, developing the products, sourcing a trusted supplier network, establishing effective customer service and fulfillment processes, growing a social media audience of over 250,000, and of course consistently driving traffic to the website through various channels.</p>
-                                            </div>
-                                        --}}
+                                                <?php echo e($store->description); ?>
+
+                                                
                                         </div> 
                                         </div>
                                         <div class="tab-pane fade" id="pills-performance" role="tabpanel" aria-labelledby="pills-performance-tab">
@@ -103,13 +80,13 @@
                                                 <hr>
                                                 <div class="multiple-reading">
                                                     <div class="common-div position-relative">
-                                                        <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
+                                                        <span class="badge"><img src="<?php echo e(asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')); ?>" alt="" class="img-fluid"> Verified</span>
                                                         <h4>Avg. revenue /month</h4>
                                                         <p>$58,333</p>
-                                                        <p>$ {{$store->revenue}}</p>
+                                                        <p>$ <?php echo e($store->revenue); ?></p>
                                                     </div>
                                                     <div class="common-div position-relative">
-                                                        <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
+                                                        <span class="badge"><img src="<?php echo e(asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')); ?>" alt="" class="img-fluid"> Verified</span>
                                                         <h4>Avg. sessions /month</h4>
                                                         <p>54,349</p>
                                                     </div>
@@ -128,23 +105,23 @@
                                                     <div class="common-div position-relative">
                                                         <h4>Avg. sales /month</h4>
                                                         <p>150</p>
-                                                        <p> {{$store->sessions}}</p>
+                                                        <p> <?php echo e($store->sessions); ?></p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Avg. profit /month</h4>
-                                                        <p>$ {{$store->profit}}</p>
+                                                        <p>$ <?php echo e($store->profit); ?></p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Inventory value</h4>
-                                                        <p>$ {{$store->inventory_value}}</p>
+                                                        <p>$ <?php echo e($store->inventory_value); ?></p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Profit Margin</h4>
-                                                        <p>{{$store->profit}}%</p>
+                                                        <p><?php echo e($store->profit); ?>%</p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Avg. sales /month</h4>
-                                                        <p>{{$store->other_details}}</p>
+                                                        <p><?php echo e($store->other_details); ?></p>
                                                     </div>
                                                 </div>
                                                 <h4 class="common-detail-title">Other details about profit:</h4>
@@ -152,12 +129,12 @@
                                                 <div class="graph-div">
                                                     <h4 class="common-detail-title">Last 7 years revenue</h4>
                                                     <p class="revenue-amount">$5,074,975</p>
-                                                    <img src="{{asset('FrontEnd/img/graph.png')}}" alt="" class="img-fluid">
+                                                    <img src="<?php echo e(asset('FrontEnd/img/graph.png')); ?>" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="graph-div">
                                                     <h4 class="common-detail-title">Last 7 years traffic</h4>
                                                     <p class="revenue-amount">4,728,433 Visits</p>
-                                                    <img src="{{asset('FrontEnd/img/graph.png')}}" alt="" class="img-fluid">
+                                                    <img src="<?php echo e(asset('FrontEnd/img/graph.png')); ?>" alt="" class="img-fluid">
                                                 </div>
                                             </div>
                                         </div>
@@ -177,15 +154,15 @@
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Domain</span>
                                                         <span class="d-block"><b>$100</b>/year</span>
-                                                        <span class="d-block"><b>$ {{$store->shopify_plan}}</b>/month</span>
+                                                        <span class="d-block"><b>$ <?php echo e($store->shopify_plan); ?></b>/month</span>
                                                     </p>
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Inventory warehouse</span>
-                                                        <span class="d-block"><b>$ {{$store->inventory_warehouse}}</b>/month</span>
+                                                        <span class="d-block"><b>$ <?php echo e($store->inventory_warehouse); ?></b>/month</span>
                                                     </p>
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Domain</span>
-                                                        <span class="d-block"><b>$ {{$store->domain}}</b>/year</span>
+                                                        <span class="d-block"><b>$ <?php echo e($store->domain); ?></b>/year</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -202,7 +179,7 @@
                                                             </div>
                                                             <div class="ms-3 sale-content">
                                                                 <h4>Physical inventory</h4>
-                                                                <h4>{{$store->sales_include_1}}</h4>
+                                                                <h4><?php echo e($store->sales_include_1); ?></h4>
                                                             </div>
                                                         </li>
                                                         <li class="d-flex">
@@ -211,7 +188,7 @@
                                                             </div>
                                                             <div class="ms-3 sale-content">
                                                                 <h4>Logo and branding assets</h4>
-                                                                <h4>{{$store->sales_include_2}}</h4>
+                                                                <h4><?php echo e($store->sales_include_2); ?></h4>
                                                                 <p>All marketing materials are included.</p>
                                                             </div>
                                                         </li>
@@ -221,7 +198,7 @@
                                                             </div>
                                                             <div class="ms-3 sale-content">
                                                                 <h4>Personal support after sale</h4>
-                                                                <h4>{{$store->sales_include_3}}</h4>
+                                                                <h4><?php echo e($store->sales_include_3); ?></h4>
                                                                 <p>In-person support for 2 full-days to assist in transfer and to help set everything up and answer any questions. Phone and video support for 1-month after sale.</p>
                                                             </div>
                                                         </li>
@@ -279,7 +256,7 @@
                             <div class="business-right-div">
                                 <div class="common-div price-share-div">
                                     <h5 class="price-text">$100,000</h5>
-                                    <h5 class="price-text">$ {{$store->price}}</h5>
+                                    <h5 class="price-text">$ <?php echo e($store->price); ?></h5>
                                     <a href="tel:12345" class="common-btn">Contact Seller</a>
                                     <div class="url-div mt-3">
                                         <p class="mb-2">URL Hidden</p>
@@ -638,7 +615,7 @@
                                     </div>
                                 </div>
                                 <div class="echange-trust">
-                                    <img src="{{asset('FrontEnd/img/thumb-img.svg')}}" alt="" class="img-fluid">
+                                    <img src="<?php echo e(asset('FrontEnd/img/thumb-img.svg')); ?>" alt="" class="img-fluid">
                                     <p class="m-0">OUR FEATURES FOR A SECURE EXPERIENCE</p>
                                     <h3>Exchange Trust</h3>
                                     <ul>
@@ -675,7 +652,7 @@
                             <div class="col-lg-4">
                                 <div class="common-div">
                                     <div class="icon-div">
-                                        <img src="{{asset('FrontEnd/img/e5f6dc5f224132d46c27eb74edc13a2e.png')}}" alt="" class="img-fluid">
+                                        <img src="<?php echo e(asset('FrontEnd/img/e5f6dc5f224132d46c27eb74edc13a2e.png')); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="content-div">
                                         <h4>Verified listing data</h4>
@@ -686,7 +663,7 @@
                             <div class="col-lg-4">
                                 <div class="common-div">
                                     <div class="icon-div">
-                                        <img src="{{asset('FrontEnd/img/e5f6dc5f224132d46c27eb74edc13a2e.png')}}" alt="" class="img-fluid">
+                                        <img src="<?php echo e(asset('FrontEnd/img/e5f6dc5f224132d46c27eb74edc13a2e.png')); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="content-div">
                                         <h4>Secure messaging platform</h4>
@@ -697,7 +674,7 @@
                             <div class="col-lg-4">
                                 <div class="common-div">
                                     <div class="icon-div">
-                                        <img src="{{asset('FrontEnd/img/d677d4993d4ebf2f071a0f3459f0808e.png')}}" alt="" class="img-fluid">
+                                        <img src="<?php echo e(asset('FrontEnd/img/d677d4993d4ebf2f071a0f3459f0808e.png')); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="content-div">
                                         <h4>Encrypted payment capture</h4>
@@ -708,7 +685,7 @@
                             <div class="col-lg-4">
                                 <div class="common-div">
                                     <div class="icon-div">
-                                        <img src="{{asset('FrontEnd/img/3b4ed766f0ba114194ce411a33d3852f.png')}}" alt="" class="img-fluid">
+                                        <img src="<?php echo e(asset('FrontEnd/img/3b4ed766f0ba114194ce411a33d3852f.png')); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="content-div">
                                         <h4>Take time to inspect the business</h4>
@@ -719,7 +696,7 @@
                             <div class="col-lg-4">
                                 <div class="common-div">
                                     <div class="icon-div">
-                                        <img src="{{asset('FrontEnd/img/050510c1cf71e188ac8086a808439268.png')}}" alt="" class="img-fluid">
+                                        <img src="<?php echo e(asset('FrontEnd/img/050510c1cf71e188ac8086a808439268.png')); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="content-div">
                                         <h4>Safe store transfer</h4>
@@ -730,7 +707,7 @@
                             <div class="col-lg-4">
                                 <div class="common-div">
                                     <div class="icon-div">
-                                        <img src="{{asset('FrontEnd/img/341709bb806656dff1c4fb867d368505.png')}}" alt="" class="img-fluid">
+                                        <img src="<?php echo e(asset('FrontEnd/img/341709bb806656dff1c4fb867d368505.png')); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="content-div">
                                         <h4>Post-purchase 24/7 Shopify support</h4>
@@ -762,6 +739,7 @@
             </div>
         </div>
     </main>
-    @endsection
+    <?php $__env->stopSection(); ?>
     
     
+<?php echo $__env->make('layouts.frontEnd.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Exchange\resources\views/FrontEnd/single-business.blade.php ENDPATH**/ ?>

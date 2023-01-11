@@ -1,11 +1,11 @@
 
-@extends('layouts.frontEnd.master')
-   @section('css')
-   <link rel="stylesheet" href="{{asset('FrontEnd/css/slick.css')}}">
-    <link rel="stylesheet" href="{{asset('FrontEnd/css/slick-theme.css')}}">
-   @endsection
-   @section('content')
-     @include('layouts.frontEnd.header')
+
+   <?php $__env->startSection('css'); ?>
+   <link rel="stylesheet" href="<?php echo e(asset('FrontEnd/css/slick.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('FrontEnd/css/slick-theme.css')); ?>">
+   <?php $__env->stopSection(); ?>
+   <?php $__env->startSection('content'); ?>
+     <?php echo $__env->make('layouts.frontEnd.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <main>
         <div class="main-wrapper">
             <div id="single-common-banner">
@@ -252,29 +252,29 @@
                     <div class="listing-list-common mt-5">
                         <div class="container">
                             <div class="row">
-                                @foreach ($stores as $store)
+                                <?php $__currentLoopData = $stores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $store): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 
                                 <div class="col-lg-12">
                                     <div class="common-listing-box d-flex align-items-center">
                                         <div class="listing-img">
-                                            <img src="{{asset('FrontEnd/img/image_processing20191116-5475-d3p1pb-750x430.png')}}" alt="" class="img-fluid">
+                                            <img src="<?php echo e(asset('FrontEnd/img/image_processing20191116-5475-d3p1pb-750x430.png')); ?>" alt="" class="img-fluid">
                                             <span class="badge">Offer Support</span>
                                         </div>
                                         <div class="listing-content ms-4">
                                             <div class="listing-detail d-flex align-items-center justify-content-between">
-                                                <h5>{{$store->name}}</h5>
+                                                <h5><?php echo e($store->name); ?></h5>
                                                 <div class="sale-profit-revenew d-flex align-items-center">
                                                     <div class="common-div text-center">
                                                         <h5>Avg. Revenue</h5>
-                                                        <span>$ {{$store->revenue}}</span><span>/month</span>
+                                                        <span>$ <?php echo e($store->revenue); ?></span><span>/month</span>
                                                     </div>
                                                     <div class="common-div text-center">
                                                         <h5>Avg. Profit</h5>
-                                                        <span>$ {{$store->profit}}</span><span>/month</span>
+                                                        <span>$ <?php echo e($store->profit); ?></span><span>/month</span>
                                                     </div>
                                                     <div class="common-div text-center">
                                                         <h5>Inventory value</h5>
-                                                        <span>$ {{$store->inventory_value}}k</span>
+                                                        <span>$ <?php echo e($store->inventory_value); ?>k</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -282,49 +282,16 @@
                                             <p>2-year store for high-end tea, tea gifts, and accessories. Well-designed webshop with lots of conversion uplift customizations. Bi-lingual with Dutch & English. Fully optimized SEO setup. 40+ content marketing blogs. Dedicated B2B page.</p>
                                         </div>
                                         <div class="price-div text-center">
-                                            <h5>$ {{$store->price}}</h5>
-                                            <a href="{{route('single_business',$store->id)}}">Detail</a>
+                                            <h5>$ <?php echo e($store->price); ?></h5>
+                                            <a href="<?php echo e(route('single_business',$store->id)); ?>">Detail</a>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <div class="col-lg-12">
                                     <div class="common-listing-box d-flex align-items-center">
                                         <div class="listing-img">
-                                            <img src="{{asset('FrontEnd/img/image_processing20200109-18945-qpg2vi-750x430.png')}}" alt="" class="img-fluid">
-                                            <span class="badge">Offer Support</span>
-                                        </div>
-                                        <div class="listing-content ms-4">
-                                            <div class="listing-detail d-flex align-items-center justify-content-between">
-                                                <h5>Infinity-Stones.eu</h5>
-                                                <div class="sale-profit-revenew d-flex align-items-center">
-                                                    <div class="common-div text-center">
-                                                        <h5>Avg. Revenue</h5>
-                                                        <span>$253.9</span><span>/month</span>
-                                                    </div>
-                                                    <div class="common-div text-center">
-                                                        <h5>Avg. Profit</h5>
-                                                        <span>$253.9</span><span>/month</span>
-                                                    </div>
-                                                    <div class="common-div text-center">
-                                                        <h5>Inventory value</h5>
-                                                        <span>$1k</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <p>2-year store for high-end tea, tea gifts, and accessories. Well-designed webshop with lots of conversion uplift customizations. Bi-lingual with Dutch & English. Fully optimized SEO setup. 40+ content marketing blogs. Dedicated B2B page.</p>
-                                        </div>
-                                        <div class="price-div text-center">
-                                            <h5>$27.00</h5>
-                                            <a href="">Detail</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="common-listing-box d-flex align-items-center">
-                                        <div class="listing-img">
-                                            <img src="{{asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430 (1).png')}}" alt="" class="img-fluid">
+                                            <img src="<?php echo e(asset('FrontEnd/img/image_processing20200109-18945-qpg2vi-750x430.png')); ?>" alt="" class="img-fluid">
                                             <span class="badge">Offer Support</span>
                                         </div>
                                         <div class="listing-content ms-4">
@@ -357,7 +324,40 @@
                                 <div class="col-lg-12">
                                     <div class="common-listing-box d-flex align-items-center">
                                         <div class="listing-img">
-                                            <img src="{{asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430.png')}}" alt="" class="img-fluid">
+                                            <img src="<?php echo e(asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430 (1).png')); ?>" alt="" class="img-fluid">
+                                            <span class="badge">Offer Support</span>
+                                        </div>
+                                        <div class="listing-content ms-4">
+                                            <div class="listing-detail d-flex align-items-center justify-content-between">
+                                                <h5>Infinity-Stones.eu</h5>
+                                                <div class="sale-profit-revenew d-flex align-items-center">
+                                                    <div class="common-div text-center">
+                                                        <h5>Avg. Revenue</h5>
+                                                        <span>$253.9</span><span>/month</span>
+                                                    </div>
+                                                    <div class="common-div text-center">
+                                                        <h5>Avg. Profit</h5>
+                                                        <span>$253.9</span><span>/month</span>
+                                                    </div>
+                                                    <div class="common-div text-center">
+                                                        <h5>Inventory value</h5>
+                                                        <span>$1k</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <p>2-year store for high-end tea, tea gifts, and accessories. Well-designed webshop with lots of conversion uplift customizations. Bi-lingual with Dutch & English. Fully optimized SEO setup. 40+ content marketing blogs. Dedicated B2B page.</p>
+                                        </div>
+                                        <div class="price-div text-center">
+                                            <h5>$27.00</h5>
+                                            <a href="">Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="common-listing-box d-flex align-items-center">
+                                        <div class="listing-img">
+                                            <img src="<?php echo e(asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430.png')); ?>" alt="" class="img-fluid">
                                             <span class="badge">Offer Support</span>
                                         </div>
                                         <div class="listing-content ms-4">
@@ -443,7 +443,7 @@
                                 <div class="col-md-3">
                                     <div class="common-industry-div">
                                         <div class="img-div">
-                                            <img src="{{asset('FrontEnd/img/doing-finances-and-taking-notes_4460x4460-a9f0e75ca44d7e04.jpeg')}}" alt="" class="img-fluid">
+                                            <img src="<?php echo e(asset('FrontEnd/img/doing-finances-and-taking-notes_4460x4460-a9f0e75ca44d7e04.jpeg')); ?>" alt="" class="img-fluid">
                                         </div>
                                         <div class="content-div">
                                             <h4>Starter stores</h4>
@@ -454,7 +454,7 @@
                                 <div class="col-md-3">
                                     <div class="common-industry-div">
                                         <div class="img-div">
-                                            <img src="{{asset('FrontEnd/img/clothing-accessories-flatlay_4460x4460-1eed499be273bbc0.jpeg')}}" alt="" class="img-fluid">
+                                            <img src="<?php echo e(asset('FrontEnd/img/clothing-accessories-flatlay_4460x4460-1eed499be273bbc0.jpeg')); ?>" alt="" class="img-fluid">
                                         </div>
                                         <div class="content-div">
                                             <h4>Fashion and apparel</h4>
@@ -465,7 +465,7 @@
                                 <div class="col-md-3">
                                     <div class="common-industry-div">
                                         <div class="img-div">
-                                            <img src="{{asset('FrontEnd/img/spa-candles-and-decor-near-window_4460x4460-643445690854a09c.jpeg')}}" alt="" class="img-fluid">
+                                            <img src="<?php echo e(asset('FrontEnd/img/spa-candles-and-decor-near-window_4460x4460-643445690854a09c.jpeg')); ?>" alt="" class="img-fluid">
                                         </div>
                                         <div class="content-div">
                                             <h4>Health and beauty</h4>
@@ -476,7 +476,7 @@
                                 <div class="col-md-3">
                                     <div class="common-industry-div">
                                         <div class="img-div">
-                                            <img src="{{asset('FrontEnd/img/copper-light-in-bedroom_4460x4460-c7f0d3df34bdd17c.jpeg')}}" alt="" class="img-fluid">
+                                            <img src="<?php echo e(asset('FrontEnd/img/copper-light-in-bedroom_4460x4460-c7f0d3df34bdd17c.jpeg')); ?>" alt="" class="img-fluid">
                                         </div>
                                         <div class="content-div">
                                             <h4>Home and furniture</h4>
@@ -509,9 +509,9 @@
             </div>
         </div>
     </main>
-    @endsection
-    @section('script')
-    <script src="{{asset('FrontEnd/js/slick.min.js')}}"></script>
+    <?php $__env->stopSection(); ?>
+    <?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(asset('FrontEnd/js/slick.min.js')); ?>"></script>
     <script>
         $('.multiple-client').slick({
             infinite: true,
@@ -544,4 +544,5 @@
             });
         });
     </script>
-    @endsection
+    <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.frontEnd.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Exchange\resources\views/FrontEnd/all-business.blade.php ENDPATH**/ ?>

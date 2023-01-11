@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +22,14 @@ Route::get('login/{provider}/callback',[AuthController::class,'callback']);
 Route::get('logout',[AuthController::class,'logout']);
 
 
+Route::resources([
+    'stores'=>StoreController::class,
+]);
+
+
+Route::get('browse-all',[FrontController::class,'browse_all']);
+Route::get('/single-business/{id}',[FrontController::class,'single_business'])->name('single_business');
+
 Route::get('/', function () {
     return view('FrontEnd.index');
 });
@@ -29,9 +39,6 @@ Route::get('/industry',function(){
 });
 
 // Browse-all url 
-Route::get('/browse-all', function(){
-    return view('FrontEnd.all-business');
-});
 // single Bussiness url 
 Route::get('/single-business', function(){
     return view('FrontEnd.single-business');

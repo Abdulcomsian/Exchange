@@ -1,6 +1,6 @@
-@extends('layouts.frontEnd.master')
-    @section('content')
-    @include('layouts.frontEnd.header')
+
+    <?php $__env->startSection('content'); ?>
+    <?php echo $__env->make('layouts.frontEnd.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="container sellSection--container">
       <div>
         <div class="sellSection-header text-center">
@@ -14,8 +14,8 @@
           <!-- tab 1 -->
           <div class="sellBusinessForm">
           
-            <form class="" method="POST" action="{{route('stores.store')}}" style="width: 80%; margin: auto;">
-             @csrf
+            <form class="" method="POST" action="<?php echo e(route('stores.store')); ?>" style="width: 80%; margin: auto;">
+             <?php echo csrf_field(); ?>
               <input
               name="name"
               href="#"
@@ -324,9 +324,9 @@
       </div>
     </div>
 
-    @endSection
+    <?php $__env->stopSection(); ?>
 
-   @section('script')
+   <?php $__env->startSection('script'); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/s7elsci59jchj3dky00b296gqc0917u7oa78oha5si1mp2pe/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>  
@@ -349,4 +349,6 @@
     </script>
     
 
-   @endsection
+   <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.frontEnd.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Exchange\resources\views/FrontEnd/createStore.blade.php ENDPATH**/ ?>
