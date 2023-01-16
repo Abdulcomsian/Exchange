@@ -41,6 +41,7 @@ Route::post('stores/step-two',  [StoreController::class, 'stepTwo'])->name('stor
 Route::post('stores/step-three',  [StoreController::class, 'stepThree'])->name('stores.step_three');
 Route::post('stores/step-four',  [StoreController::class, 'stepFour'])->name('stores.step_four');
 Route::post('stores/step-five',  [StoreController::class, 'stepFive'])->name('stores.step_five');
+Route::post('stores/step-six',  [StoreController::class, 'stepSix'])->name('stores.step_six');
 
 Route::get('/clear', function () {
     Artisan::call('config:clear');

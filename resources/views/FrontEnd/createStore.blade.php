@@ -14,19 +14,22 @@
                 <!-- tab 1 -->
                 <div class="sellBusinessForm">
                     <form class="" id="stepone_form" action="" style="width: 80%; margin: auto;">
-                        <input
-                            href="#"
-                            placeholder="Store address"
-                            class="marketing-input"
-                            id="store_address"
-                            type="text"
-                            name="store_address"
-                        />
+                        <div class="fieldContainer" style="width: 100%">
+                            <input
+                                href="#"
+                                placeholder="Store address"
+                                class="marketing-input"
+                                id="store_address"
+                                type="text"
+                                name="store_address"
+                            />
+                            <div class="text-danger" id="store_address_error"></div>
+                        </div>
                         <a
                             href="#"
                             id="step-one"
                             class="marketing-button btn-forward"
-                            style="width: 400px"
+                            style="width: 400px; align-self: flex-start;"
                         >Add my Shopify store</a>
                     </form>
                     <div id="step-one-alert" class="alert alert-danger hidden" role="alert">
@@ -41,8 +44,9 @@
                     <form class="form-centered" id="steptwo_form">
                         <div class="row createStory">
                             <textarea id="editor" name="business_story"></textarea>
-{{--                            <div class="col-12" id="editor"></div>--}}
+                            <!-- <div class="col-12" id="editor"></div> -->
                         </div>
+                        <div class="text-danger" id="business_story_error"></div>
                         <div class="form-footer">
                             <a
                                 href="#"
@@ -62,10 +66,12 @@
                 <!-- tab 3 -->
                 <h2 class="tab-title text-center">Description</h2>
                 <div class="form">
-                    <form class="form-centered">
-                        <div class="row createStory">
-                            <div class="col-md-12" id="editor1"></div>
+                    <form class="form-centered" id="stepthree_form">
+                        <div class="row createStory" id="editor1">
+                            <textarea  name="description"></textarea>
+                            <!-- <div class="col-12" id="editor"></div> -->
                         </div>
+                        <div class="text-danger" id="description_error"></div>
                         <div class="form-footer">
                             <a
                                 href="#"
@@ -76,10 +82,10 @@
                             <a
                                 href="#"
                                 style="
-                    text-align: center;
-                    margin-top: 25px;
-                    margin-left: 20px;
-                  "
+                                    text-align: center;
+                                    margin-top: 25px;
+                                    margin-left: 20px;
+                                "
                                 id="step-three"
                                 class="marketing-button btn-forward"
                                 data-disable-with="Add my Shopify store"
@@ -92,7 +98,7 @@
             <div class="tab tab-4">
                 <!-- tab4 Body-->
                 <h2 class="tab-title text-center">Traffic and Performance</h2>
-                <form class="tf--form" action="" accept-charset="UTF-8" method="">
+                <form class="tf--form" action="" accept-charset="UTF-8" method="" id="stepfour_form">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="exampleFormControlInput1" class="form-label"
@@ -100,9 +106,12 @@
                             >
                             <input
                                 type="text"
+                                id="revenue"
+                                name="revenue"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
                             />
+                            <span class="text-danger" id="revenue_error"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label"
@@ -110,9 +119,12 @@
                             >
                             <input
                                 type="text"
+                                id="session"
+                                name="session"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
                             ></input>
+                            <span class="text-danger" id="session_error"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -122,9 +134,12 @@
                             >
                             <input
                                 type="text"
+                                id="profit"
+                                name="profit"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
                             />
+                            <span class="text-danger" id="profit_error"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label"
@@ -132,9 +147,12 @@
                             </label>
                             <input
                                 type="text"
+                                id="inventoryValue"
+                                name="inventory_value"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
                             ></input>
+                            <span class="text-danger" id="inventory_value_error"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -142,7 +160,8 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Other details about profit:
                                 </label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="otherDetailOfProfit" name="other_detail" rows="3"></textarea>
+                                <span class="text-danger" id="other_detail_error"></span>
                             </div>
                         </div>
                     </div>
@@ -179,9 +198,11 @@
                             >
                             <input
                                 type="text"
+                                name="shopifyPlan"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
                             />
+                            <span class="text-danger" id="shopifyPlan_error"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label"
@@ -189,9 +210,11 @@
                             >
                             <input
                                 type="text"
+                                name="inventoryWareHouse"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
                             ></input>
+                            <span class="text-danger" id="inventoryWareHouse_error"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -199,7 +222,8 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Domain
                                 </label>
-                                <input type="text" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <input type="text" name="domain" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <span class="text-danger" id="domain_error"></span>
                             </div>
                         </div>
                     </div>
@@ -356,18 +380,19 @@
             const step4 = document.querySelector('.tab-4');
             const step5 = document.querySelector('.tab-5');
             const step6 = document.querySelector('.tab-6');
+
+
             // Back Buttons Element
             const btnback2 = document.querySelector('.btn-back-tab2');
             const btnback3 = document.querySelector('.btn-back-tab3');
             const btnback4 = document.querySelector('.btn-back-tab4');
             const btnback5 = document.querySelector('.btn-back-tab5');
             const btnback6 = document.querySelector('.btn-back-tab6');
+
+
             // Event Handler
             $(document).on("click", "#step-one", function () {
-            let storeAddress = $("#storeAddress").val();
-            if (storeAddress == "") {
-            document.querySelector('#storeAddress').style.border = '1px solid red';
-        } else {
+            let storeAddress = $("#store_address").val();       
                 var formData = $("#stepone_form").serialize();
                 $.ajax({
                     type: "POST",
@@ -379,48 +404,48 @@
                     },
                     success: function (response) {
                         console.log(response);
-                        if (response == "success") {
+                        if (response.success) {
                           step1.classList.remove('active');
                           step2.classList.add('active');
                         }
                     },
                     error: function (response) {
+                        // console.log(response)
                         if (response.status == 422) {
                             var errors = response.responseJSON.errors;
+                            console.log(errors)
+                            // document.querySelector('#store_error').textContent = errors.store_address;
                             $.each(errors, function (key, value) {
                                 $("#" + key + "_error").html(value);
                             });
                         }
                     },
                 });
-            step1.classList.remove('active');
-            step2.classList.add('active');
-        }
         });
             // Step 2
             // Forward Event handler
         $(document).on('click', '#step-two', function(){
-                alert("Ok")
             // getting value from the inputs
-            if (false) {
-            // upon recieving empty input
-            document.querySelector('.ck-editor').style.border = '1px solid red';
-
-        } else { //Upon Successfully get values from the input
-            var formData = $("#steptwo_form").serialize();
+            let ckEditor1_value=$('.ck-editor__editable').html();
+            const ckEditor1_text=$('.ck-editor__editable').text();
+            if(ckEditor1_text=="")
+            {
+                ckEditor1_value="";
+            }
+            console.log(ckEditor1_text);
             $.ajax({
                 type: "POST",
                 url: "{{route('stores.step_two') }}",
-                data: formData,
+                data:{business_story:ckEditor1_value},
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                     Accept: "application/json",
                 },
                 success: function (response) {
                     console.log(response);
-                    if (response == "success") {
-                        step1.classList.remove('active');
-                        step2.classList.add('active');
+                    if (response.success) {
+                        step2.classList.remove('active');
+                        step3.classList.add('active');
                     }
                 },
                 error: function (response) {
@@ -432,9 +457,6 @@
                     }
                 },
             });
-            step2.classList.remove('active');
-            step3.classList.add('active');
-        }
         });
 
             // backward Envent Handler
@@ -442,16 +464,45 @@
             step2.classList.remove('active');
             step1.classList.add('active');
         })
-            // step 3
-            $(document).on('click', '#step-three', function(){
+            // Step 3
+            // Forward Event handler
+        $(document).on('click', '#step-three', function(){
             // getting value from the inputs
-            if (true) { // upon recieving empty input
-            // document.querySelector('#storeAddress').style.border = '1px solid red';
-        } else { //Upon Successfully get values from the input
-            step3.classList.remove('active');
-            step4.classList.add('active');
-        }
+            let ckEditor2_value=$('#stepthree_form .ck-editor__editable').html();
+            const ckEditor2_text=$('#stepthree_form .ck-editor__editable').text();
+            if(ckEditor2_text=="")
+            {
+                ckEditor2_value="";
+            }
+            console.log(ckEditor2_text);
+            $.ajax({
+                type: "POST",
+                url: "{{route('stores.step_three') }}",
+                data:{description:ckEditor2_value},
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    Accept: "application/json",
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response.success) {
+                        step3.classList.remove('active');
+                        step4.classList.add('active');
+                    }
+                },
+                error: function (response) {
+                    if (response.status == 422) {
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function (key, value) {
+                            $("#" + key + "_error").html(value);
+                        });
+                    }
+                },
+            });
         });
+
+
+        // Backward Event Handler 
             btnback3.addEventListener('click', function(){
             step3.classList.remove('active');
             step2.classList.add('active');
@@ -459,12 +510,41 @@
             // Step 4
             $(document).on('click', '#step-four', function(){
             // getting value from the inputs
-            if (true) { // upon recieving empty input
-            // document.querySelector('#storeAddress').style.border = '1px solid red';
-        } else { //Upon Successfully get values from the input
-            step4.classList.remove('active');
-            step5.classList.add('active');
-        }
+            // if (revenueInputValue === "" || sessionInputValue || profitInputValue || inventoryInputValue || otherDeatilInputValue) {
+                // upon recieving empty input
+                // document.querySelector('.ck-editor').style.border = '1px solid red';
+
+        // } else { //Upon Successfully get values from the input
+            var formData = $("#stepfour_form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "{{route('stores.step_four') }}",
+                data: formData,
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    Accept: "application/json",
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response.success) {
+                        step4.classList.remove('active');
+                        step5.classList.add('active');
+                    }
+                },
+                error: function (response) {
+                    if (response.status == 422) {
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function (key, value) {
+                            $("#" + key + "_error").html(value);
+                        });
+                    }
+                },
+            });
+        // }
+        // else{
+        //     step4.classList.remove('active');
+        //     step5.classList.add('active');
+        // }
         });
             btnback4.addEventListener('click', function(){
             step4.classList.remove('active');
@@ -473,17 +553,32 @@
 
             // step 5
             $(document).on('click', '#step-five', function(){
-            // getting value from the inputs
-            if (true) {  // upon recieving empty input
-            // document.querySelector('#storeAddress').style.border = '1px solid red';
-        } else { //Upon Successfully get values from the input
-            step5.classList.remove('active');
-            step6.classList.add('active');
-        }
-        });
-            btnback5.addEventListener('click', function(){
-            step5.classList.remove('active');
-            step4.classList.add('active');
+                var formData = $("#stepfive_form").serialize();
+                $.ajax({
+                type: "POST",
+                url: "{{route('stores.step_six') }}",
+                data: formData,
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    Accept: "application/json",
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response.success) {
+                        step5.classList.remove('active');
+                        step6.classList.add('active');
+                    }
+                },
+                error: function (response) {
+                    if (response.status == 422) {
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function (key, value) {
+                            $("#" + key + "_error").html(value);
+                        });
+                    }
+                },
+            });
+            
         })
             // step 6
             $(document).on('click', '#submitForm', function(){
