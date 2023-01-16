@@ -23,25 +23,3 @@ ClassicEditor.create(document.querySelector("#editor1")).catch((error) => {
 // const handleSellBusinessFooter = function(){
 //   SellBusi.classList.toggle('hidden')
 // }
-
-
-for (let btn of btnsBack) {
-    btn.addEventListener("click", function () {
-        console.log("Btn back fired", currentTab);
-        if (currentTab >= 1 && currentTab <= 6) {
-            document
-                .querySelector(`.tab-${currentTab}`)
-                .classList.remove("active");
-            currentTab--;
-            document
-                .querySelector(`.tab-${currentTab}`)
-                .classList.add("active");
-            console.log(currentTab);
-            if (currentTab === 1) {
-                SellBusi.classList.remove("hidden");
-            } else {
-                SellBusi.classList.add("hidden");
-            }
-        }
-    });
-}

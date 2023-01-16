@@ -13,14 +13,14 @@
             <div class="tab tab-1 active">
                 <!-- tab 1 -->
                 <div class="sellBusinessForm">
-                    <form class="" id="stepOne_form" action="" style="width: 80%; margin: auto;">
+                    <form class="" id="stepone_form" action="" style="width: 80%; margin: auto;">
                         <input
                             href="#"
                             placeholder="Store address"
                             class="marketing-input"
-                            id="storeAddress"
+                            id="store_address"
                             type="text"
-                            name="storeAddress"
+                            name="store_address"
                         />
                         <a
                             href="#"
@@ -38,9 +38,10 @@
                 <!-- tab 2 -->
                 <h2 class="tab-title text-center">Create Business Story</h2>
                 <div class="form">
-                    <form class="form-centered">
+                    <form class="form-centered" id="steptwo_form">
                         <div class="row createStory">
-                            <div class="col-12" id="editor"></div>
+                            <textarea id="editor" name="business_story"></textarea>
+{{--                            <div class="col-12" id="editor"></div>--}}
                         </div>
                         <div class="form-footer">
                             <a
@@ -49,18 +50,10 @@
                                 class="marketing-button btn-back-tab2"
                             >Back</a
                             >
-                            <a
-                                href="#"
-                                style="
-                    text-align: center;
-                    margin-top: 25px;
-                    margin-left: 20px;
-                  "
-                                id="step-two"
+                            <a href="#" style="text-align: center; margin-top: 25px; margin-left: 20px;" id="step-two"
                                 class="marketing-button btn-forward"
                                 data-disable-with="Add my Shopify store"
-                            >Next</a
-                            >
+                            >Next</a>
                         </div>
                     </form>
                 </div>
@@ -375,43 +368,70 @@
             if (storeAddress == "") {
             document.querySelector('#storeAddress').style.border = '1px solid red';
         } else {
+                var formData = $("#stepone_form").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('stores.step_one') }}",
+                    data: formData,
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                        Accept: "application/json",
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response == "success") {
+                          step1.classList.remove('active');
+                          step2.classList.add('active');
+                        }
+                    },
+                    error: function (response) {
+                        if (response.status == 422) {
+                            var errors = response.responseJSON.errors;
+                            $.each(errors, function (key, value) {
+                                $("#" + key + "_error").html(value);
+                            });
+                        }
+                    },
+                });
             step1.classList.remove('active');
             step2.classList.add('active');
-            // var formData = $("#stepOne_form").serialize();
-            // $.ajax({
-            //     type: "POST",
-            //     url: "",
-            //     data: formData,
-            //     headers: {
-            //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            //         Accept: "application/json",
-            //     },
-            //     success: function (response) {
-            //         console.log(response);
-            //         if (response == "success") {
-            //           step1.classList.remove('active');
-            //           step2.classList.add('active');
-            //         }
-            //     },
-            //     error: function (response) {
-            //         if (response.status == 422) {
-            //             var errors = response.responseJSON.errors;
-            //             $.each(errors, function (key, value) {
-            //                 $("#" + key + "_error").html(value);
-            //             });
-            //         }
-            //     },
-            // });
         }
         });
             // Step 2
             // Forward Event handler
-            $(document).on('click', '#step-two', function(){
+        $(document).on('click', '#step-two', function(){
+                alert("Ok")
             // getting value from the inputs
-            if (true) {
+            if (false) {
             // upon recieving empty input
             document.querySelector('.ck-editor').style.border = '1px solid red';
+
         } else { //Upon Successfully get values from the input
+            var formData = $("#steptwo_form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "{{route('stores.step_two') }}",
+                data: formData,
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    Accept: "application/json",
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response == "success") {
+                        step1.classList.remove('active');
+                        step2.classList.add('active');
+                    }
+                },
+                error: function (response) {
+                    if (response.status == 422) {
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function (key, value) {
+                            $("#" + key + "_error").html(value);
+                        });
+                    }
+                },
+            });
             step2.classList.remove('active');
             step3.classList.add('active');
         }

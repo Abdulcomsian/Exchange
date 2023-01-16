@@ -72,7 +72,6 @@ class StoreController extends Controller
 
     public function stepTwo(Request $request)
     {
-        dd($request);
         $validatedData = $request->validate([
             'business_story' => 'required|max:500',
         ]);
