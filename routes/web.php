@@ -35,10 +35,12 @@ Route::get('login/{provider}/callback',[AuthController::class,'callback']);
 Route::get('logout',[AuthController::class,'logout']);*/
 Auth::routes();
 
-
-Route::resources([
-    'stores'=>StoreController::class,
-]);
+Route::resource('stores', StoreController::class);
+Route::post('stores/step-one',  [StoreController::class, 'stepOne'])->name('stores.step_one');
+Route::post('stores/step-two',  [StoreController::class, 'stepTwo'])->name('stores.step_two');
+Route::post('stores/step-three',  [StoreController::class, 'stepThree'])->name('stores.step_three');
+Route::post('stores/step-four',  [StoreController::class, 'stepFour'])->name('stores.step_four');
+Route::post('stores/step-five',  [StoreController::class, 'stepFive'])->name('stores.step_five');
 
 Route::get('/clear', function () {
     Artisan::call('config:clear');
@@ -120,9 +122,10 @@ Route::get('/single-business', function(){
     return view('FrontEnd.single-business');
 });
 // create store URL
-Route::get('/sell-your-business', function(){
+Route::get('/sell-your-business',[FrontController::class,'sell_your_business'])->name('sell_your_business');
+/*Route::get('/sell-your-business', function(){
     return view('FrontEnd.createStore');
-});
+});*/
 Route::get('/dashboard', function(){
     return view('FrontEnd.storeListing');
 });

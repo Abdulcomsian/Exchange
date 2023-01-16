@@ -16,4 +16,8 @@ class FrontController extends Controller
         $store= Store::find($id);
         return view('FrontEnd.single-business',compact('store'));
     }
+
+    public function sell_your_business(){
+        return view('FrontEnd.createStore');
+    }
 }

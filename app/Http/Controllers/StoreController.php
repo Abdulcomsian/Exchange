@@ -52,9 +52,90 @@ class StoreController extends Controller
                 'name'=> $name
             ]);
         }
-        
+
         return redirect()->back();
     }
+
+    public function stepOne(Request $request)
+    {
+        $validatedData = $request->validate([
+            'store_address' => 'required|max:500',
+        ]);
+
+        $store = new Store();
+        $store->store_address = $request->store_address;
+        $store->save();
+
+        return response()->json(['success' => 'Data is successfully added']);
+
+    }
+
+    public function stepTwo(Request $request)
+    {
+        dd($request);
+        $validatedData = $request->validate([
+            'business_story' => 'required|max:500',
+        ]);
+
+        $store = Store::find(1);
+        $store->business_story = $request->business_story;
+        $store->save();
+
+        return response()->json(['success' => 'Data is successfully added']);
+
+    }
+
+    public function stepThree(Request $request)
+    {
+        dd($request);
+        $validatedData = $request->validate([
+            'description' => 'required|max:500',
+        ]);
+
+        $store = Store::find(1);
+        $store->description = $request->description;
+        $store->save();
+
+        return response()->json(['success' => 'Data is successfully added']);
+
+    }
+
+    public function stepFour(Request $request)
+    {
+        $validatedData = $request->validate([
+            'revenue' => 'required|max:500',
+            'session' => 'required|max:500',
+            'profit' => 'required|max:500',
+            'inventory_value' => 'required|max:500',
+            'other_detail' => 'required|max:500',
+        ]);
+
+        $store = Store::find(1);
+        $store->revenue = $request->revenue;
+        $store->session = $request->session;
+        $store->profit = $request->profit;
+        $store->inventory_value = $request->inventory_value;
+        $store->other_detail = $request->other_detail;
+        $store->save();
+
+        return response()->json(['success' => 'Data is successfully added']);
+
+    }
+
+    public function stepFive(Request $request)
+    {
+        $validatedData = $request->validate([
+            'business_story' => 'required|max:500',
+        ]);
+
+        $store = Store::find(1);
+        $store->business_story = $request->business_story;
+        $store->save();
+
+        return response()->json(['success' => 'Data is successfully added']);
+
+    }
+
 
     /**
      * Display the specified resource.

@@ -10,47 +10,35 @@
             for entrepreneurs
           </h2> --}}
         </div>
-      
 
-         
+
+
         <div class="tab tab-1 active">
           <!-- tab 1 -->
           <div class="sellBusinessForm">
-          
-            <form class="" method="POST" action="{{route('stores.store')}}" style="width: 80%; margin: auto;">
+
+            <form class="" id="form" method="POST" action="{{route('stores.store')}}" style="width: 80%; margin: auto;">
              @csrf
-             <label> Tags</label>
+            {{-- <label> Tags</label>
              <select class="js-example-basic-multiple form-control"  name="tagnames[]" multiple="multiple">
-              </select>
+              </select>--}}
 
-              <input
-              name="name"
-              href="#"
-                placeholder="Store address"
-                class="marketing-input"
-                type="text"
-              />
-
-             
-
-         
-
-
-              <a
-              href="#"
-                class="marketing-button btn-forward"
+              <input name="store_address" value="{{old('store_address')}}" href="#" placeholder="Store address" class="marketing-input" type="url" />
+            <a href="#"
+                class="marketing-button btn-forward" id="step-one"
                 style="width: 400px"
-              >Add my Shopify store</a>
-           
+              >Add my Shopify store
+            </a>
           </div>
         </div>
-        <div class="tab tab-2">
+
+          <div class="tab tab-2">
           <!-- tab 2 -->
           <h2 class="tab-title text-center">Create Business Story</h2>
           <div class="form">
             <div class="form-centered">
               <div class="row createStory">
-                <textarea name="business_story" class="tinymce-editor" name="body"></textarea>
+                <textarea name="business_story" class="tinymce-editor"></textarea>
               </div>
               <div class="form-footer">
                 <a
@@ -66,6 +54,7 @@
                     margin-top: 25px;
                     margin-left: 20px;
                   "
+                  id="step-two"
                   class="marketing-button btn-forward"
                   data-disable-with="Add my Shopify store"
                   >Next</a
@@ -96,6 +85,7 @@
                     margin-top: 25px;
                     margin-left: 20px;
                   "
+                  id="step-three"
                   class="marketing-button btn-forward"
                   data-disable-with="Add my Shopify store"
                   >Next</a
@@ -125,7 +115,7 @@
                   >Avg. sessions /month</label
                 >
                 <input
-                  name="sessions"
+                  name="session"
                   type="text"
                   class="form-control marketing-input"
                   id="exampleFormControlTextarea1"
@@ -161,13 +151,13 @@
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Other details about profit:
                   </label>
-                  <textarea name="other_details" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea name="other_detail" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
               </div>
             </div>
             <div class=" tf-footer">
                 <a
-              
+
                   href="#"
                   style="text-align: center; margin-top: 25px; color: white"
                   class="marketing-button btn-back"
@@ -180,6 +170,7 @@
                     margin-top: 25px;
                     margin-left: 20px;
                   "
+                  id="step-four"
                   class="marketing-button btn-forward"
                   data-disable-with="Add my Shopify store"
                   >Next</a
@@ -240,7 +231,8 @@
                   "
                   class="marketing-button btn-forward"
                   data-disable-with="Add my Shopify store"
-                  >Next</a
+                  id="step-five"
+                >Next</a
                 >
             </div>
           </div>
@@ -248,7 +240,7 @@
         <div class="tab tab-6">
           <!-- tab6 Body-->
           <h2 class="tab-title text-center">sale includes</h2>
-          <div class="tf--form" action="" accept-charset="UTF-8" method="">
+          <div class="tf--form" accept-charset="UTF-8" method="">
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-3">
@@ -271,7 +263,7 @@
                 />
               </div>
               <div class="col-md-6 mb-3">
-                
+
                 <input
                 name="sales_include_4"
                   type="text"
@@ -290,7 +282,7 @@
                 </select>
               </div>
             </div>
-            
+
             <div class="tf-footer">
                 <a
                   href="#"
@@ -305,7 +297,8 @@
                     margin-top: 25px;
                     margin-left: 20px;
                   "
-                  class="marketing-button btn-forward"
+                       id="step-five"
+                   class="marketing-button btn-forward"
                   data-disable-with="Add my Shopify store"
                   />
 
@@ -344,7 +337,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/s7elsci59jchj3dky00b296gqc0917u7oa78oha5si1mp2pe/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>  
+    <script src="https://cdn.tiny.cloud/1/s7elsci59jchj3dky00b296gqc0917u7oa78oha5si1mp2pe/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript">
             tinymce.init({
             selector: 'textarea.tinymce-editor',
@@ -369,7 +362,126 @@
   tags: true
 });
 });
+
+        for (let btn of btnsForward) {
+            btn.addEventListener("click", function () {
+                if (currentTab >= 1 && currentTab < 6) {
+
+                    document
+                        .querySelector(`.tab-${currentTab}`)
+                        .classList.remove("active");
+                    currentTab++;
+                    document
+                        .querySelector(`.tab-${currentTab}`)
+                        .classList.add("active");
+                    console.log(currentTab);
+                    if (currentTab === 1) {
+                        SellBusi.classList.remove("hidden");
+                    } else {
+                        SellBusi.classList.add("hidden");
+                    }
+                }
+            });
+        }
+
+        $('#step-one').on('click', function () {
+            var formData = $("#form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('stores.step_one') }}",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Accept': 'application/json'
+                },
+                success: function(response) {
+                    console.log(response)
+                },
+                error: function(response) {
+                    if(response.status == 422){
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function(key, value) {
+                            $("#"+key+"_error").html(value);
+                        });
+                    }
+                }
+            });
+
+        });
+        $('#step-two').on('click', function () {
+            var formData = $("#form").serialize();
+            console.log(formData)
+            $.ajax({
+                type: "POST",
+                url: "{{ route('stores.step_two') }}",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Accept': 'application/json'
+                },
+                success: function(response) {
+                    console.log(response)
+                },
+                error: function(response) {
+                    if(response.status == 422){
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function(key, value) {
+                            $("#"+key+"_error").html(value);
+                        });
+                    }
+                }
+            });
+
+        });
+        $('#step-three').on('click', function () {
+            var formData = $("#form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('stores.step_three') }}",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Accept': 'application/json'
+                },
+                success: function(response) {
+                    console.log(response)
+                },
+                error: function(response) {
+                    if(response.status == 422){
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function(key, value) {
+                            $("#"+key+"_error").html(value);
+                        });
+                    }
+                }
+            });
+
+        });
+        $('#step-four').on('click', function () {
+            var formData = $("#form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('stores.step_four') }}",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Accept': 'application/json'
+                },
+                success: function(response) {
+                    console.log(response)
+                },
+                error: function(response) {
+                    if(response.status == 422){
+                        var errors = response.responseJSON.errors;
+                        $.each(errors, function(key, value) {
+                            $("#"+key+"_error").html(value);
+                        });
+                    }
+                }
+            });
+
+        });
 </script>
-    
+
 
    @endsection

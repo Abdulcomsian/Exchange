@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use App\Models\Log;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Auth;
 
 class Handler extends ExceptionHandler
 {
@@ -36,10 +37,7 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            $userId = 1;
-            if (Auth::user()) {
-                $userId = Auth::user()->id;
-            }
+           /* $userId = Auth::user()->id ?? 1;
 
             $data = array(
                 'user_id' => $userId,
@@ -50,7 +48,7 @@ class Handler extends ExceptionHandler
                 'trace' => $e->getTraceAsString(),
             );
 
-            Log::create($data);
+            Log::create($data);*/
         });
     }
 }
