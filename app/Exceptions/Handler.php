@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
+use App\Models\Log;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Auth;
 
 class Handler extends ExceptionHandler
 {
@@ -35,7 +37,18 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+           /* $userId = Auth::user()->id ?? 1;
+
+            $data = array(
+                'user_id' => $userId,
+                'code' => $e->getCode(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            );
+
+            Log::create($data);*/
         });
     }
 }

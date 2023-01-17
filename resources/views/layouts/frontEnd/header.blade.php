@@ -27,12 +27,12 @@
                         <div class="auth-drop-down d-none">
                             <ul>
                                 <li>
-                                    <a href="{{url('/sell-your-business')}}">Sell your Business</a>
+                                    <a href="{{route('sell_your_business')}}">Sell your Business</a>
                                 </li>
                                 <li>
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-signIn">Sign in</a>
                                     <!-- Button trigger modal -->
-                                   
+
                                 </li>
                                 <li>
                                     <a href="{{url('/dashboard')}}">Dashboard</a>
