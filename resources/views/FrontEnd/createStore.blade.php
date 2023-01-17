@@ -389,6 +389,7 @@
             const btnback5 = document.querySelector('.btn-back-tab5');
             const btnback6 = document.querySelector('.btn-back-tab6');
 
+            
 
             // Event Handler
             $(document).on("click", "#step-one", function () {
@@ -405,8 +406,11 @@
                     success: function (response) {
                         console.log(response);
                         if (response.success) {
+
                           step1.classList.remove('active');
                           step2.classList.add('active');
+                          sellProcedure_toggler();
+
                         }
                     },
                     error: function (response) {
@@ -446,6 +450,7 @@
                     if (response.success) {
                         step2.classList.remove('active');
                         step3.classList.add('active');
+                        sellProcedure_toggler();
                     }
                 },
                 error: function (response) {
@@ -463,6 +468,7 @@
             btnback2.addEventListener('click', function(){
             step2.classList.remove('active');
             step1.classList.add('active');
+            sellProcedure_toggler();
         })
             // Step 3
             // Forward Event handler
@@ -488,6 +494,7 @@
                     if (response.success) {
                         step3.classList.remove('active');
                         step4.classList.add('active');
+                        sellProcedure_toggler();
                     }
                 },
                 error: function (response) {
@@ -506,6 +513,7 @@
             btnback3.addEventListener('click', function(){
             step3.classList.remove('active');
             step2.classList.add('active');
+            sellProcedure_toggler();
         })
             // Step 4
             $(document).on('click', '#step-four', function(){
@@ -529,6 +537,7 @@
                     if (response.success) {
                         step4.classList.remove('active');
                         step5.classList.add('active');
+                        sellProcedure_toggler();
                     }
                 },
                 error: function (response) {
@@ -549,6 +558,7 @@
             btnback4.addEventListener('click', function(){
             step4.classList.remove('active');
             step3.classList.add('active');
+            sellProcedure_toggler();
         })
 
             // step 5
@@ -567,6 +577,7 @@
                     if (response.success) {
                         step5.classList.remove('active');
                         step6.classList.add('active');
+                        sellProcedure_toggler();
                     }
                 },
                 error: function (response) {
@@ -581,15 +592,16 @@
             
         })
             // step 6
-            $(document).on('click', '#submitForm', function(){
-            // getting value from the inputs
-            if (true) {  // upon recieving empty input
-            // document.querySelector('#storeAddress').style.border = '1px solid red';
-        } else {
-            //Upon Successfully get values from the input
-            // Submitting the form
+
+
+        function sellProcedure_toggler(){
+            if($('.tab-1').hasClass('active')){
+                $('.sellBusiness_procdure').show();
+            }
+            else{
+                $('.sellBusiness_procdure').hide();
+            }
         }
-        });
 </script>
 
 
