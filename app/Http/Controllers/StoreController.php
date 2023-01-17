@@ -72,7 +72,6 @@ class StoreController extends Controller
 
     public function stepTwo(Request $request)
     {
-        dd($request);
         $validatedData = $request->validate([
             'business_story' => 'required|max:500',
         ]);
@@ -87,7 +86,6 @@ class StoreController extends Controller
 
     public function stepThree(Request $request)
     {
-        dd($request);
         $validatedData = $request->validate([
             'description' => 'required|max:500',
         ]);
@@ -126,6 +124,25 @@ class StoreController extends Controller
     {
         $validatedData = $request->validate([
             'business_story' => 'required|max:500',
+            'shopifyPlan' => 'required|max:500',
+            'inventoryWareHouse' => 'required|max:500',
+            'domain' => 'required|max:500'
+        ]);
+
+        $store = Store::find(1);
+        $store->business_story = $request->business_story;
+        $store->save();
+
+        return response()->json(['success' => 'Data is successfully added']);
+
+    }
+    public function stepSix(Request $request)
+    {
+        $validatedData = $request->validate([
+            'business_story' => 'required|max:500',
+            'shopifyPlan' => 'required|max:500',
+            'inventoryWareHouse' => 'required|max:500',
+            'domain' => 'required|max:500'
         ]);
 
         $store = Store::find(1);
