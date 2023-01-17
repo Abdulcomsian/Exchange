@@ -12,12 +12,9 @@
                             Browse
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{{url('/browse-all')}}">Browse all</a></li>
-                            <li><a class="dropdown-item" href="{{url('/industry')}}">Industry</a></li>
-                            <li><a class="dropdown-item" href="{{url('/single-business')}}">Business type</a></li>
-                            <li><a class="dropdown-item" href="#">Location</a></li>
-                            <li><a class="dropdown-item" href="#">Curated</a></li>
-                            <li><a class="dropdown-item" href="#">Business attribute</a></li>
+                              @foreach($categories as $category)
+                                <li><a class="dropdown-item" href="{{route('categories', $category->slug)}}">{{$category->name}}</a></li>
+                              @endforeach
                           </ul>
                     </div>
                 </div>
@@ -29,14 +26,18 @@
                                 <li>
                                     <a href="{{route('sell_your_business')}}">Sell your Business</a>
                                 </li>
+                                @guest
                                 <li>
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-signIn">Sign in</a>
-                                    <!-- Button trigger modal -->
-
                                 </li>
+                                @else
                                 <li>
                                     <a href="{{url('/dashboard')}}">Dashboard</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('logout')}}">Sign Out</a>
+                                </li>
+                                @endguest
                             </ul>
                         </div>
                     </div>

@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* 
+/*
 body {
   font-size: 62.5%;
 } */
@@ -146,7 +146,7 @@ body {
           ><a
             class="_1vr1v _3X2l4 continueLinker_stru"
             style="background-color: dodgerblue;"
-            href="{{url('login/facebook')}}"
+            href="{{route('auth.google')}}"
             ><div
               style="
                 flex-wrap: nowrap;
@@ -169,7 +169,7 @@ body {
           ><a
             class="_1vr1v _3HL25 continueLinker_stru"
             style="background: #3b5998;"
-            href="{{url('login/facebook')}}"
+            href="{{route('auth.facebook')}}"
             ><div
               style="
                 flex-wrap: nowrap;

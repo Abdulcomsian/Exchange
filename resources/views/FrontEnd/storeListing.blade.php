@@ -35,18 +35,14 @@
                 </tr>
               </thead>
               <tbody>
+              @foreach($stores as $store)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Scambled</td>
-                  <td>12-feb-2022</td>
+                  <th scope="row">{{$loop->iteration}}</th>
+                  <td>{{$store->name}}</td>
+                  <td>{{$store->created_at}}</td>
                   <td><span class="bdg bdg--primary">Active</span></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>22-feb-2022</td>
-                  <td><span class="bdg bdg--danger">Sold</span></td>
-                </tr>
+              @endforeach
               </tbody>
             </table>
           </div>

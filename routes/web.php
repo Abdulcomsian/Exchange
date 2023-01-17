@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\MediaUploadController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Auth\SocialController;
 
 
 /*
@@ -28,11 +29,16 @@ use App\Http\Controllers\Admin\PermissionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('auth/google', [SocialController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback'])->name('auth.google_callback');
 
+Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('auth.facebook');
+Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCallback'])->name('auth.facebook_callback');
+
+Route::get('logout',[SocialController::class,'logout'])->name('logout');
 
 /*Route::get('login/{provider}', [AuthController::class,'redirect']);
-Route::get('login/{provider}/callback',[AuthController::class,'callback']);
-Route::get('logout',[AuthController::class,'logout']);*/
+Route::get('login/{provider}/callback',[AuthController::class,'callback']);*/
 Auth::routes();
 
 Route::resource('stores', StoreController::class);
@@ -42,6 +48,8 @@ Route::post('stores/step-three',  [StoreController::class, 'stepThree'])->name('
 Route::post('stores/step-four',  [StoreController::class, 'stepFour'])->name('stores.step_four');
 Route::post('stores/step-five',  [StoreController::class, 'stepFive'])->name('stores.step_five');
 Route::post('stores/step-six',  [StoreController::class, 'stepSix'])->name('stores.step_six');
+
+
 
 Route::get('/clear', function () {
     Artisan::call('config:clear');
@@ -111,7 +119,7 @@ Route::get('/single-business/{id}',[FrontController::class,'single_business'])->
 
 Route::get('/', function () {
     return view('FrontEnd.index');
-});
+})->name('home');
 //industory url
 Route::get('/industry',function(){
     return view('FrontEnd.individual-category');
@@ -127,10 +135,10 @@ Route::get('/sell-your-business',[FrontController::class,'sell_your_business'])-
 /*Route::get('/sell-your-business', function(){
     return view('FrontEnd.createStore');
 });*/
-Route::get('/dashboard', function(){
-    return view('FrontEnd.storeListing');
-});
+
+Route::get('/dashboard',[FrontController::class,'dashboard'])->name('dashboard');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/{slug}', [FrontController::class, 'categories'])->name('categories');

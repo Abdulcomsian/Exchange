@@ -33,6 +33,8 @@ class CreateStoresTable extends Migration
             $table->string('sales_include_3')->nullable();
             $table->string('sales_include_4')->nullable();
             $table->string('open_select_menu')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
