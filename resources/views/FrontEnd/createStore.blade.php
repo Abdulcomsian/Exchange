@@ -189,8 +189,8 @@
             </div>
             <div class="tab tab-5">
                 <!-- tab4 Body-->
-                <h2 class="tab-title text-center">Expences</h2>
-                <form class="tf--form" action="" accept-charset="UTF-8" method="">
+                <h2 class="tab-title text-center">Expenses</h2>
+                <form class="tf--form" action="" accept-charset="UTF-8" method="" id="stepfive_form">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="exampleFormControlInput1" class="form-label"
@@ -198,11 +198,11 @@
                             >
                             <input
                                 type="text"
-                                name="shopifyPlan"
+                                name="shopify_plan"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
                             />
-                            <span class="text-danger" id="shopifyPlan_error"></span>
+                            <span class="text-danger" id="shopify_plan_error"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label"
@@ -210,11 +210,11 @@
                             >
                             <input
                                 type="text"
-                                name="inventoryWareHouse"
+                                name="inventory_warehouse"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
                             ></input>
-                            <span class="text-danger" id="inventoryWareHouse_error"></span>
+                            <span class="text-danger" id="inventory_warehouse_error"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -252,16 +252,18 @@
             <div class="tab tab-6">
                 <!-- tab6 Body-->
                 <h2 class="tab-title text-center">sale includes</h2>
-                <form class="tf--form" action="" accept-charset="UTF-8" method="">
+                <form class="tf--form" action="" accept-charset="UTF-8" method="" id="stepsix_form">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input type="text" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <input type="text" name="sale_include_1" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <span class="text-danger" id="sale_include_1_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input type="text" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <input type="text" name="sale_include_2" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <span class="text-danger" id="sale_include_2_error"></span>
                             </div>
                         </div>
                     </div>
@@ -269,27 +271,32 @@
                         <div class="col-md-6 mb-3">
                             <input
                                 type="text"
+                                name="sale_include_3"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
                             />
+                            <span class="text-danger" id="sale_include_3_error"></span>
                         </div>
                         <div class="col-md-6 mb-3">
 
                             <input
                                 type="text"
+                                name="sale_include_4"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
-                            ></input>
+                            />
+                            <span class="text-danger" id="sale_include_4_error"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <select class="form-select marketing-input" aria-label="Default select example">
+                            <select class="form-select marketing-input" aria-label="Default select example" name="category">
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
+                            <span class="text-danger" id="category_error"></span>
                         </div>
                     </div>
 
@@ -307,7 +314,7 @@
                     margin-top: 25px;
                     margin-left: 20px;
                   "
-                            id="submitForm"
+                            id="step-six"
                             class="marketing-button btn-forward"
                         >Submit</a
                         >
@@ -389,11 +396,11 @@
             const btnback5 = document.querySelector('.btn-back-tab5');
             const btnback6 = document.querySelector('.btn-back-tab6');
 
-            
+
 
             // Event Handler
             $(document).on("click", "#step-one", function () {
-            let storeAddress = $("#store_address").val();       
+            let storeAddress = $("#store_address").val();
                 var formData = $("#stepone_form").serialize();
                 $.ajax({
                     type: "POST",
@@ -428,7 +435,7 @@
         });
             // Step 2
             // Forward Event handler
-        $(document).on('click', '#step-two', function(){
+            $(document).on('click', '#step-two', function(){
             // getting value from the inputs
             let ckEditor1_value=$('.ck-editor__editable').html();
             const ckEditor1_text=$('.ck-editor__editable').text();
@@ -469,10 +476,10 @@
             step2.classList.remove('active');
             step1.classList.add('active');
             sellProcedure_toggler();
-        })
+            })
             // Step 3
             // Forward Event handler
-        $(document).on('click', '#step-three', function(){
+            $(document).on('click', '#step-three', function(){
             // getting value from the inputs
             let ckEditor2_value=$('#stepthree_form .ck-editor__editable').html();
             const ckEditor2_text=$('#stepthree_form .ck-editor__editable').text();
@@ -509,7 +516,7 @@
         });
 
 
-        // Backward Event Handler 
+        // Backward Event Handler
             btnback3.addEventListener('click', function(){
             step3.classList.remove('active');
             step2.classList.add('active');
@@ -566,7 +573,7 @@
                 var formData = $("#stepfive_form").serialize();
                 $.ajax({
                 type: "POST",
-                url: "{{route('stores.step_six') }}",
+                url: "{{route('stores.step_five') }}",
                 data: formData,
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -589,9 +596,51 @@
                     }
                 },
             });
-            
+
         })
+
+            btnback5.addEventListener('click', function(){
+                step5.classList.remove('active');
+                step4.classList.add('active');
+                sellProcedure_toggler();
+            })
             // step 6
+            $(document).on('click', '#step-six', function(){
+                var formData = $("#stepsix_form").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('stores.step_six') }}",
+                    data: formData,
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                        Accept: "application/json",
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success) {
+                            window.location.href = "{{route('dashboard')}}";
+                            step5.classList.remove('active');
+                            step6.classList.add('active');
+                            sellProcedure_toggler();
+                        }
+                    },
+                    error: function (response) {
+                        if (response.status == 422) {
+                            var errors = response.responseJSON.errors;
+                            $.each(errors, function (key, value) {
+                                $("#" + key + "_error").html(value);
+                            });
+                        }
+                    },
+                });
+
+            })
+
+            btnback6.addEventListener('click', function(){
+                step6.classList.remove('active');
+                step5.classList.add('active');
+                sellProcedure_toggler();
+            })
 
 
         function sellProcedure_toggler(){

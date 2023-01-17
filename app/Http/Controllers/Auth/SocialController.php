@@ -47,7 +47,7 @@ class SocialController extends Controller
                 'google_id'=> $user->id,
                 'password' => encrypt('12345678')
             ]);
-            $newUser->assignRole('User');
+            $newUser->assignRole('user');
 
             Auth::login($newUser);
 

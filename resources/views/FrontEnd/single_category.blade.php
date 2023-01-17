@@ -69,7 +69,7 @@
                                                     </div>
                                                     <div class="price-div text-center">
                                                         <h5>$27.00</h5>
-                                                        <a href="">Detail</a>
+                                                        <a href="{{route('single_store', $store->id)}}">Detail</a>
                                                     </div>
                                                 </div>
                                                 @endforeach

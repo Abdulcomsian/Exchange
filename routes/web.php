@@ -121,9 +121,9 @@ Route::get('/', function () {
     return view('FrontEnd.index');
 })->name('home');
 //industory url
-Route::get('/industry',function(){
+/*Route::get('/industry',function(){
     return view('FrontEnd.individual-category');
-});
+});*/
 
 // Browse-all url
 // single Bussiness url
@@ -142,3 +142,4 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/{slug}', [FrontController::class, 'categories'])->name('categories');
+Route::get('/store/{slug}', [FrontController::class, 'singleStore'])->name('single_store');

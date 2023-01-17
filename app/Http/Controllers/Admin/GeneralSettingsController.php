@@ -49,6 +49,7 @@ class GeneralSettingsController extends Controller
         return view('admin.general_settings.site_identity');
     }
 
+
     public function update_site_identity(Request $request)
     {
         $this->validate($request, [
@@ -59,8 +60,13 @@ class GeneralSettingsController extends Controller
         update_static_option('site_logo', $request->site_logo);
         update_static_option('site_favicon', $request->site_favicon);
         update_static_option('site_white_logo', $request->site_white_logo);
-       
+
         Session::flash('success_message', 'Great! Site Setting has been saved successfully!');
         return redirect()->back();
+    }
+
+    public function basic_settings()
+    {
+        return view('admin.general_settings.basic_setting');
     }
 }
