@@ -1118,6 +1118,7 @@ footer .footer-top-list ul li a:hover {
 
 .sellBusinessForm form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 15px;
 }
@@ -1227,12 +1228,27 @@ footer .footer-top-list ul li a:hover {
 
 .ck-blurred,
 .ck-focused {
-    height: 250px;
+    min-height: 250px;
 }
 .ck-focused {
     outline: none !important;
     border: none !important;
 }
+
+/* .ck.ck-content
+    .ck-editor__editable
+    .ck-rounded-corners
+    .ck-editor__editable_inline
+    .ck-focused {
+    width: 100% !important;
+    height: 450px !important;
+}
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+    position: relative !important;
+    top: 0;
+    display: inline-block;
+    width: 100% !important;
+} */
 
 .form-centered {
     display: flex;
