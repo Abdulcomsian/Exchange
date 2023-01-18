@@ -15,26 +15,53 @@
                 <div class="sellBusinessForm">
                     <form class="" id="stepone_form" action="" style="width: 80%; margin: auto;">
                         <div class="fieldContainer" style="width: 100%">
-                            <input
-                                href="#"
-                                placeholder="Store address"
-                                class="marketing-input"
-                                id="store_address"
-                                type="text"
-                                name="store_address"
-                            />
-                            <div class="text-danger" id="store_address_error"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input
+                                        href="#"
+                                        placeholder="Name"
+                                        class="marketing-input"
+                                        id="store_name"
+                                        type="text"
+                                        name="store_name"
+                                    />
+                                    <div class="text-danger" id="store_name_error"></div>
+                                </div>
+                                <div class="col-md-6">
+                                <input
+                                        href="#"
+                                        placeholder="Store address"
+                                        class="marketing-input"
+                                        id="store_address"
+                                        type="text"
+                                        name="store_address"
+                                    />
+                                    <div class="text-danger" id="store_address_error"></div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                <div class="mb-3 mt-4">
+                                        
+                                        <input class="form-control" type="file" id="formFile">
+                                    </div>
+                                    <div class="text-danger" id="store_name_error"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a
+                                        href="#"
+                                        id="step-one"
+                                        class="marketing-button btn-forward"
+                                        style="width: 100%; align-self: flex-start;"
+                                    >Add my Shopify store</a>
+                                </div>
+                            </div>
                         </div>
-                        <a
-                            href="#"
-                            id="step-one"
-                            class="marketing-button btn-forward"
-                            style="width: 400px; align-self: flex-start;"
-                        >Add my Shopify store</a>
+                        
                     </form>
-                    <div id="step-one-alert" class="alert alert-danger hidden" role="alert">
-                        This is a danger alert—check it out!
-                    </div>
                 </div>
             </div>
             <div class="tab tab-2">
@@ -598,7 +625,7 @@
             });
 
         })
-
+       
             btnback5.addEventListener('click', function(){
                 step5.classList.remove('active');
                 step4.classList.add('active');
