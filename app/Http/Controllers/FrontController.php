@@ -37,4 +37,9 @@ class FrontController extends Controller
         $stores = Store::get();
         return view('FrontEnd.storeListing',['stores'=>$stores]);
     }
+
+    public function singleStore($id){
+        $store = Store::findorfail($id);
+        return view('FrontEnd.single_store',compact('store'));
+    }
 }

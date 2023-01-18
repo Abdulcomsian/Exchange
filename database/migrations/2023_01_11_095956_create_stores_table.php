@@ -28,11 +28,10 @@ class CreateStoresTable extends Migration
             $table->string('shopify_plan')->nullable();
             $table->string('inventory_warehouse')->nullable();
             $table->string('domain')->nullable();
-            $table->string('sales_include_1')->nullable();
-            $table->string('sales_include_2')->nullable();
-            $table->string('sales_include_3')->nullable();
-            $table->string('sales_include_4')->nullable();
-            $table->string('open_select_menu')->nullable();
+            $table->string('sale_include_1')->nullable();
+            $table->string('sale_include_2')->nullable();
+            $table->string('sale_include_3')->nullable();
+            $table->string('sale_include_4')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();

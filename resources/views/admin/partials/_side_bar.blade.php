@@ -84,7 +84,7 @@
                                   </p>
                               </a>
                           </li>
-                          <li class="nav-item">
+                          {{--<li class="nav-item">
                               <a href="{{ route('roles.index') }}"
                                   class="nav-link {{ request()->is('admin/roles') ? 'active' : '' }}"">
                                     <i class="         nav-icon fas fa-user-tag"></i>
@@ -92,7 +92,7 @@
                                       Roles
                                   </p>
                               </a>
-                          </li>
+                          </li>--}}
                       </ul>
                   </li>
 
@@ -124,21 +124,21 @@
                               </a>
                           </li>
                       </ul>
-                      <ul class="nav nav-treeview">
+                      {{--<ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ route('admin.general.site.identity') }}"
-                                  class="nav-link {{ request()->is('admin/general-settings/site-identity') ? 'active' : '' }}">
+                              <a href="{{ route('admin.general.basic.settings') }}"
+                                  class="nav-link {{ request()->is('admin/general-settings/basic-settings') ? 'active' : '' }}">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>
                                       Basic Setting
                                   </p>
                               </a>
                           </li>
-                      </ul>
+                      </ul>--}}
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="{{ route('admin.general.smtp.settings') }}"
-                                  class="nav-link {{ request()->is('admin/profile-setting') ? 'active' : '' }}">
+                                  class="nav-link {{ request()->is('admin/general-settings/smtp-settings') ? 'active' : '' }}">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>
                                       SMTP Settings
@@ -148,6 +148,15 @@
                       </ul>
                   </li>
                   <li class="nav-item">
+                      <a href="{{ route('store.index') }}"
+                         class="nav-link {{ request()->is('admin/store') ? 'active' : '' }}">
+                          <i class="nav-icon fas fa-exclamation-circle"></i>
+                          <p>
+                              Store
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
                     <a href="{{ route('logs.index') }}"
                         class="nav-link {{ request()->is('admin/logs') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-exclamation-circle"></i>
@@ -155,7 +164,7 @@
                             Logs
                         </p>
                     </a>
-                </li>
+                  </li>
                   <li class="nav-item">
                       <a href="{{ route('logout') }}"
                           onclick="event.preventDefault();document.getElementById('logout-form').submit();"

@@ -14,362 +14,365 @@ class StoreSeeder extends Seeder
      */
     public function run()
     {
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '1',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '2',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '3',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '4',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '5',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
-        $store = Store::create([
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
-            'category_id' => '6',
-        ]);
 
+/*        //write code to seed your database with 100 records
+
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '1',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '2',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '3',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '4',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '5',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+        $store = Store::create([
+            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'category_id' => '6',
+        ]);
+*/
     }
 }

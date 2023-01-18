@@ -123,14 +123,15 @@ class StoreController extends Controller
     public function stepFive(Request $request)
     {
         $validatedData = $request->validate([
-            'business_story' => 'required|max:500',
-            'shopifyPlan' => 'required|max:500',
-            'inventoryWareHouse' => 'required|max:500',
+            'shopify_plan' => 'required|max:500',
+            'inventory_warehouse' => 'required|max:500',
             'domain' => 'required|max:500'
         ]);
 
         $store = Store::find(1);
-        $store->business_story = $request->business_story;
+        $store->shopify_plan = $request->shopify_plan;
+        $store->inventory_warehouse = $request->inventory_warehouse;
+        $store->domain = $request->domain;
         $store->save();
 
         return response()->json(['success' => 'Data is successfully added']);
@@ -139,14 +140,19 @@ class StoreController extends Controller
     public function stepSix(Request $request)
     {
         $validatedData = $request->validate([
-            'business_story' => 'required|max:500',
-            'shopifyPlan' => 'required|max:500',
-            'inventoryWareHouse' => 'required|max:500',
-            'domain' => 'required|max:500'
+            'sale_include_1' => 'required|max:500',
+            'sale_include_2' => 'required|max:500',
+            'sale_include_3' => 'required|max:500',
+            'sale_include_4' => 'required|max:500',
+            'category' => 'required|max:500'
         ]);
 
         $store = Store::find(1);
-        $store->business_story = $request->business_story;
+        $store->sale_include_1 = $request->sale_include_1;
+        $store->sale_include_2 = $request->sale_include_2;
+        $store->sale_include_3 = $request->sale_include_3;
+        $store->sale_include_4 = $request->sale_include_4;
+        $store->category_id = $request->category;
         $store->save();
 
         return response()->json(['success' => 'Data is successfully added']);
