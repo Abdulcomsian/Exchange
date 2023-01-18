@@ -1141,6 +1141,9 @@ footer .footer-top-list ul li a:hover {
     border-style: solid;
     border-color: transparent;
 }
+.marketing-button:hover {
+    color: black !important;
+}
 
 .marketing-input {
     display: inline-block;
@@ -1228,11 +1231,21 @@ footer .footer-top-list ul li a:hover {
 
 .ck-blurred,
 .ck-focused {
-    min-height: 250px;
+    height: 250px;
 }
 .ck-focused {
     outline: none !important;
     border: none !important;
+}
+.ck
+    .ck-content
+    .ck-editor__editable
+    .ck-rounded-corners
+    .ck-editor__editable_inline
+    .ck-blurred {
+    width: 100% !important;
+    position: relative !important;
+    top: 0;
 }
 
 /* .ck.ck-content
@@ -1249,6 +1262,11 @@ footer .footer-top-list ul li a:hover {
     display: inline-block;
     width: 100% !important;
 } */
+
+.ck.ck-editor {
+    position: relative !important;
+    width: 600px !important;
+}
 
 .form-centered {
     display: flex;
@@ -1375,5 +1393,8 @@ footer .footer-top-list ul li a:hover {
     }
     .list-group-item:last-child {
         display: none;
+    }
+    .storeAddress {
+        margin-top: 1.5rem;
     }
 }
