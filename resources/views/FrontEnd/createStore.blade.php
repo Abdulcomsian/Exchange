@@ -13,7 +13,7 @@
             <div class="tab tab-1 active">
                 <!-- tab 1 -->
                 <div class="sellBusinessForm">
-                    <form class="" id="stepone_form" action="" style="width: 80%; margin: auto;">
+                    <form class="" id="stepone_form" action="" style="width: 80%; margin: auto;" enctype="multipart/form-data">
                         <div class="fieldContainer" style="width: 100%">
                             <div class="row">
                                 <div class="col-md-6">
@@ -24,6 +24,7 @@
                                         id="store_name"
                                         type="text"
                                         name="store_name"
+                                        value="{{$store->store_name ?? ''}}"
                                     />
                                     <div class="text-danger" id="store_name_error"></div>
                                 </div>
@@ -35,18 +36,18 @@
                                         id="store_address"
                                         type="text"
                                         name="store_address"
-                                    />
+                                        value="{{$store->store_address ?? ''}}"
+                                />
                                     <div class="text-danger" id="store_address_error"></div>
-                                    
+
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                 <div class="mb-3 mt-4">
-                                        
-                                        <input class="form-control" type="file" id="formFile">
+                                        <input class="form-control" name="image" type="file" id="formFile">
                                     </div>
-                                    <div class="text-danger" id="store_name_error"></div>
+                                    <div class="text-danger" id="image_error"></div>
                                 </div>
                             </div>
                             <div class="row">
@@ -60,7 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
@@ -69,8 +70,9 @@
                 <h2 class="tab-title text-center">Create Business Story</h2>
                 <div class="form">
                     <form class="form-centered" id="steptwo_form">
+                        <input type="hidden" name="store_id" id="store_id" value="{{session('store_id') ?? ''}}">
                         <div class="row createStory">
-                            <textarea id="editor" name="business_story"></textarea>
+                            <textarea id="editor" name="business_story" value="{{$store->business_story ?? ''}}"></textarea>
                             <!-- <div class="col-12" id="editor"></div> -->
                         </div>
                         <div class="text-danger" id="business_story_error"></div>
@@ -137,20 +139,20 @@
                                 name="revenue"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
+                                value="{{$store->revenue ?? ''}}"
                             />
                             <span class="text-danger" id="revenue_error"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label"
-                            >Avg. sessions /month</label
-                            >
+                            <label for="exampleFormControlTextarea1" class="form-label">Avg. sessions /month</label>
                             <input
                                 type="text"
                                 id="session"
                                 name="session"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
-                            ></input>
+                                value="{{$store->session ?? ''}}"
+                            />
                             <span class="text-danger" id="session_error"></span>
                         </div>
                     </div>
@@ -165,6 +167,7 @@
                                 name="profit"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
+                                value="{{$store->profit ?? ''}}"
                             />
                             <span class="text-danger" id="profit_error"></span>
                         </div>
@@ -178,7 +181,8 @@
                                 name="inventory_value"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
-                            ></input>
+                                value="{{$store->inventory_value ?? ''}}"
+                            >
                             <span class="text-danger" id="inventory_value_error"></span>
                         </div>
                     </div>
@@ -187,7 +191,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Other details about profit:
                                 </label>
-                                <textarea class="form-control" id="otherDetailOfProfit" name="other_detail" rows="3"></textarea>
+                                <textarea class="form-control" id="otherDetailOfProfit" name="other_detail" rows="3">{{$store->other_detail ?? ''}}</textarea>
                                 <span class="text-danger" id="other_detail_error"></span>
                             </div>
                         </div>
@@ -228,6 +232,7 @@
                                 name="shopify_plan"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
+                                value="{{$store->shopify_plan ?? ''}}"
                             />
                             <span class="text-danger" id="shopify_plan_error"></span>
                         </div>
@@ -240,6 +245,7 @@
                                 name="inventory_warehouse"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
+                                value="{{$store->inventory_warehouse ?? ''}}"
                             ></input>
                             <span class="text-danger" id="inventory_warehouse_error"></span>
                         </div>
@@ -249,7 +255,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Domain
                                 </label>
-                                <input type="text" name="domain" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <input type="text" name="domain" value="{{$store->domain ?? ''}}"  class="form-control marketing-input" id="exampleFormControlTextarea1"/>
                                 <span class="text-danger" id="domain_error"></span>
                             </div>
                         </div>
@@ -283,13 +289,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input type="text" name="sale_include_1" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <input type="text" name="sale_include_1" value="{{$store->sale_include_1 ?? ''}}" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
                                 <span class="text-danger" id="sale_include_1_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input type="text" name="sale_include_2" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
+                                <input type="text" name="sale_include_2" value="{{$store->sale_include_2 ?? ''}}" class="form-control marketing-input" id="exampleFormControlTextarea1"></input>
                                 <span class="text-danger" id="sale_include_2_error"></span>
                             </div>
                         </div>
@@ -301,6 +307,7 @@
                                 name="sale_include_3"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
+                                value="{{$store->sale_include_3 ?? ''}}"
                             />
                             <span class="text-danger" id="sale_include_3_error"></span>
                         </div>
@@ -311,6 +318,7 @@
                                 name="sale_include_4"
                                 class="form-control marketing-input"
                                 id="exampleFormControlTextarea1"
+                                value="{{$store->sale_include_4 ?? ''}}"
                             />
                             <span class="text-danger" id="sale_include_4_error"></span>
                         </div>
@@ -320,7 +328,7 @@
                             <select class="form-select marketing-input" aria-label="Default select example" name="category">
                                 <option selected>Open this select menu</option>
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option value="{{$category->id}}" @if(isset($store)){{($category->id == $store->id) ? 'selected' : ''}}@endif>{{$category->name}}</option>
                                 @endforeach
                             </select>
                             <span class="text-danger" id="category_error"></span>
@@ -427,12 +435,17 @@
 
             // Event Handler
             $(document).on("click", "#step-one", function () {
-            let storeAddress = $("#store_address").val();
-                var formData = $("#stepone_form").serialize();
+                var formData = new FormData();
+                formData.append("image", $("#formFile")[0].files[0]);
+                formData.append("store_address",$("#store_address").val());
+                formData.append("store_name", $("#store_name").val());
+                console.log(formData);
                 $.ajax({
                     type: "POST",
                     url: "{{route('stores.step_one') }}",
                     data: formData,
+                    contentType: false,
+                    processData: false,
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                         Accept: "application/json",
@@ -464,13 +477,14 @@
             // Forward Event handler
             $(document).on('click', '#step-two', function(){
             // getting value from the inputs
-            let ckEditor1_value=$('.ck-editor__editable').html();
+            var ckEditor1_value=$('.ck-editor__editable').html();
             const ckEditor1_text=$('.ck-editor__editable').text();
             if(ckEditor1_text=="")
             {
                 ckEditor1_value="";
             }
-            console.log(ckEditor1_text);
+            console.log('value', ckEditor1_value);
+            console.log('text', ckEditor1_text);
             $.ajax({
                 type: "POST",
                 url: "{{route('stores.step_two') }}",
@@ -557,32 +571,32 @@
                 // document.querySelector('.ck-editor').style.border = '1px solid red';
 
         // } else { //Upon Successfully get values from the input
-            var formData = $("#stepfour_form").serialize();
-            $.ajax({
-                type: "POST",
-                url: "{{route('stores.step_four') }}",
-                data: formData,
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                    Accept: "application/json",
-                },
-                success: function (response) {
-                    console.log(response);
-                    if (response.success) {
-                        step4.classList.remove('active');
-                        step5.classList.add('active');
-                        sellProcedure_toggler();
-                    }
-                },
-                error: function (response) {
-                    if (response.status == 422) {
-                        var errors = response.responseJSON.errors;
-                        $.each(errors, function (key, value) {
-                            $("#" + key + "_error").html(value);
-                        });
-                    }
-                },
-            });
+                var formData = $("#stepfour_form").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('stores.step_four') }}",
+                    data: formData,
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                        Accept: "application/json",
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success) {
+                            step4.classList.remove('active');
+                            step5.classList.add('active');
+                            sellProcedure_toggler();
+                        }
+                    },
+                    error: function (response) {
+                        if (response.status == 422) {
+                            var errors = response.responseJSON.errors;
+                            $.each(errors, function (key, value) {
+                                $("#" + key + "_error").html(value);
+                            });
+                        }
+                    },
+                });
         // }
         // else{
         //     step4.classList.remove('active');
@@ -625,7 +639,7 @@
             });
 
         })
-       
+
             btnback5.addEventListener('click', function(){
                 step5.classList.remove('active');
                 step4.classList.add('active');
@@ -670,7 +684,7 @@
             })
 
 
-        function sellProcedure_toggler(){
+            function sellProcedure_toggler(){
             if($('.tab-1').hasClass('active')){
                 $('.sellBusiness_procdure').show();
             }
@@ -679,6 +693,4 @@
             }
         }
 </script>
-
-
-   @endsection
+@endsection

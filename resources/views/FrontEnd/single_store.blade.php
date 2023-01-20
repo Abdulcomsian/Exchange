@@ -1,7 +1,6 @@
-
 @extends('layouts.frontEnd.master')
 @section('content')
-    @include('layouts.FrontEnd.header')
+    @include('layouts.frontEnd.header')
 
     <main>
         <div class="main-wrapper">
@@ -39,8 +38,8 @@
                                     <h5 class="mb-4 common-detail-heading">BUSINESS STORY</h5>
                                     <hr>
                                     <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> Why this business was started</h4>
-
-                                    {{$store->business_story}}
+                                    {!! $store->business_story !!}
+{{--                                    {{$store->business_story}}--}}
                                     {{-- <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> Why this business was started</h4>
                                     <p>We started this business to capitalize on a growing interest in detox tea products. We noticed most businesses were operating in Europe and Australia so shipping time to North America was very long. Our company is Canadian based and offered competitive pricing and fast shipping to customers in the U.S. and Canada primarily; although, we do receive orders from around the world.</p>
                                     <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> The reason of selling this business</h4>
@@ -76,7 +75,8 @@
                                                 <h5 class="common-detail-heading">DESCRIPTION</h5>
                                                 <hr>
                                                 <h4 class="common-detail-title">General description</h4>
-                                                {{$store->description}}
+                                                {!! $store->description !!}
+{{--                                                {{$store->description}}--}}
                                                 {{-- <h4 class="common-detail-title">General description</h4>
                                                 <p>This well established ecommerce business is a leading detox tea company within the natural health and wellness industry. We focus on developing unique health products to help customers achieve their health goals. We've had over 130,000 orders around the world amounting to over $6 million USD in total sales.</p>
                                                 <p>The company was founded in 2013 and operates out of Toronto, Canada.</p>
@@ -106,24 +106,24 @@
                                                         <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
                                                         <h4>Avg. revenue /month</h4>
 
-                                                        <p>$ {{$store->revenue}}</p>
+                                                        <p>${{$store->revenue}}</p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
                                                         <h4>Avg. sessions /month</h4>
-                                                        <p>{{$store->sessions}}</p>
+                                                        <p>${{$store->session}}</p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Avg. profit /month</h4>
-                                                        <p>$ {{$store->profit}}</p>
+                                                        <p>${{$store->profit}}</p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Inventory value</h4>
-                                                        <p>$ {{$store->inventory_value}}</p>
+                                                        <p>${{$store->inventory_value}}</p>
                                                     </div>
                                                     <div class="common-div position-relative">
                                                         <h4>Profit Margin</h4>
-                                                        <p>{{$store->profit }} %</p>
+                                                        <p>{{$store->profit }}%</p>
                                                     </div>
 
 
@@ -237,7 +237,7 @@
                                                             </div>
                                                             <div class="ms-3 sale-content">
                                                                 <h4>Mailing List</h4>
-                                                                <p>250,000subscribers                                                                </p>
+                                                                <p>250,000subscribers</p>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -251,7 +251,7 @@
                         <div class="col-lg-4">
                             <div class="business-right-div">
                                 <div class="common-div price-share-div">
-                                    <h5 class="price-text">$100,000</h5>
+{{--                                    <h5 class="price-text">$100,000</h5>--}}
                                     <h5 class="price-text">$ {{$store->price}}</h5>
                                     <a href="tel:12345" class="common-btn">Contact Seller</a>
                                     <div class="url-div mt-3">

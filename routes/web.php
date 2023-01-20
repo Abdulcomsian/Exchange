@@ -16,7 +16,9 @@ use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\MediaUploadController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ManageStoreController;
 use App\Http\Controllers\Auth\SocialController;
+use App\Models\Store;
 
 
 /*
@@ -37,17 +39,22 @@ Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCa
 
 Route::get('logout',[SocialController::class,'logout'])->name('logout');
 
+Route::get('/',[FrontController::class,'home'])->name('home');
+
+Route::get('/apply-filter',[FrontController::class,'applyFilter'])->name('apply_filter');
+
+Route::get('/all-business',[FrontController::class,'allBusiness'])->name('all_business');
+
+/*Route::get('/all-business', function () {
+    $stores = Store::get();
+    return view('FrontEnd.all-business',['stores'=>$stores]);
+});*/
+
+
 /*Route::get('login/{provider}', [AuthController::class,'redirect']);
 Route::get('login/{provider}/callback',[AuthController::class,'callback']);*/
 Auth::routes();
 
-Route::resource('stores', StoreController::class);
-Route::post('stores/step-one',  [StoreController::class, 'stepOne'])->name('stores.step_one');
-Route::post('stores/step-two',  [StoreController::class, 'stepTwo'])->name('stores.step_two');
-Route::post('stores/step-three',  [StoreController::class, 'stepThree'])->name('stores.step_three');
-Route::post('stores/step-four',  [StoreController::class, 'stepFour'])->name('stores.step_four');
-Route::post('stores/step-five',  [StoreController::class, 'stepFive'])->name('stores.step_five');
-Route::post('stores/step-six',  [StoreController::class, 'stepSix'])->name('stores.step_six');
 
 
 
@@ -60,6 +67,25 @@ Route::get('/clear', function () {
 });
 
 Auth::routes();
+
+Route::group([
+    'middleware'    => ['auth'],
+    'prefix'        => 'user',
+], function () {
+
+    Route::resource('stores', StoreController::class);
+    Route::post('stores/step-one',  [StoreController::class, 'stepOne'])->name('stores.step_one');
+    Route::post('stores/step-two',  [StoreController::class, 'stepTwo'])->name('stores.step_two');
+    Route::post('stores/step-three',  [StoreController::class, 'stepThree'])->name('stores.step_three');
+    Route::post('stores/step-four',  [StoreController::class, 'stepFour'])->name('stores.step_four');
+    Route::post('stores/step-five',  [StoreController::class, 'stepFive'])->name('stores.step_five');
+    Route::post('stores/step-six',  [StoreController::class, 'stepSix'])->name('stores.step_six');
+
+    Route::get('dashboard',[FrontController::class,'dashboard'])->name('dashboard');
+
+    Route::get('/sell-your-business',[FrontController::class,'sell_your_business'])->name('sell_your_business');
+    Route::get('/sell-your-business/{id}',[FrontController::class,'edit_sell_your_business'])->name('sell_your_business.edit');
+});
 
 Route::group([
     'middleware'    => ['auth'],
@@ -76,6 +102,13 @@ Route::group([
     Route::get('edit-profile/{id}',  [UsersController::class, 'show'])->name('edit-profile');
     Route::get('/profile-setting', [UsersController::class, 'profileSetting'])->name('user.profile');
     Route::post('/profile-setting', [UsersController::class, 'updateProfile'])->name('user.profile');
+
+    //Roles Controller
+    Route::resource('manage-stores', ManageStoreController::class);
+    Route::post('get-manage-store', [ManageStoreController::class, 'manageStoreDetail'])->name('admin.getStore');
+    Route::get('manage-stores/delete/{id}',  [ManageStoreController::class, 'destroy'])->name('store-delete');
+    Route::post('delete-selected-manage-stores',  [ManageStoreController::class, 'DeleteSelectedManageStores'])->name('delete-selected-stores');
+    Route::get('/change-status/{id}/{status}',[ManageStoreController::class,'change_status'])->name('change_status');
 
     //Roles Controller
     Route::resource('roles', RoleController::class);
@@ -117,9 +150,9 @@ Route::group([
 Route::get('browse-all',[FrontController::class,'browse_all']);
 Route::get('/single-business/{id}',[FrontController::class,'single_business'])->name('single_business');
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('FrontEnd.index');
-})->name('home');
+})->name('home');*/
 //industory url
 /*Route::get('/industry',function(){
     return view('FrontEnd.individual-category');
@@ -131,15 +164,13 @@ Route::get('/single-business', function(){
     return view('FrontEnd.single-business');
 });
 // create store URL
-Route::get('/sell-your-business',[FrontController::class,'sell_your_business'])->name('sell_your_business');
 /*Route::get('/sell-your-business', function(){
     return view('FrontEnd.createStore');
 });*/
 
-Route::get('/dashboard',[FrontController::class,'dashboard'])->name('dashboard');
 
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/{slug}', [FrontController::class, 'categories'])->name('categories');
+Route::get('category/{slug}', [FrontController::class, 'categories'])->name('categories');
 Route::get('/store/{slug}', [FrontController::class, 'singleStore'])->name('single_store');

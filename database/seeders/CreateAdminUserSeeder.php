@@ -17,35 +17,83 @@ class CreateAdminUserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'name' => 'Admin', 
+            'name' => 'Admin',
             'email' => 'admin@domain.com',
             'password' => bcrypt('12345678')
         ]);
-    
+
         $role = Role::create([
-            'name' => 'Admin',
+            'name' => 'admin',
         ]);
-     
+
         $permissions = Permission::pluck('id','id')->all();
-   
+
         $role->syncPermissions($permissions);
-     
+
         $user->assignRole([$role->id]);
 
         $user = User::create([
-            'name' => 'User', 
+            'name' => 'User',
             'email' => 'user@domain.com',
             'password' => bcrypt('12345678')
         ]);
-    
+
         $role = Role::create([
-            'name' => 'User',
+            'name' => 'user',
         ]);
-     
+
         $permissions = Permission::pluck('id','id')->all();
-   
+
         $role->syncPermissions($permissions);
-     
+
+        $user->assignRole([$role->id]);
+
+        $user = User::create([
+            'name' => 'User',
+            'email' => 'user2@domain.com',
+            'password' => bcrypt('12345678')
+        ]);
+
+        $permissions = Permission::pluck('id','id')->all();
+
+        $role->syncPermissions($permissions);
+
+        $user->assignRole([$role->id]);
+
+        $user = User::create([
+            'name' => 'User',
+            'email' => 'user3@domain.com',
+            'password' => bcrypt('12345678')
+        ]);
+
+        $permissions = Permission::pluck('id','id')->all();
+
+        $role->syncPermissions($permissions);
+
+        $user->assignRole([$role->id]);
+
+        $user = User::create([
+            'name' => 'User',
+            'email' => 'user4@domain.com',
+            'password' => bcrypt('12345678')
+        ]);
+
+        $permissions = Permission::pluck('id','id')->all();
+
+        $role->syncPermissions($permissions);
+
+        $user->assignRole([$role->id]);
+
+        $user = User::create([
+            'name' => 'User',
+            'email' => 'user5@domain.com',
+            'password' => bcrypt('12345678')
+        ]);
+
+        $permissions = Permission::pluck('id','id')->all();
+
+        $role->syncPermissions($permissions);
+
         $user->assignRole([$role->id]);
     }
 }
