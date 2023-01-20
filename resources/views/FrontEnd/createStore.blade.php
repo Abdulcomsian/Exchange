@@ -324,7 +324,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <select class="form-select marketing-input" aria-label="Default select example" name="category">
                                 <option selected>Open this select menu</option>
                                 @foreach($categories as $category)
@@ -332,6 +332,16 @@
                                 @endforeach
                             </select>
                             <span class="text-danger" id="category_error"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input
+                                type="number"
+                                name="price"
+                                class="form-control marketing-input"
+                                id="exampleFormControlInput1"
+                                value="{{$store->price ?? ''}}"
+                            />
+                            <span class="text-danger" id="price_error"></span>
                         </div>
                     </div>
 
