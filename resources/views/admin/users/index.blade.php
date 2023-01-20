@@ -180,9 +180,6 @@
                     "data": "email"
                 },
                 {
-                    "data": "active"
-                },
-                {
                     "data": "created_at"
                 },
                 {
