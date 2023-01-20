@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Store;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Facades\Session;
 
 class StoreController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -58,13 +61,28 @@ class StoreController extends Controller
 
     public function stepOne(Request $request)
     {
+//        dd($request->image);
         $validatedData = $request->validate([
             'store_address' => 'required|max:500',
+            'store_name' => 'required|max:500',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $store = new Store();
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'images/';
+            $extension = $file->getClientOriginalExtension();
+            $filename = rand() . '.' . $extension;
+            $file->move($destinationPath, $filename);
+            $store->image = $filename;
+        }
         $store->store_address = $request->store_address;
+        $store->store_name = $request->store_name;
+        $store->user_id = Auth::user()->id;
         $store->save();
+
+        session(['store_id' => $store->id]);
 
         return response()->json(['success' => 'Data is successfully added']);
 
@@ -73,10 +91,10 @@ class StoreController extends Controller
     public function stepTwo(Request $request)
     {
         $validatedData = $request->validate([
-            'business_story' => 'required|max:500',
+            'business_story' => 'required|max:1000',
         ]);
 
-        $store = Store::find(1);
+        $store = Store::find(session('store_id'));
         $store->business_story = $request->business_story;
         $store->save();
 
@@ -87,10 +105,10 @@ class StoreController extends Controller
     public function stepThree(Request $request)
     {
         $validatedData = $request->validate([
-            'description' => 'required|max:500',
+            'description' => 'required|max:1000',
         ]);
 
-        $store = Store::find(1);
+        $store = Store::find(session('store_id'));
         $store->description = $request->description;
         $store->save();
 
@@ -108,7 +126,7 @@ class StoreController extends Controller
             'other_detail' => 'required|max:500',
         ]);
 
-        $store = Store::find(1);
+        $store = Store::find(session('store_id'));
         $store->revenue = $request->revenue;
         $store->session = $request->session;
         $store->profit = $request->profit;
@@ -128,7 +146,7 @@ class StoreController extends Controller
             'domain' => 'required|max:500'
         ]);
 
-        $store = Store::find(1);
+        $store = Store::find(session('store_id'));
         $store->shopify_plan = $request->shopify_plan;
         $store->inventory_warehouse = $request->inventory_warehouse;
         $store->domain = $request->domain;
@@ -147,7 +165,7 @@ class StoreController extends Controller
             'category' => 'required|max:500'
         ]);
 
-        $store = Store::find(1);
+        $store = Store::find(session('store_id'));
         $store->sale_include_1 = $request->sale_include_1;
         $store->sale_include_2 = $request->sale_include_2;
         $store->sale_include_3 = $request->sale_include_3;

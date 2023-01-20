@@ -8,25 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Store extends Model
 {
     use HasFactory;
-    
-    protected $fillable=[
-         'name',
-         'image',
-         'price',
-         'business_story',
-         'description',
-          'revenue',
-         'revenue',
-         'profit',
-         'inventory_value',
-         'other_details',
-         'shopify_plan',
-         'inventory_warehouse',
-         'domain',
-         'sales_include_1',
-         'sales_include_2',
-         'sales_include_3',
-         'sales_include_4',
-         'open_select_menu'
+
+    protected $fillable = [
+        'store_name', 'store_address', 'business_story', 'description', 'image', 'price', 'revenue', 'session',
+        'profit', 'inventory_value', 'other_detail', 'shopify_plan', 'inventory_warehouse', 'domain', 'sale_include_1',
+        'sale_include_2', 'sale_include_3', 'sale_include_4', 'category_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

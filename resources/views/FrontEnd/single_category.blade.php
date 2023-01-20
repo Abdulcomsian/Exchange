@@ -42,36 +42,36 @@
                                             <div class="col-lg-12">
                                                 @foreach($category->stores as $store)
                                                     <div class="common-listing-box d-flex align-items-center">
-                                                    <div class="listing-img">
-                                                        <img src="{{asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430.png')}}" alt="" class="img-fluid">
-                                                        <span class="badge">Offer Support</span>
-                                                    </div>
-                                                    <div class="listing-content ms-4">
-                                                        <div class="listing-detail d-flex align-items-center justify-content-between">
-                                                            <h5>Infinity-Stones.eu</h5>
-                                                            <div class="sale-profit-revenew d-flex align-items-center">
-                                                                <div class="common-div text-center">
-                                                                    <h5>Avg. Revenue</h5>
-                                                                    <span>$253.9</span><span>/month</span>
-                                                                </div>
-                                                                <div class="common-div text-center">
-                                                                    <h5>Avg. Profit</h5>
-                                                                    <span>$253.9</span><span>/month</span>
-                                                                </div>
-                                                                <div class="common-div text-center">
-                                                                    <h5>Inventory value</h5>
-                                                                    <span>$1k</span>
+                                                        <div class="listing-img">
+                                                            <img src="{{asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430.png')}}" alt="" class="img-fluid">
+                                                            <span class="badge">Offer Support</span>
+                                                        </div>
+                                                        <div class="listing-content ms-4">
+                                                            <div class="listing-detail d-flex align-items-center justify-content-between">
+                                                                <h5>{{$store->store_name}}</h5>
+                                                                <div class="sale-profit-revenew d-flex align-items-center">
+                                                                    <div class="common-div text-center">
+                                                                        <h5>Avg. Revenue</h5>
+                                                                        <span>${{$store->revenue}}</span><span>/month</span>
+                                                                    </div>
+                                                                    <div class="common-div text-center">
+                                                                        <h5>Avg. Profit</h5>
+                                                                        <span>${{$store->profit}}</span><span>/month</span>
+                                                                    </div>
+                                                                    <div class="common-div text-center">
+                                                                        <h5>Inventory value</h5>
+                                                                        <span>${{$store->inventory_value}}</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                            <hr>
+                                                            <p>{{strip_tags($store->description)}}</p>
                                                         </div>
-                                                        <hr>
-                                                        <p>2-year store for high-end tea, tea gifts, and accessories. Well-designed webshop with lots of conversion uplift customizations. Bi-lingual with Dutch & English. Fully optimized SEO setup. 40+ content marketing blogs. Dedicated B2B page.</p>
+                                                        <div class="price-div text-center">
+                                                            <h5>${{$store->revenue}}</h5>
+                                                            <a href="{{route('single_store', $store->id)}}">Detail</a>
+                                                        </div>
                                                     </div>
-                                                    <div class="price-div text-center">
-                                                        <h5>$27.00</h5>
-                                                        <a href="{{route('single_store', $store->id)}}">Detail</a>
-                                                    </div>
-                                                </div>
                                                 @endforeach
                                             </div>
                                             {{--<div class="col-lg-12">

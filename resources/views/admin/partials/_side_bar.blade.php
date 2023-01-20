@@ -124,17 +124,17 @@
                               </a>
                           </li>
                       </ul>
-                      {{--<ul class="nav nav-treeview">
+                      <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="{{ route('admin.general.basic.settings') }}"
                                   class="nav-link {{ request()->is('admin/general-settings/basic-settings') ? 'active' : '' }}">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>
-                                      Basic Setting
+
                                   </p>
                               </a>
                           </li>
-                      </ul>--}}
+                      </ul>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="{{ route('admin.general.smtp.settings') }}"
@@ -148,9 +148,9 @@
                       </ul>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route('store.index') }}"
+                      <a href="{{ route('manage-stores.index') }}"
                          class="nav-link {{ request()->is('admin/store') ? 'active' : '' }}">
-                          <i class="nav-icon fas fa-exclamation-circle"></i>
+                          <i class="nav-icon fas fa-shopping-cart"></i>
                           <p>
                               Store
                           </p>
