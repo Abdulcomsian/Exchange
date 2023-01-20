@@ -40,7 +40,7 @@
                                     <hr>
                                     <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> Why this business was started</h4>
 
-                                    {{$store->business_story}}
+                                    {!! $store->business_story !!}
                                     {{-- <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> Why this business was started</h4>
                                     <p>We started this business to capitalize on a growing interest in detox tea products. We noticed most businesses were operating in Europe and Australia so shipping time to North America was very long. Our company is Canadian based and offered competitive pricing and fast shipping to customers in the U.S. and Canada primarily; although, we do receive orders from around the world.</p>
                                     <h4 class="common-detail-title"><i class="fa-solid fa-angles-right"></i> The reason of selling this business</h4>
@@ -76,7 +76,7 @@
                                                 <h5 class="common-detail-heading">DESCRIPTION</h5>
                                                 <hr>
                                                 <h4 class="common-detail-title">General description</h4>
-                                                {{$store->description}}
+                                                {!! $store->description !!}
                                                 {{-- <h4 class="common-detail-title">General description</h4>
                                                 <p>This well established ecommerce business is a leading detox tea company within the natural health and wellness industry. We focus on developing unique health products to help customers achieve their health goals. We've had over 130,000 orders around the world amounting to over $6 million USD in total sales.</p>
                                                 <p>The company was founded in 2013 and operates out of Toronto, Canada.</p>
