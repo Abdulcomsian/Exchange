@@ -56,7 +56,7 @@ class FrontController extends Controller
 
     public function home()
     {
-        $stores = Store::where('status', 'approved')->take(3)->get();
+        $stores = Store::where('status', 'approved')->orderBy('created_at', 'desc')->take(3)->get();
         return view('FrontEnd.index', ['stores' => $stores]);
     }
 

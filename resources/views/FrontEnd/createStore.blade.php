@@ -15,6 +15,7 @@
                 <div class="sellBusinessForm">
                     <form class="" id="stepone_form" action="" style="width: 80%; margin: auto;" enctype="multipart/form-data">
                         <div class="fieldContainer" style="width: 100%">
+                            <input type="hidden" name="edit_form" id="edit_form" value="{{$store->id ?? ''}}" />
                             <div class="row">
                                 <div class="col-md-6">
                                     <input
@@ -48,6 +49,9 @@
                                         <input class="form-control" name="image" type="file" id="formFile">
                                     </div>
                                     <div class="text-danger" id="image_error"></div>
+                                    @if(isset($store->image))
+                                            <img src="{{asset('images/'.$store->image)}}" alt="" width="100px" height="100px">
+                                    @endif
                                 </div>
                             </div>
                             <div class="row">
@@ -70,6 +74,7 @@
                 <h2 class="tab-title text-center">Create Business Story</h2>
                 <div class="form">
                     <form class="form-centered" id="steptwo_form">
+
                         <input type="hidden" name="store_id" id="store_id" value="{{session('store_id') ?? ''}}">
                         <div class="row createStory">
                             <textarea id="editor" name="business_story" value="{{$store->business_story ?? ''}}"></textarea>
@@ -450,6 +455,7 @@
                 formData.append("image", $("#formFile")[0].files[0]);
                 formData.append("store_address",$("#store_address").val());
                 formData.append("store_name", $("#store_name").val());
+                formData.append("edit_form", $("#edit_form").val());
                 console.log(formData);
                 $.ajax({
                     type: "POST",

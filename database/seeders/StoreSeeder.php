@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Store;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+
 
 class StoreSeeder extends Seeder
 {
@@ -14,13 +16,16 @@ class StoreSeeder extends Seeder
      */
     public function run()
     {
+        $faker = \Faker\Factory::create();
+//        $faker = Faker::create();
+
         $status = ['pending', 'approved', 'rejected'];
         $random_status = $status[array_rand($status)];
         //write code to seed your database with 100 records
         for ($i = 0; $i < 600; $i++) {
             $store = Store::create([
-            'store_name' => 'Shop Name',
-            'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
+            'store_name' => $faker->company,
+            'store_address' => $faker->url,
             'business_story' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel ligula ac diam iaculis tempor vitae auctor massa. Donec turpis diam, ornare ut elit sed, blandit mollis lorem. Nam consequat a enim vel mollis. Aliquam erat volutpat. Suspendisse eu enim eget urna aliquam commodo vitae ac augue. Cras bibendum porttitor diam',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel ligula ac diam iaculis tempor vitae auctor massa. Donec turpis diam, ornare ut elit sed, blandit mollis lorem. Nam consequat a enim vel mollis. Aliquam erat volutpat. Suspendisse eu enim eget urna aliquam commodo vitae ac augue. Cras bibendum porttitor diam',
             'price' => rand(0, 25000),

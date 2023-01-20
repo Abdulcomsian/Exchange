@@ -61,14 +61,24 @@ class StoreController extends Controller
 
     public function stepOne(Request $request)
     {
-//        dd($request->image);
-        $validatedData = $request->validate([
-            'store_address' => 'required|max:500',
-            'store_name' => 'required|max:500',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        if($request->edit_form == null){
+            $validatedData = $request->validate([
+                'store_address' => 'required|max:500',
+                'store_name' => 'required|max:500',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+        } else {
+            $validatedData = $request->validate([
+                'store_address' => 'required|max:500',
+                'store_name' => 'required|max:500',
+            ]);
+        }
 
-        $store = new Store();
+        if($request->edit_form == ''){
+            $store = new Store();
+        } else {
+            $store = Store::findorfail($request->edit_form);
+        }
         if($request->hasFile('image')) {
             $file = $request->file('image');
             $destinationPath = 'images/';

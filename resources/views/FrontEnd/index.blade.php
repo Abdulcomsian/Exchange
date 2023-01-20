@@ -96,7 +96,7 @@
                             <p class="common-para">Uniquely promote adaptive quality vectors rather than stand-alone e-markets. pontificate alternative architectures whereas iterate.</p>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                  {{--  <div class="row mt-5">
                         <div class="col-lg-12">
                             <div class="tab-list">
                                 <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
@@ -118,7 +118,7 @@
                                   </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="tab-content-div">
                         <div class="row">
                             <div class="col-lg-12">
@@ -135,7 +135,7 @@
                                                         </div>
                                                         <div class="listing-content ms-4">
                                                             <div class="listing-detail d-flex align-items-center justify-content-between">
-                                                                <h5>{{$store->store_name}}</h5>
+                                                                <a href="{{route('single_store', $store->id)}}"><h5>{{$store->store_name}}</h5></a>
                                                                 <div class="sale-profit-revenew d-flex align-items-center">
                                                                     <div class="common-div text-center">
                                                                         <h5>Avg. Revenue</h5>
