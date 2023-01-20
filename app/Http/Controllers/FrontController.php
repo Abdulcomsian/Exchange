@@ -44,7 +44,7 @@ class FrontController extends Controller
 
     public function dashboard()
     {
-        $stores = Store::where('user_id', Auth::user()->id)->where('status', 'approved')->latest()->get();
+        $stores = Store::where('user_id', Auth::user()->id)->latest()->get();
         return view('FrontEnd.storeListing', ['stores' => $stores]);
     }
 
