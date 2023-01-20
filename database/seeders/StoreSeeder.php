@@ -17,7 +17,7 @@ class StoreSeeder extends Seeder
         $status = ['pending', 'approved', 'rejected'];
         $random_status = $status[array_rand($status)];
         //write code to seed your database with 100 records
-        for ($i = 0; $i < 300; $i++) {
+        for ($i = 0; $i < 600; $i++) {
             $store = Store::create([
             'store_name' => 'Shop Name',
             'store_address' => 'https://shopify.dev/api/admin-rest/2023-01/resources/shop',
@@ -36,7 +36,7 @@ class StoreSeeder extends Seeder
             'sale_include_2' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             'sale_include_3' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             'sale_include_4' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            'category_id' => rand(1, 2),
+            'category_id' => rand(1, 8),
             'user_id' => rand(1, 5),
             'status' => $random_status,
             ]);
