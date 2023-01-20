@@ -57,7 +57,7 @@
                                                     </div>
                                                 <th>NAME</th>
                                                 <th>Email</th>
-                                                <th>Status</th>
+{{--                                                <th>Status</th>--}}
                                                 <th>Created at</th>
                                                 <th>Action</th>
                                             </tr>

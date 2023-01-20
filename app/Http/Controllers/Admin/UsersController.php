@@ -33,9 +33,8 @@ class UsersController extends Controller
             0 => 'id',
             1 => 'name',
             2 => 'email',
-            3 => 'status',
-            4 => 'created_at',
-            5 => 'action'
+            3 => 'created_at',
+            4 => 'action'
         );
 
         $totalData = User::count();
@@ -80,11 +79,11 @@ class UsersController extends Controller
                             ';
                 $nestedData['name'] = $r->name;
                 $nestedData['email'] = $r->email;
-                if ($r->active) {
+                /*if ($r->active) {
                     $nestedData['active'] = '<span class="btn btn-xs btn-success">Active</span>';
                 } else {
                     $nestedData['active'] = '<span class="btn btn-xs btn-warning">Inactive</span>';
-                }
+                }*/
 
                 $nestedData['created_at'] = date('d-m-Y', strtotime($r->created_at));
                 $nestedData['action'] = '
@@ -226,7 +225,7 @@ class UsersController extends Controller
         Session::flash('success_message', 'User successfully deleted!');
         return redirect()->route('users.index');
     }
-    
+
     public function DeleteSelectedUsers(Request $request)
     {
         $input = $request->all();

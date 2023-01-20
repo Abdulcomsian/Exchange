@@ -91,7 +91,7 @@ class StoreController extends Controller
     public function stepTwo(Request $request)
     {
         $validatedData = $request->validate([
-            'business_story' => 'required|max:1000',
+            'business_story' => 'required|max:3000',
         ]);
 
         $store = Store::find(session('store_id'));
@@ -105,7 +105,7 @@ class StoreController extends Controller
     public function stepThree(Request $request)
     {
         $validatedData = $request->validate([
-            'description' => 'required|max:1000',
+            'description' => 'required|max:3000',
         ]);
 
         $store = Store::find(session('store_id'));
@@ -123,7 +123,7 @@ class StoreController extends Controller
             'session' => 'required|max:500',
             'profit' => 'required|max:500',
             'inventory_value' => 'required|max:500',
-            'other_detail' => 'required|max:500',
+            'other_detail' => 'required|max:3000',
         ]);
 
         $store = Store::find(session('store_id'));
@@ -172,6 +172,8 @@ class StoreController extends Controller
         $store->sale_include_4 = $request->sale_include_4;
         $store->category_id = $request->category;
         $store->save();
+        session()->forget('store_id');
+
 
         return response()->json(['success' => 'Data is successfully added']);
 
