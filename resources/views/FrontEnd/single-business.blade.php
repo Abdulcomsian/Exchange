@@ -1,7 +1,7 @@
 
 @extends('layouts.frontEnd.master')
     @section('content')
-    @include('layouts.FrontEnd.header')
+    @include('layouts.frontEnd.header')
 
     <main>
         <div class="main-wrapper">
@@ -95,7 +95,7 @@
                                                 <p>An incredible amount of work has gone into building the custom website, developing the products, sourcing a trusted supplier network, establishing effective customer service and fulfillment processes, growing a social media audience of over 250,000, and of course consistently driving traffic to the website through various channels.</p>
                                             </div>
                                         --}}
-                                        </div> 
+                                        </div>
                                         </div>
                                         <div class="tab-pane fade" id="pills-performance" role="tabpanel" aria-labelledby="pills-performance-tab">
                                             <div class="performance-div">
@@ -125,7 +125,7 @@
                                                         <h4>Profit Margin</h4>
                                                         <p>{{$store->profit }} %</p>
                                                     </div>
-                                                
+
 
                                                 </div>
                                                 <h4 class="common-detail-title">Other details about profit:</h4>
@@ -160,7 +160,7 @@
 
                                                         <span class="d-block"><b>$ {{$store->domain}}</b>/month</span>
                                                     </p>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
-                                                                
+
                                                                 <h4>{{$store->sales_include_1}}</h4>
                                                             </div>
                                                         </li>
@@ -193,7 +193,7 @@
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
-                                                               
+
                                                                 <h4>{{$store->sales_include_3}}</h4>
                                                                 <p>In-person support for 2 full-days to assist in transfer and to help set everything up and answer any questions. Phone and video support for 1-month after sale.</p>
                                                             </div>
@@ -251,7 +251,7 @@
                         <div class="col-lg-4">
                             <div class="business-right-div">
                                 <div class="common-div price-share-div">
-                                    <h5 class="price-text">$100,000</h5>
+{{--                                    <h5 class="price-text">$100,000</h5>--}}
                                     <h5 class="price-text">$ {{$store->price}}</h5>
                                     <a href="tel:12345" class="common-btn">Contact Seller</a>
                                     <div class="url-div mt-3">
@@ -736,5 +736,4 @@
         </div>
     </main>
     @endsection
-    
-    
+

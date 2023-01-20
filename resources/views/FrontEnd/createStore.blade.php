@@ -134,7 +134,7 @@
                             >Avg. revenue /month</label
                             >
                             <input
-                                type="text"
+                                type="number"
                                 id="revenue"
                                 name="revenue"
                                 class="form-control marketing-input"
@@ -146,7 +146,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Avg. sessions /month</label>
                             <input
-                                type="text"
+                                type="number"
                                 id="session"
                                 name="session"
                                 class="form-control marketing-input"
@@ -162,7 +162,7 @@
                             >Avg. profit /month</label
                             >
                             <input
-                                type="text"
+                                type="number"
                                 id="profit"
                                 name="profit"
                                 class="form-control marketing-input"
@@ -176,7 +176,7 @@
                             >Inventory value
                             </label>
                             <input
-                                type="text"
+                                type="number"
                                 id="inventoryValue"
                                 name="inventory_value"
                                 class="form-control marketing-input"
@@ -337,6 +337,7 @@
                             <input
                                 type="number"
                                 name="price"
+                                Placeholder="Enter Store Price"
                                 class="form-control marketing-input"
                                 id="exampleFormControlInput1"
                                 value="{{$store->price ?? ''}}"

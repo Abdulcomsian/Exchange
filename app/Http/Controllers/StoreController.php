@@ -162,6 +162,7 @@ class StoreController extends Controller
             'sale_include_2' => 'required|max:500',
             'sale_include_3' => 'required|max:500',
             'sale_include_4' => 'required|max:500',
+            'price' => 'required|max:500',
             'category' => 'required|max:500'
         ]);
 
@@ -170,6 +171,7 @@ class StoreController extends Controller
         $store->sale_include_2 = $request->sale_include_2;
         $store->sale_include_3 = $request->sale_include_3;
         $store->sale_include_4 = $request->sale_include_4;
+        $store->price = $request->price;
         $store->category_id = $request->category;
         $store->save();
         session()->forget('store_id');

@@ -44,7 +44,7 @@ class FrontController extends Controller
 
     public function dashboard()
     {
-        $stores = Store::where('user_id', Auth::user()->id)->latest()->get();
+        $stores = Store::where('user_id', Auth::user()->id)->where('status', 'approved')->latest()->get();
         return view('FrontEnd.storeListing', ['stores' => $stores]);
     }
 
@@ -56,7 +56,7 @@ class FrontController extends Controller
 
     public function home()
     {
-        $stores = Store::take(3)->get();
+        $stores = Store::where('status', 'approved')->take(3)->get();
         return view('FrontEnd.index', ['stores' => $stores]);
     }
 
@@ -112,7 +112,7 @@ class FrontController extends Controller
             }
         }
 
-        $stores = $query->latest()->get();
+        $stores = $query->where('status', 'approved')->latest()->get();
 
         return view('FrontEnd.all-business', ['stores' => $stores]);
     }

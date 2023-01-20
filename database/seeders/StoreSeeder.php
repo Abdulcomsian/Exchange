@@ -38,7 +38,7 @@ class StoreSeeder extends Seeder
             'sale_include_4' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             'category_id' => rand(1, 8),
             'user_id' => rand(1, 5),
-            'status' => $random_status,
+            'status' => 'approved',
             ]);
         }
 
