@@ -117,7 +117,14 @@ class FrontController extends Controller
         return view('FrontEnd.all-business', ['stores' => $stores]);
     }
 
-    /*    public function applyFilter(){
-            return view('FrontEnd.all-business',compact('stores'));
-        }*/
+    public function applyFilter(Request $request)
+    {
+        $search = $request->get('search');
+        $stores = Store::whereHas('category', function ($query) use ($search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        })->orWhere('store_name', 'like', '%' . $search . '%')
+            ->get();
+
+        return view('FrontEnd.all-business', compact('stores'));
+    }
 }

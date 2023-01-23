@@ -10,15 +10,15 @@
                             <div class="banner-left">
                                 <h2>Buy your dream business</h2>
                                 <p class="mt-2 mb-4">Exchange is Shopify’s marketplace to buy and sell businesses for entrepreneurs like you.</p>
-                                <div class="form-div mb-5">
-                                    <form action="">
-                                        <div class="input-div position-relative">
-                                            <input type="text" name="" id="" placeholder="Search Business">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </form>
-                                </div>
-                                <a href="">Discover your next business</a>
+                                <form action="{{route('apply_filter')}}">
+                                    <div class="form-div mb-5">
+                                            <div class="input-div position-relative">
+                                                <input type="text" name="search" id="" placeholder="Search Business">
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                    </div>
+                                    <button type="submit">Discover your next business</button>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-6">

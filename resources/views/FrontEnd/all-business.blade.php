@@ -314,7 +314,8 @@
                         <div class="listing-list-common mt-5">
                             <div class="container">
                                 <div class="row">
-                                    @foreach ($stores as $store)
+                                    @if(count($stores) > 0)
+                                        @foreach ($stores as $store)
 
                                         @if($store->image)
                                             @php $image_path = 'images/'.$store->image @endphp
@@ -356,6 +357,9 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                    @else
+                                        <p>No records found!</p>
+                                    @endif
                                 </div>
                                 <!-- <div class="pagination-div">
                                     <div class="row">

@@ -22,7 +22,7 @@
                                     </li>
                                     <li>
                                         <a href=""> Swift / SwiftUI Developer for B2B iOS apps</a>
-                                        <a href="">{{$store->name}}</a>
+                                        <a href="">{{$store->store_name}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -130,7 +130,7 @@
                                                 </div>
                                                 <h4 class="common-detail-title">Other details about profit:</h4>
                                                 <p>The "Shopify Verified" avg. monthly revenue and avg. monthly sessions is technically correct, but that's combining the last 3 years of traffic and revenue. Current average revenue and sessions is less - please look to the charts below for accurate information. Also note that profit margins can be increased significantly by reducing operational costs and overhead. Office rent and fulfillment staff wages takes a large chunk out of our monthly profit and if the buyer were to operate out of their existing office or even out of a home, profit could be increased overnight.</p>
-                                                <div class="graph-div">
+                                                {{--<div class="graph-div">
                                                     <h4 class="common-detail-title">Last 7 years revenue</h4>
                                                     <p class="revenue-amount">$5,074,975</p>
                                                     <img src="{{asset('FrontEnd/img/graph.png')}}" alt="" class="img-fluid">
@@ -139,7 +139,7 @@
                                                     <h4 class="common-detail-title">Last 7 years traffic</h4>
                                                     <p class="revenue-amount">4,728,433 Visits</p>
                                                     <img src="{{asset('FrontEnd/img/graph.png')}}" alt="" class="img-fluid">
-                                                </div>
+                                                </div>--}}
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="pills-expenses" role="tabpanel" aria-labelledby="pills-expenses-tab">
@@ -158,7 +158,7 @@
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Domain</span>
 
-                                                        <span class="d-block"><b>$ {{$store->domain}}</b>/month</span>
+                                                        <span class="d-block"><b>{{$store->domain}}</b>/month</span>
                                                     </p>
 
                                                 </div>
