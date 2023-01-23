@@ -50,7 +50,9 @@
                                     </div>
                                     <div class="text-danger" id="image_error"></div>
                                     @if(isset($store->image))
-                                            <img src="{{asset('images/'.$store->image)}}" alt="" width="100px" height="100px">
+                                            <img id="image-preview" src="{{asset('images/'.$store->image)}}" alt="" width="100px" height="100px">
+                                    @else
+                                            <img id="image-preview" src="" alt="" width="100px" height="100px" style="display:none;">
                                     @endif
                                 </div>
                             </div>
@@ -431,6 +433,14 @@
         </script>
 
         <script>
+            $("#formFile").change(function () {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#image-preview").attr("src", e.target.result);
+                    $("#image-preview").show();
+                }
+                reader.readAsDataURL(this.files[0]);
+            });
             // Tab DOM element selectors
             const step1 = document.querySelector('.tab-1');
             const step2 = document.querySelector('.tab-2');
@@ -639,6 +649,7 @@
                 },
                 success: function (response) {
                     console.log(response);
+
                     if (response.success) {
                         step5.classList.remove('active');
                         step6.classList.add('active');

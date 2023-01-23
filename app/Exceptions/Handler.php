@@ -6,6 +6,7 @@ use App\Models\Log;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Auth;
+use Illuminate\Support\Facades\Schema;
 
 class Handler extends ExceptionHandler
 {
@@ -36,19 +37,29 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            $userId = Auth::user()->id ?? 1;
+        if (Schema::hasTable('logs')) {
 
-            $data = array(
-                'user_id' => $userId,
-                'code' => $e->getCode(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-                'message' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
-            );
+            $this->reportable(function (Throwable $e) {
 
-            Log::create($data);
-        });
+                $userId = Auth::user()->id ?? 1;
+
+                $data = array(
+                    'user_id' => $userId,
+                    'code' => $e->getCode(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'message' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString(),
+                );
+
+                Log::create($data);
+
+            });
+        }
+        else {
+            $this->reportable(function (Throwable $e) {
+
+            });
+        }
     }
 }

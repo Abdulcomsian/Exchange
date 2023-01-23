@@ -48,7 +48,7 @@
                                                         </div>
                                                         <div class="listing-content ms-4">
                                                             <div class="listing-detail d-flex align-items-center justify-content-between">
-                                                                <h5>{{$store->store_name}}</h5>
+                                                                <a href="{{route('single_store', $store->id)}}"><h5>{{$store->store_name}}</h5></a>
                                                                 <div class="sale-profit-revenew d-flex align-items-center">
                                                                     <div class="common-div text-center">
                                                                         <h5>Avg. Revenue</h5>
