@@ -37,7 +37,7 @@ class SocialController extends Controller
 
             Auth::login($finduser);
 
-            return to_route('home');
+            return redirect(route(('dashboard'));
 
         }else{
 
