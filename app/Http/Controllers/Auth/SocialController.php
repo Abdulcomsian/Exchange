@@ -37,7 +37,7 @@ class SocialController extends Controller
 
             Auth::login($finduser);
 
-            return redirect('http://127.0.0.1:8000/');
+            return to_route('home');
 
         }else{
 
