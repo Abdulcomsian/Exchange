@@ -39,21 +39,24 @@
                     </div>
                     <div class="multiple-services">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="common-service">
-                                    <div class="service-img">
-                                        <img src="{{asset('FrontEnd/img/learn-v2-750x430.jpeg')}}" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="detail-box">
-                                        <h5>AppSo</h5>
-                                        <p>Photography WordPress Theme</p>
-                                        <div class="price-box">
-                                            <span>$39.00</span>
+                            @foreach($featured_business as $business)
+                                <div class="col-md-4">
+                                    <div class="common-service">
+                                        <div class="service-img">
+                                            <img src="{{asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430.png')}}" alt="" class="img-fluid">
+{{--                                            <img src="{{asset('FrontEnd/img/learn-v2-750x430.jpeg')}}" alt="" class="img-fluid">--}}
+                                        </div>
+                                        <div class="detail-box">
+                                            <h5>{{$business->store_name}}</h5>
+                                            <p>Photography WordPress Theme</p>
+                                            <div class="price-box">
+                                                <span>${{$business->price}}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
+                            @endforeach
+                            {{--<div class="col-md-4">
                                 <div class="common-service">
                                     <div class="service-img">
                                         <img src="{{asset('FrontEnd/img/image_processing20200109-18945-qpg2vi-750x430.png')}}" alt="" class="img-fluid">
@@ -80,7 +83,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
                     <div class="text-center w-100">
