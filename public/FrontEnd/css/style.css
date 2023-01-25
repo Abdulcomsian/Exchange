@@ -864,7 +864,7 @@ footer .footer-top-list ul li a:hover {
 #pagination-div {
     padding: 0px 10px;
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 #pagination-div a {
     display: flex;
@@ -886,6 +886,12 @@ footer .footer-top-list ul li a:hover {
 }
 .nav-pills .nav-link.active{
     border: 2px solid #ec2866 !important;
+}
+
+.next,
+.previous{
+    border: 2px solid #ec2866;
+    font-size: 15px;
 }
 
 /******************** Media - Query - CSS */
@@ -1099,10 +1105,20 @@ footer .footer-top-list ul li a:hover {
     }
 }
 @media screen and (max-width: 400px) {
+    
     #main-banner {
         background-size: 90vh 90vh;
     }
 }
+@media screen and (max-width: 550px ) and (min-width: 353px) {
+    .industry-span:hover .industry-div{
+        display: block;
+        right: 0px;
+        left: auto;
+        top: 36px;
+    }
+}
+
 
 .btn-signIn {
     cursor: pointer;

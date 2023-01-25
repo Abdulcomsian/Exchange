@@ -375,10 +375,12 @@
             var rowsShown = 15;
             var rowsTotal = $('.listing-list-common .row .col-lg-12').length;
             var numPages = rowsTotal / rowsShown;
-            for (i = 0; i < numPages; i++) {
+            // $('#pagination-div').append('<a class="previous" rel="' + i + '">' + "<<" + '</a> ');
+            for (i = 0; i < 8; i++) {
                 var pageNum = i + 1;
                 $('#pagination-div').append('<a rel="' + i + '">' + pageNum + '</a> ');
             }
+            $('#pagination-div').append('<a class="next" rel="' + i + '">' + ">>" + '</a> ');
             $('.listing-list-common .row .col-lg-12').hide();
             $('.listing-list-common .row .col-lg-12').slice(0, rowsShown).show();
             $('#pagination-div a:first').addClass('active');
