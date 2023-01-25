@@ -21,43 +21,6 @@
                 <div class="container">
                     <div class="filter-div mt-5">
                         <div class="container">
-                            {{--                            @include('FrontEnd.business.filter')--}}
-                            @php $price1 = $price2 = $price3 = $price4 = $price5 = $price6 = '' @endphp
-                            @if(request()->get('price'))
-                                @if(in_array('0-500', request()->input('price')))
-                                    @php $price1 = 'checked' @endphp
-                                @endif
-                                @if(in_array('500-1000', request()->input('price')))
-                                    @php $price2 = 'checked' @endphp
-                                @endif
-                                @if(in_array('1000-2500', request()->input('price')))
-                                    @php $price3 = 'checked' @endphp
-                                @endif
-                                @if(in_array('2500-5000', request()->input('price')))
-                                    @php $price4 = 'checked' @endphp
-                                @endif
-                                @if(in_array('5000-10000', request()->input('price')))
-                                    @php $price5 = 'checked' @endphp
-                                @endif
-                                @if(in_array('10000-25000', request()->input('price')))
-                                    @php $price6 = 'checked' @endphp
-                                @endif
-                            @endif
-                            @php $revenue1 = $revenue2 = $revenue3 = $revenue4 =  '' @endphp
-                            @if(request()->get('revenue'))
-                                @if(in_array('0-500', request()->input('revenue')))
-                                    @php $revenue1 = 'checked' @endphp
-                                @endif
-                                @if(in_array('500-2500', request()->input('revenue')))
-                                    @php $revenue2 = 'checked' @endphp
-                                @endif
-                                @if(in_array('2500-15000', request()->input('revenue')))
-                                    @php $revenue3 = 'checked' @endphp
-                                @endif
-                                @if(in_array('15000', request()->input('revenue')))
-                                    @php $revenue4 = 'checked' @endphp
-                                @endif
-                            @endif
                             <form action="{{ route('all_business') }}" method="get" id="filter-form">
                                 <div class="row">
                                     <div class="col-md-9">
@@ -65,48 +28,16 @@
                                             <li class="price-span">
                                                 <span>Price</span>
                                                 <div class="common-selection-div dropdown-div price-div">
+
                                                     <h4>Selling Price</h4>
                                                     <ul>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="price[]" id="" value="0-500"
-                                                                   {{$price1}} onchange="submitForm()">
-                                                            <label for="">$0 - $500</label>
-                                                            <span>{{numberOfRecordsByPriceRange(0,500)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="price[]" id="" value="500-1000"
-                                                                   {{$price2}} onchange="submitForm()">
-                                                            <label for="">$500 - $1,000</label>
-                                                            <span>{{numberOfRecordsByPriceRange(500,1000)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="price[]" id=""
-                                                                   value="1000-2500"
-                                                                   {{$price3}} onchange="submitForm()">
-                                                            <label for="">$1,000 - $2,500</label>
-                                                            <span>{{numberOfRecordsByPriceRange(1000,2500)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="price[]" id=""
-                                                                   value="2500-5000"
-                                                                   {{$price4}} onchange="submitForm()">
-                                                            <label for="">$2,500 - $5,000</label>
-                                                            <span>{{numberOfRecordsByPriceRange(2500,5000)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="price[]" id=""
-                                                                   value="5000-10000"
-                                                                   {{$price5}}  onchange="submitForm()">
-                                                            <label for="">$5,000 - $10,000</label>
-                                                            <span>{{numberOfRecordsByPriceRange(5000,10000)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="price[]" id=""
-                                                                   value="10000-25000"
-                                                                   {{$price6}} onchange="submitForm()">>
-                                                            <label for="">$10,000 - $25,000</label>
-                                                            <span>{{numberOfRecordsByPriceRange(10000,25000)}}</span>
-                                                        </li>
+                                                        @foreach(priceRange() as $range)
+                                                            <li class="mb-2 d-flex justify-content-between">
+                                                                <input type="checkbox" name="price[]" id="" value="{{ $range['value'] }}" {{ isChecked($range['value'], request()->input('price')) }} onchange="submitForm()">
+                                                                <label for="">{{ $range['label'] }}</label>
+                                                                <span>{{ numberOfRecordsByPriceRange($range['min'], $range['max']) }}</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </li>
@@ -115,30 +46,13 @@
                                                 <div class="common-selection-div dropdown-div revenue-div">
                                                     <h4>Average Monthly Revenue</h4>
                                                     <ul>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="revenue[]" value="0-500"
-                                                                   {{$revenue1}} id="" onchange="submitForm()">
-                                                            <label for="">$0 - $500</label>
-                                                            <span>{{numberOfRecordsByRevenueRange(0,500)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="revenue[]" value="500-2500"
-                                                                   {{$revenue2}} id="" onchange="submitForm()">
-                                                            <label for="">$500 - $2,500</label>
-                                                            <span>{{numberOfRecordsByRevenueRange(500,2500)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" name="revenue[]" value="2500-15000"
-                                                                   {{$revenue3}} id="" onchange="submitForm()">
-                                                            <label for="">$2,500 - $15,000</label>
-                                                            <span>{{numberOfRecordsByRevenueRange(2500,15000)}}</span>
-                                                        </li>
-                                                        <li class="mb-2 d-flex justify-content-between">
-                                                            <input type="checkbox" value="15000" name="revenue[]"
-                                                                   {{$revenue4}} id="" onchange="submitForm()">
-                                                            <label for="">$15,000+</label>
-                                                            <span>{{numberOfRecordsByRevenueRange(15000, 0)}}</span>
-                                                        </li>
+                                                        @foreach(revenueRange() as $range)
+                                                            <li class="mb-2 d-flex justify-content-between">
+                                                                <input type="checkbox" name="revenue[]" id="" value="{{ $range['value'] }}" {{ isChecked($range['value'], request()->input('revenue')) }} onchange="submitForm()">
+                                                                <label for="">{{ $range['label'] }}</label>
+                                                                <span>{{ numberOfRecordsByRevenueRange($range['min'], $range['max']) }}</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </li>
@@ -228,61 +142,6 @@
                                                                     <span>{{numberOfRecordsByCategory($category->id)}}</span>
                                                                 </li>
                                                         @endforeach
-                                                        {{-- <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Gift and collectibles</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Sports and recreation</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Toys and games</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Stationery and office supplies</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Services and consulting</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Pets and animals</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Music</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Home and furniture</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Health and beauty</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Food and drink</label>
-                                                             <span>7393</span>
-                                                         </li>
-                                                         <li class="mb-2 d-flex justify-content-between">
-                                                             <input type="checkbox" name="" id="">
-                                                             <label for="">Electronics and gadgets</label>
-                                                             <span>7393</span>
-                                                         </li>--}}
                                                     </ul>
                                                 </div>
                                             </li>

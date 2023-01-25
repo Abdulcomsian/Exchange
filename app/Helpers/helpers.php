@@ -163,6 +163,9 @@ function filterByPrice($query, $prices)
     if (in_array('10000-25000', $prices)) {
         $query->orWhereBetween('price', [10000, 25000]);
     }
+    if (in_array('25000', $revenue)) {
+        $query->orWhere('price', '>', 25000);
+    }
 }
 
 function filterByRevenue($query, $revenue)
@@ -177,7 +180,7 @@ function filterByRevenue($query, $revenue)
         $query->orWhereBetween('revenue', [2500, 15000]);
     }
     if (in_array('15000', $revenue)) {
-        $query->orWhere('price', '>', 15000);
+        $query->orWhere('revenue', '>', 15000);
     }
 }
 
@@ -192,7 +195,11 @@ function filterByIndustry($query,$industries)
 }
 
 function numberOfRecordsByPriceRange($startPrice, $endPrice) {
-    return Store::whereBetween('price', [$startPrice, $endPrice])->where('status','approved')->count();
+    if($startPrice == 25000){
+        return Store::where('price', '>', 25000)->where('status','approved')->count();
+    } else {
+        return Store::whereBetween('price', [$startPrice, $endPrice])->where('status', 'approved')->count();
+    }
 }
 
 function numberOfRecordsByRevenueRange($startPrice, $endPrice) {
@@ -205,4 +212,92 @@ function numberOfRecordsByRevenueRange($startPrice, $endPrice) {
 
 function numberOfRecordsByCategory($category_id) {
         return Store::where('category_id', $category_id)->where('status','approved')->count();
+}
+
+function revenueRange() {
+    $revenueRanges = [
+        [
+            'value' => '0-500',
+            'label' => '$0 - $500',
+            'min' => 0,
+            'max' => 500
+        ],
+        [
+            'value' => '500-2500',
+            'label' => '$500 - $2,500',
+            'min' => 500,
+            'max' => 2500
+        ],
+        [
+            'value' => '2500-15000',
+            'label' => '$2,500 - $15,000',
+            'min' => 2500,
+            'max' => 15000
+        ],
+        [
+            'value' => '15000',
+            'label' => '$15,000+',
+            'min' => 15000,
+            'max' => null
+        ],
+        // Add more ranges as needed
+    ];
+
+    return $revenueRanges;
+}
+
+function priceRange(){
+    $priceRanges = [
+        [
+            'value' => '0-500',
+            'label' => '$0 - $500',
+            'min' => 0,
+            'max' => 500
+        ],
+        [
+            'value' => '500-1000',
+            'label' => '$500 - $1,000',
+            'min' => 500,
+            'max' => 1000
+        ],
+        [
+            'value' => '1000-2500',
+            'label' => '$1,000 - $2,500',
+            'min' => 1000,
+            'max' => 2500
+        ],
+        [
+            'value' => '2500-5000',
+            'label' => '$2,500 - $5,000',
+            'min' => 2500,
+            'max' => 5000
+        ],
+        [
+            'value' => '5000-10000',
+            'label' => '$5,000 - $10,000',
+            'min' => 5000,
+            'max' => 10000
+        ],
+        [
+            'value' => '10000-25000',
+            'label' => '$10,000 - $25,000',
+            'min' => 10000,
+            'max' => 25000
+        ],
+        [
+            'value' => '25000',
+            'label' => '$25,000+',
+            'min' => 25000,
+            'max' => null
+        ],
+        // Add more ranges as needed
+    ];
+
+    return $priceRanges;
+
+}
+
+function isChecked($value, $array=null)
+{
+    return (!is_null($array) && in_array($value, $array)) ? 'checked' : '';
 }

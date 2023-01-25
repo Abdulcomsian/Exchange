@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="text-center w-100">
-                        <a href="" class="common-btn">More Business</a>
+                        <a href="{{route('all_business')}}" class="common-btn">More Business</a>
                     </div>
                 </div>
             </div>
