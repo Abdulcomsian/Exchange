@@ -205,7 +205,7 @@
 {{--                        </div>--}}
 {{--                        <span class="text-center" style="color: white">Continue with Facebook</span></a--}}
 {{--                    ><span class="footer d-flex">--}}
-                        <input
+                        <!-- <input
                             type="checkbox"
                             class="marketing-checkbox"
                             id="subscribe"
@@ -217,7 +217,7 @@
                 anytime.</span
                             ></label
                         ></span
-                    >
+                    > -->
                 </div>
             </div>
         </div>

@@ -143,7 +143,7 @@ header #dropdownMenuButton {
     top: 60px;
     border-radius: 4px;
     padding: 10px;
-    right: 120px;
+    /* right: 120px; */
     /* opacity: 0;
     z-index: -1; */
     transition: all 0.5s linear;
@@ -881,6 +881,12 @@ footer .footer-top-list ul li a:hover {
     background-color: #ec2866;
     color: #fff;
 }
+#pills-tab li{
+    padding: 5px;
+}
+.nav-pills .nav-link.active{
+    border: 2px solid #ec2866 !important;
+}
 
 /******************** Media - Query - CSS */
 @media screen and (max-width: 1200px) {
@@ -1013,6 +1019,15 @@ footer .footer-top-list ul li a:hover {
     }
 }
 @media screen and (max-width: 580px) {
+    #single-common-banner{
+        padding: 62px 0 150px 0;
+    }
+    .auth-drop-down{
+        right: 3%;
+    }
+    #join-us-today .input-div input{
+        padding: 10px 22px;
+    }
     footer .footer-top-list ul li a {
         font-size: 12px;
         margin-right: 10px;
@@ -1024,7 +1039,7 @@ footer .footer-top-list ul li a:hover {
         width: 100% !important;
     }
     #join-us-today .common-btn {
-        padding: 15px 30px;
+        padding: 5px 17px;
     }
     #join-us-today h5 {
         font-size: 28px;
@@ -1332,6 +1347,14 @@ footer .footer-top-list ul li a:hover {
     display: flex;
     justify-content: center;
 }
+.modal-dialog{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    width: auto;
+    margin: 0.5rem auto !important; 
+    /* pointer-events: none; */
+}
 
 .modal-content {
     border-radius: 10px !important;
@@ -1383,6 +1406,8 @@ footer .footer-top-list ul li a:hover {
     .store-listing--content .tabMobile {
         margin-bottom: 10px;
     }
+    
+
 }
 
 @media screen and (max-width: 768px) {
@@ -1403,5 +1428,11 @@ footer .footer-top-list ul li a:hover {
     }
     .storeAddress {
         margin-top: 1.5rem;
+    }
+    #popular-services,
+    #seller-support,
+    #how-it-work,
+    #faq-section{
+        padding: 10px 30px;
     }
 }
