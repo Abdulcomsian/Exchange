@@ -71,41 +71,41 @@
                                                             <input type="checkbox" name="price[]" id="" value="0-500"
                                                                    {{$price1}} onchange="submitForm()">
                                                             <label for="">$0 - $500</label>
-                                                            <span>7393</span>
+                                                            <span>{{numberOfRecordsByPriceRange(0,500)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" name="price[]" id="" value="500-1000"
                                                                    {{$price2}} onchange="submitForm()">
                                                             <label for="">$500 - $1,000</label>
-                                                            <span>7393</span>
+                                                            <span>{{numberOfRecordsByPriceRange(500,1000)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" name="price[]" id=""
                                                                    value="1000-2500"
                                                                    {{$price3}} onchange="submitForm()">
                                                             <label for="">$1,000 - $2,500</label>
-                                                            <span>7393</span>
+                                                            <span>{{numberOfRecordsByPriceRange(1000,2500)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" name="price[]" id=""
                                                                    value="2500-5000"
                                                                    {{$price4}} onchange="submitForm()">
                                                             <label for="">$2,500 - $5,000</label>
-                                                            <span>7393</span>
+                                                            <span>{{numberOfRecordsByPriceRange(2500,5000)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" name="price[]" id=""
                                                                    value="5000-10000"
                                                                    {{$price5}}  onchange="submitForm()">
                                                             <label for="">$5,000 - $10,000</label>
-                                                            <span>7393</span>
+                                                            <span>{{numberOfRecordsByPriceRange(5000,10000)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" name="price[]" id=""
                                                                    value="10000-25000"
                                                                    {{$price6}} onchange="submitForm()">>
                                                             <label for="">$10,000 - $25,000</label>
-                                                            <span>7393</span>
+                                                            <span>{{numberOfRecordsByPriceRange(10000,25000)}}</span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -119,25 +119,25 @@
                                                             <input type="checkbox" name="revenue[]" value="0-500"
                                                                    {{$revenue1}} id="" onchange="submitForm()">
                                                             <label for="">$0 - $500</label>
-                                                            {{--                                                            <span>7393</span>--}}
+                                                            <span>{{numberOfRecordsByRevenueRange(0,500)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" name="revenue[]" value="500-2500"
                                                                    {{$revenue2}} id="" onchange="submitForm()">
                                                             <label for="">$500 - $2,500</label>
-                                                            {{--                                                            <span>7393</span>--}}
+                                                            <span>{{numberOfRecordsByRevenueRange(500,2500)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" name="revenue[]" value="2500-15000"
                                                                    {{$revenue3}} id="" onchange="submitForm()">
                                                             <label for="">$2,500 - $15,000</label>
-                                                            {{--                                                            <span>7393</span>--}}
+                                                            <span>{{numberOfRecordsByRevenueRange(2500,15000)}}</span>
                                                         </li>
                                                         <li class="mb-2 d-flex justify-content-between">
                                                             <input type="checkbox" value="15000" name="revenue[]"
                                                                    {{$revenue4}} id="" onchange="submitForm()">
                                                             <label for="">$15,000+</label>
-                                                            {{--                                                            <span>7393</span>--}}
+                                                            <span>{{numberOfRecordsByRevenueRange(15000, 0)}}</span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -225,7 +225,7 @@
                                                                            {{$industry}} value="{{$category->id}}" id=""
                                                                            onchange="submitForm()">
                                                                     <label for="">{{$category->name}}</label>
-                                                                    <span>7393</span>
+                                                                    <span>{{numberOfRecordsByCategory($category->id)}}</span>
                                                                 </li>
                                                         @endforeach
                                                         {{-- <li class="mb-2 d-flex justify-content-between">

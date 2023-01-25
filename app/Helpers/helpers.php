@@ -190,3 +190,19 @@ function filterByIndustry($query,$industries)
             }
     }
 }
+
+function numberOfRecordsByPriceRange($startPrice, $endPrice) {
+    return Store::whereBetween('price', [$startPrice, $endPrice])->where('status','approved')->count();
+}
+
+function numberOfRecordsByRevenueRange($startPrice, $endPrice) {
+    if($startPrice == 15000){
+        return Store::where('revenue', '>', 15000)->where('status','approved')->count();
+    } else{
+        return Store::whereBetween('revenue', [$startPrice, $endPrice])->where('status','approved')->count();
+    }
+}
+
+function numberOfRecordsByCategory($category_id) {
+        return Store::where('category_id', $category_id)->where('status','approved')->count();
+}
