@@ -333,7 +333,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <select class="form-select marketing-input" aria-label="Default select example" name="category">
-                                <option selected>Open this select menu</option>
+                                <option selected disabled>Open this select menu</option>
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}" @if(isset($store)){{($category->id == $store->id) ? 'selected' : ''}}@endif>{{$category->name}}</option>
                                 @endforeach
