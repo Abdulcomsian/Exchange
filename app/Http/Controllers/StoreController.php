@@ -91,7 +91,6 @@ class StoreController extends Controller
         $store->store_name = $request->store_name;
         $store->user_id = Auth::user()->id;
         $store->save();
-
         session(['store_id' => $store->id]);
 
         return response()->json(['success' => 'Data is successfully added']);
@@ -103,7 +102,6 @@ class StoreController extends Controller
         $validatedData = $request->validate([
             'business_story' => 'required|max:3000',
         ]);
-
         $store = Store::find(session('store_id'));
         $store->business_story = $request->business_story;
         $store->save();
@@ -173,7 +171,8 @@ class StoreController extends Controller
             'sale_include_3' => 'required|max:500',
             'sale_include_4' => 'required|max:500',
             'price' => 'required|max:500',
-            'category' => 'required|max:500'
+            'category' => 'required|max:500',
+            'tags' => 'required|max:500',
         ]);
 
         $store = Store::find(session('store_id'));
@@ -184,6 +183,15 @@ class StoreController extends Controller
         $store->price = $request->price;
         $store->category_id = $request->category;
         $store->save();
+//        $tagsArray = explode(',', $request->tags);
+        foreach($request->tags as $key=>$value)
+        {
+            $tags= Tag::create([
+                'store_id'=> $store->id,
+                'name'=> $value
+            ]);
+        }
+        session(['store_id' => $store->id]);
         session()->forget('store_id');
 
 

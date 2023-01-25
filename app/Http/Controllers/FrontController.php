@@ -6,6 +6,7 @@ use App\Models\Store;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Tag;
 
 class FrontController extends Controller
 {
@@ -50,7 +51,7 @@ class FrontController extends Controller
 
     public function singleStore($id)
     {
-        $store = Store::findorfail($id);
+        $store = Store::with('tags')->findorfail($id);
         return view('FrontEnd.single_store', compact('store'));
     }
 
@@ -77,5 +78,11 @@ class FrontController extends Controller
             ->get();
 
         return view('FrontEnd.all-business', compact('stores'));
+    }
+
+    public function tags()
+    {
+        $tags = Tag::all();
+        return response()->json($tags);
     }
 }

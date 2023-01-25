@@ -352,7 +352,12 @@
                             <span class="text-danger" id="price_error"></span>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <select id="tags" class="form-control tags marketing-input" name="tags[]" multiple="multiple"></select>
+                            <span class="text-danger" id="tags_error"></span>
+                        </div>
+                    </div>
                     <div class="tf-footer">
                         <a
                             href="#"
@@ -424,12 +429,30 @@
         });
     </script>
     <script>
-        $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-    $(".js-example-basic-multiple").select2({
-  tags: true
-});
-});
+        $(document).ready(function () {
+            $(".tags").select2({
+                tags: true,
+                placeholder: 'Select tags',
+                ajax: {
+                    url: '{{route('tags')}}',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term, // search term
+                            page: params.page
+                        };
+                    },
+                    processResults: function (data, params) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                },
+                minimumInputLength: 1
+            });
+        });
         </script>
 
         <script>
@@ -466,7 +489,6 @@
                 formData.append("store_address",$("#store_address").val());
                 formData.append("store_name", $("#store_name").val());
                 formData.append("edit_form", $("#edit_form").val());
-                console.log(formData);
                 $.ajax({
                     type: "POST",
                     url: "{{route('stores.step_one') }}",

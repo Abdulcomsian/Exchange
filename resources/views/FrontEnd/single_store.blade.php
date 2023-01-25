@@ -286,50 +286,21 @@
                                         </ul>
                                     </div>
                                 </div>
+                                @if(count($store->tags) > 0)
                                 <div class="common-div">
                                     <p class="mb-0">Tags</p>
                                     <hr>
                                     <div class="url-div mt-3">
                                         <ul class="d-flex flex-wrap">
+                                            @foreach($store->tags as $tag)
                                             <li class="mb-2">
-                                                <a href="">Canada</a>
+                                                <a href="">{{$tag->name}}</a>
                                             </li>
-                                            <li class="mb-2">
-                                                <a href="">Established businesses</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Ontario</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Toronto</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Large Business</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Health and beauty</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Inventory</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Private listings</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Businesses offering seller support after sale</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Highly Profitable businesses</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Business and Franchises under $100,000</a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="">Businesses with an Offer to Purchase</a>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
+                               @endif
                                 <div class="common-div tab-div">
                                     <div class="tab-list">
                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

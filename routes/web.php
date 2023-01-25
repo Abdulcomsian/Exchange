@@ -37,6 +37,10 @@ Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallba
 Route::get('auth/facebook', [SocialController::class, 'redirectToFacebook'])->name('auth.facebook');
 Route::get('auth/facebook/callback', [SocialController::class, 'handleFacebookCallback'])->name('auth.facebook_callback');
 
+Route::get('/shopify/install', [SocialController::class, 'install'])->name('shopify.install');
+Route::get('/shopify/callback', [SocialController::class, 'callback'])->name('shopify.callback');
+
+
 Route::get('logout',[SocialController::class,'logout'])->name('logout');
 
 Route::get('/',[FrontController::class,'home'])->name('home');
@@ -85,6 +89,7 @@ Route::group([
 
     Route::get('/sell-your-business',[FrontController::class,'sell_your_business'])->name('sell_your_business');
     Route::get('/sell-your-business/{id}',[FrontController::class,'edit_sell_your_business'])->name('sell_your_business.edit');
+    Route::get('/tags', [FrontController::class, 'tags'])->name('tags');
 });
 
 Route::group([
