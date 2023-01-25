@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\Category;
 use App\Models\MediaUpload;
 use App\Models\StaticOption;
+use App\Models\Store;
+use Illuminate\Http\Request;
 
 function get_static_option($key)
 {
@@ -117,4 +120,73 @@ function formatBytes($size, $precision = 2)
     $suffixes = array('', 'KB', 'MB', 'GB', 'TB');
 
     return round(pow(1024, $base - floor($base)), $precision) . ' ' . $suffixes[floor($base)];
+}
+
+function filterStores(Request $request)
+{
+    $query = Store::query();
+
+    if ($request->has('price')) {
+        filterByPrice($query, $request->get('price'));
+    }
+
+    if ($request->has('revenue')) {
+        filterByRevenue($query, $request->get('revenue'));
+    }
+
+    if ($request->has('industry')) {
+        filterByIndustry($query, $request->get('industry'));
+    }
+
+    $stores = $query->where('status', 'approved')->latest()->get();
+
+    return $stores;
+}
+
+function filterByPrice($query, $prices)
+{
+    if (in_array('0-500', $prices)) {
+        $query->orWhereBetween('price', [0, 500]);
+    }
+    if (in_array('500-1000', $prices)) {
+        $query->orWhereBetween('price', [500, 1000]);
+    }
+    if (in_array('1000-2500', $prices)) {
+        $query->orWhereBetween('price', [1000, 2500]);
+    }
+    if (in_array('2500-5000', $prices)) {
+        $query->orWhereBetween('price', [2500, 5000]);
+    }
+    if (in_array('5000-10000', $prices)) {
+        $query->orWhereBetween('price', [5000, 10000]);
+    }
+    if (in_array('10000-25000', $prices)) {
+        $query->orWhereBetween('price', [10000, 25000]);
+    }
+}
+
+function filterByRevenue($query, $revenue)
+{
+    if (in_array('0-500', $revenue)) {
+        $query->orWhereBetween('revenue', [0, 500]);
+    }
+    if (in_array('500-2500', $revenue)) {
+        $query->orWhereBetween('revenue', [500, 2500]);
+    }
+    if (in_array('2500-15000', $revenue)) {
+        $query->orWhereBetween('revenue', [2500, 15000]);
+    }
+    if (in_array('15000', $revenue)) {
+        $query->orWhere('price', '>', 15000);
+    }
+}
+
+function filterByIndustry($query,$industry)
+{
+    $categories = Category::all();
+        foreach ($categories as $cateogry) {
+            if (in_array($cateogry->id, $industry)) {
+                $query->orWhere('category_id', $cateogry->id);
+            }
+    }
 }

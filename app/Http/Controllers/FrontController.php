@@ -63,7 +63,9 @@ class FrontController extends Controller
 
     public function allBusiness(Request $request)
     {
-        $query = Store::query();
+        $stores = filterStores($request);
+
+        /*$query = Store::query();
 
         if ($request->has('price')) {
             $price = $request->get('price');
@@ -113,7 +115,7 @@ class FrontController extends Controller
             }
         }
 
-        $stores = $query->where('status', 'approved')->latest()->get();
+        $stores = $query->where('status', 'approved')->latest()->get();*/
 
         return view('FrontEnd.all-business', ['stores' => $stores]);
     }
