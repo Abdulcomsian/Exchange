@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h5>Swift / SwiftUI Developer for B2B iOS apps</h5>
+                            <h5>{{$store->store_name}}</h5>
                             <div class="breadcrum">
                                 <ul>
                                     <li>
@@ -16,12 +16,12 @@
                                         <span><i class="fa-solid fa-angles-right"></i> </span>
                                     </li>
                                     <li>
-                                        <a href=""> Health and beauty</a>
+                                        <a href=""> {{$store->category->name}}</a>
                                         <span><i class="fa-solid fa-angles-right"></i> </span>
                                     </li>
                                     <li>
-                                        <a href=""> Swift / SwiftUI Developer for B2B iOS apps</a>
-                                        <a href="">{{$store->name}}</a>
+                                        <a href=""> {{$store->store_name}}</a>
+                                        <a href="">{{$store->store_name}}</a>
                                     </li>
                                 </ul>
                             </div>
