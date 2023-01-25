@@ -181,11 +181,11 @@ function filterByRevenue($query, $revenue)
     }
 }
 
-function filterByIndustry($query,$industry)
+function filterByIndustry($query,$industries)
 {
     $categories = Category::all();
         foreach ($categories as $cateogry) {
-            if (in_array($cateogry->id, $industry)) {
+            if (in_array($cateogry->id, $industries)) {
                 $query->orWhere('category_id', $cateogry->id);
             }
     }
