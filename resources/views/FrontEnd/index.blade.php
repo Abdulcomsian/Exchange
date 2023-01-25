@@ -13,7 +13,7 @@
                                 <form action="{{route('apply_filter')}}">
                                     <div class="form-div mb-5">
                                             <div class="input-div position-relative">
-                                                <input type="text" name="search" id="" placeholder="Search Business">
+                                                <input type="text" name="search" id="" placeholder="Search Business" required>
                                                 <i class="fa fa-search"></i>
                                             </div>
                                     </div>
@@ -155,7 +155,7 @@
                                                                 </div>
                                                             </div>
                                                             <hr>
-                                                            <p>{{strip_tags($store->description)}}</p>
+                                                            <p>{{substr(strip_tags($store->description), 0, 300)}}</p>
                                                         </div>
                                                         <div class="price-div text-center">
                                                             <h5>${{$store->price}}</h5>

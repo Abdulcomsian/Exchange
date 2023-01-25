@@ -65,7 +65,7 @@
                                                                 </div>
                                                             </div>
                                                             <hr>
-                                                            <p>{{strip_tags($store->description)}}</p>
+                                                            <p>{{substr(strip_tags($store->description), 0, 300)}}</p>
                                                         </div>
                                                         <div class="price-div text-center">
                                                             <h5>${{$store->revenue}}</h5>
