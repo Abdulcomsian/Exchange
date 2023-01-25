@@ -54,7 +54,7 @@
                                 <td>
                                     <a href="{{route('sell_your_business.edit', $store->id)}}"
                                        class="btn btn-sm btn-info"><i class="fa fa-pencil"></i></a>
-                                    <a href="{{route('single_business',$store->id)}}"
+                                    <a href="{{route('single_store',$store->id)}}"
                                        class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>

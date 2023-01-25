@@ -211,7 +211,7 @@
                                                 </div>
                                                 <div class="price-div text-center">
                                                     <h5>${{$store->price}}</h5>
-                                                    <a href="{{route('single_business',$store->id)}}">Detail</a>
+                                                    <a href="{{route('single_store',$store->id)}}">Detail</a>
                                                 </div>
                                             </div>
                                         </div>

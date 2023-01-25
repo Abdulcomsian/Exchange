@@ -16,7 +16,7 @@
                                         <span><i class="fa-solid fa-angles-right"></i> </span>
                                     </li>
                                     <li>
-                                        <a href=""> {{$store->category->name}}</a>
+                                        <a href=""> {{$store->category->name ?? ''}}</a>
                                         <span><i class="fa-solid fa-angles-right"></i> </span>
                                     </li>
                                     <li>
