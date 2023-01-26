@@ -19,11 +19,11 @@
         </th>
         <tr>
             <th>Business Story</th>
-            <td>{{ $store->business_story }}</td>
+            <td>{{ strip_tags($store->business_story }}</td>
         </tr>
         <tr>
             <th>Description</th>
-            <td>${{ $store->description }}</td>
+            <td>{{ strip_tags($store->description }}</td>
         </tr>
         <th colspan="2" class="text-center">
             Traffiic and Performance
