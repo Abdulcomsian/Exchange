@@ -301,3 +301,13 @@ function isChecked($value, $array=null)
 {
     return (!is_null($array) && in_array($value, $array)) ? 'checked' : '';
 }
+
+
+function check_role($roles)
+{
+    return function ($request) use ($roles) {
+        if (!$request->user()->hasRole($roles)) {
+            return redirect()->route('home');
+        }
+    };
+}

@@ -73,7 +73,7 @@ Route::get('/clear', function () {
 Auth::routes();
 
 Route::group([
-    'middleware'    => ['auth'],
+    'middleware'    => 'role:user',
     'prefix'        => 'user',
 ], function () {
 
@@ -93,7 +93,7 @@ Route::group([
 });
 
 Route::group([
-    'middleware'    => ['auth'],
+    'middleware'    => 'role:admin',
     'prefix'        => 'admin',
 ], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
