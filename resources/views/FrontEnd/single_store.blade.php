@@ -176,7 +176,7 @@
                                                             </div>
                                                             <div class="ms-3 sale-content">
 
-                                                                <h4>{{$store->sales_include_1}}</h4>
+                                                                <h4>{{$store->sale_include_1}}</h4>
                                                             </div>
                                                         </li>
                                                         <li class="d-flex">
@@ -184,8 +184,8 @@
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
-                                                                <h4>{{$store->sales_include_2}}</h4>
-                                                                <p>All marketing materials are included.</p>
+                                                                <h4>{{$store->sale_include_2}}</h4>
+{{--                                                                <p>All marketing materials are included.</p>--}}
                                                             </div>
                                                         </li>
                                                         <li class="d-flex">
@@ -194,8 +194,8 @@
                                                             </div>
                                                             <div class="ms-3 sale-content">
 
-                                                                <h4>{{$store->sales_include_3}}</h4>
-                                                                <p>In-person support for 2 full-days to assist in transfer and to help set everything up and answer any questions. Phone and video support for 1-month after sale.</p>
+                                                                <h4>{{$store->sale_include_3}}</h4>
+{{--                                                                <p>In-person support for 2 full-days to assist in transfer and to help set everything up and answer any questions. Phone and video support for 1-month after sale.</p>--}}
                                                             </div>
                                                         </li>
                                                         <li class="d-flex">
@@ -204,6 +204,7 @@
                                                             </div>
                                                             <div class="ms-3 sale-content">
                                                                 <h4>Domain</h4>
+                                                                <P>{{$store->domain}}</P>
                                                             </div>
                                                         </li>
                                                         <li class="d-flex">
@@ -215,15 +216,15 @@
                                                                 <p>All product photos are included.</p>
                                                             </div>
                                                         </li>
-                                                        <li class="d-flex">
+                                                        {{--<li class="d-flex">
                                                             <div class="icon-div">
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
                                                                 <h4>Social media</h4>
                                                             </div>
-                                                        </li>
-                                                        <li class="d-flex">
+                                                        </li>--}}
+                                                        {{--<li class="d-flex">
                                                             <div class="icon-div">
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
@@ -239,7 +240,7 @@
                                                                 <h4>Mailing List</h4>
                                                                 <p>250,000subscribers</p>
                                                             </div>
-                                                        </li>
+                                                        </li>--}}
                                                     </ul>
                                                 </div>
                                             </div>
@@ -257,15 +258,11 @@
                                     <div class="url-div mt-3">
                                         <p class="mb-2">URL Hidden</p>
                                         <ul class="d-flex flex-wrap">
-                                            <li>
-                                                <a href="">Health and beauty</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Established businesses</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Inventory</a>
-                                            </li>
+                                            @foreach($categories as $category)
+                                                <li>
+                                                    <a href="">{{$category->name}}</a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                     <div class="share-div mt-3">
