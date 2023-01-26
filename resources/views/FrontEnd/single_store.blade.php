@@ -208,7 +208,7 @@
                                                                 {{--                                                                <p>In-person support for 2 full-days to assist in transfer and to help set everything up and answer any questions. Phone and video support for 1-month after sale.</p>--}}
                                                             </div>
                                                         </li>
-                                                        <li class="d-flex">
+<!--                                                        <li class="d-flex">
                                                             <div class="icon-div">
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
@@ -216,8 +216,8 @@
                                                                 <h4>Domain</h4>
                                                                 <P>{{$store->domain}}</P>
                                                             </div>
-                                                        </li>
-                                                        <li class="d-flex">
+                                                        </li>-->
+<!--                                                        <li class="d-flex">
                                                             <div class="icon-div">
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
@@ -225,7 +225,7 @@
                                                                 <h4>Product photos</h4>
                                                                 <p>All product photos are included.</p>
                                                             </div>
-                                                        </li>
+                                                        </li>-->
                                                         {{--<li class="d-flex">
                                                             <div class="icon-div">
                                                                 <i class="fa-solid fa-check"></i>
