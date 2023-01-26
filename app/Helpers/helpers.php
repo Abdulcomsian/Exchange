@@ -163,7 +163,7 @@ function filterByPrice($query, $prices)
     if (in_array('10000-25000', $prices)) {
         $query->orWhereBetween('price', [10000, 25000]);
     }
-    if (in_array('25000', $revenue)) {
+    if (in_array('25000', $prices)) {
         $query->orWhere('price', '>', 25000);
     }
 }
