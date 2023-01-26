@@ -149,16 +149,16 @@
                                                 <div class="table-div">
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Shopify plan</span>
-                                                        <span class="d-block"><b>$79</b>/month</span>
+                                                        <span class="d-block"><b>{{$store->shopify_plan ?? ''}}</b></span>
                                                     </p>
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Inventory warehouse</span>
-                                                        <span class="d-block"><b>$0</b>/month</span>
+                                                        <span class="d-block"><b>{{$store->inventory_warehouse ?? ''}}</b></span>
                                                     </p>
                                                     <p class="d-flex justify-content-between align-items-center">
                                                         <span class="d-block">Domain</span>
 
-                                                        <span class="d-block"><b>$ {{$store->domain}}</b>/month</span>
+                                                        <span class="d-block"><b>{{$store->domain}}</b></span>
                                                     </p>
 
                                                 </div>
