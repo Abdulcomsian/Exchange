@@ -203,6 +203,16 @@
                                                                 <i class="fa-solid fa-check"></i>
                                                             </div>
                                                             <div class="ms-3 sale-content">
+
+                                                                <h4>{{$store->sale_include_4}}</h4>
+                                                                {{--                                                                <p>In-person support for 2 full-days to assist in transfer and to help set everything up and answer any questions. Phone and video support for 1-month after sale.</p>--}}
+                                                            </div>
+                                                        </li>
+                                                        <li class="d-flex">
+                                                            <div class="icon-div">
+                                                                <i class="fa-solid fa-check"></i>
+                                                            </div>
+                                                            <div class="ms-3 sale-content">
                                                                 <h4>Domain</h4>
                                                                 <P>{{$store->domain}}</P>
                                                             </div>
