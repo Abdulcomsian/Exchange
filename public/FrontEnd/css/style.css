@@ -56,9 +56,24 @@ hr {
     justify-content: center;
     width: fit-content;
 }
-}
 .common-btn:hover {
     color: #fff;
+}
+
+.select2-container--default {
+    display: inline-block;
+    width: 100% !important;
+}
+.select2-container--default.select2-container--focus
+    .select2-selection--multiple {
+    outline: 0;
+    padding: 5px 0 10px 10px !important;
+    border-radius: 3px !important;
+    border: solid lightgrey 1px !important;
+}
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid lightgray !important;
+    padding: 10px 0 15px 10px !important;
 }
 .badge {
     background-color: #eb2866;
@@ -881,15 +896,15 @@ footer .footer-top-list ul li a:hover {
     background-color: #ec2866;
     color: #fff;
 }
-#pills-tab li{
+#pills-tab li {
     padding: 5px;
 }
-.nav-pills .nav-link.active{
+.nav-pills .nav-link.active {
     border: 2px solid #ec2866 !important;
 }
 
 .next,
-.previous{
+.previous {
     border: 2px solid #ec2866;
     font-size: 15px;
 }
@@ -1025,13 +1040,13 @@ footer .footer-top-list ul li a:hover {
     }
 }
 @media screen and (max-width: 580px) {
-    #single-common-banner{
+    #single-common-banner {
         padding: 62px 0 150px 0;
     }
-    .auth-drop-down{
+    .auth-drop-down {
         right: 3%;
     }
-    #join-us-today .input-div input{
+    #join-us-today .input-div input {
         padding: 10px 22px;
     }
     footer .footer-top-list ul li a {
@@ -1105,20 +1120,18 @@ footer .footer-top-list ul li a:hover {
     }
 }
 @media screen and (max-width: 400px) {
-    
     #main-banner {
         background-size: 90vh 90vh;
     }
 }
-@media screen and (max-width: 550px ) and (min-width: 353px) {
-    .industry-span:hover .industry-div{
+@media screen and (max-width: 550px) and (min-width: 353px) {
+    .industry-span:hover .industry-div {
         display: block;
         right: 0px;
         left: auto;
         top: 36px;
     }
 }
-
 
 .btn-signIn {
     cursor: pointer;
@@ -1363,12 +1376,12 @@ footer .footer-top-list ul li a:hover {
     display: flex;
     justify-content: center;
 }
-.modal-dialog{
+.modal-dialog {
     position: relative;
     top: 50%;
     transform: translateY(-50%) !important;
     width: auto;
-    margin: 0.5rem auto !important; 
+    margin: 0.5rem auto !important;
     /* pointer-events: none; */
 }
 
@@ -1422,8 +1435,6 @@ footer .footer-top-list ul li a:hover {
     .store-listing--content .tabMobile {
         margin-bottom: 10px;
     }
-    
-
 }
 
 @media screen and (max-width: 768px) {
@@ -1448,7 +1459,7 @@ footer .footer-top-list ul li a:hover {
     #popular-services,
     #seller-support,
     #how-it-work,
-    #faq-section{
+    #faq-section {
         padding: 10px 30px;
     }
 }
