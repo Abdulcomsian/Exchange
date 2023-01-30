@@ -28,8 +28,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 text-end">
-                    <a href="" class="common-btn">Sell your Business</a>
+                <div class="col-md-4 text-center">
+                    <a href="" class="common-btn sell-your-bussiness">Sell your Business</a>
                 </div>
             </div>
             <div class="row">

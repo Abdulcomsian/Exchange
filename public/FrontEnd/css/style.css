@@ -284,6 +284,7 @@ header #dropdownMenuButton {
     padding-left: 20px;
     border-left: 1px solid #eee;
     padding-right: 20px;
+    flex-shrink: 0;
 }
 .listing-content .listing-detail h5 {
     font-size: 20px;
@@ -414,6 +415,7 @@ footer {
 }
 footer .footer-top-list ul {
     display: flex;
+    justify-content: center;
 }
 footer .footer-top-list ul li a {
     display: block;
@@ -703,6 +705,8 @@ footer .footer-top-list ul li a:hover {
     color: #fff;
     font-weight: 700;
     cursor: pointer;
+    flex-shrink: 0;
+    align-self: center;
 }
 .business-right-div
     .common-div
@@ -979,6 +983,9 @@ footer .footer-top-list ul li a:hover {
     }
 }
 @media screen and (max-width: 768px) {
+    .sell-your-bussiness {
+        padding: 10px 22px !important;
+    }
     .filter-div .sort-div {
         margin-top: 20px;
     }
