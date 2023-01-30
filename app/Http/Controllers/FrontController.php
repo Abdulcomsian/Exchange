@@ -5,16 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Store;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Auth;
+//use Illuminate\Support\Facades\Auth;
 use App\Models\Tag;
+use Slince\Shopify\Client;
+use Slince\Shopify\Auth\OAuth;
+use Slince\Shopify\ShopifyApp;
 
 class FrontController extends Controller
 {
     public function categories($slug)
     {
         try {
-            $category = Category::with('stores')->where('slug', $slug)->first();
-            return view('FrontEnd.single_category', compact('category'));
+//            $category = Category::with('stores')->where('slug', $slug)->first()->paginate(10);
+            $category = Category::where('slug', $slug)->first();
+            $stores = $category->stores()->paginate(10);
+            return view('FrontEnd.single_category', compact('category','stores'));
         } catch (\Exception $e) {
             return redirect()->back();
         }

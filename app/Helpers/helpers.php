@@ -138,7 +138,7 @@ function filterStores(Request $request)
         filterByIndustry($query, $request->get('industry'));
     }
 
-    $stores = $query->where('status', 'approved')->latest()->get();
+    $stores = $query->where('status', 'approved')->latest()->paginate(10);
 
     return $stores;
 }

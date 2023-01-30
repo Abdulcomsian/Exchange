@@ -40,7 +40,7 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                @foreach($category->stores as $store)
+                                                @foreach($stores as $store)
                                                     <div class="common-listing-box d-flex align-items-center">
                                                         <div class="listing-img">
                                                             <img src="{{asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430.png')}}" alt="" class="img-fluid">
@@ -73,6 +73,8 @@
                                                         </div>
                                                     </div>
                                                 @endforeach
+                                                    {{ $stores->links('vendor.pagination.default') }}
+
                                             </div>
                                             {{--<div class="col-lg-12">
                                                 <div class="common-listing-box d-flex align-items-center">
@@ -207,7 +209,7 @@
                                                 </div>
                                             </div>--}}
                                         </div>
-                                        <a href="" class="common-btn d-table m-auto">View All Business</a>
+{{--                                        <a href="" class="common-btn d-table m-auto">View All Business</a>--}}
                                     </div>
                                 </div>
                             </div>
