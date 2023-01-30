@@ -57,6 +57,28 @@ class FrontController extends Controller
 
     public function home()
     {
+
+      /*  $apiKey = "e134bd8828dfb68c99d53de545cf27b4";
+        $apiSecret = "6132f492606fbc32b1ed761d60627cb1";
+        $shopDomain = "exchange-accrual.myshopify.com";
+//        $redirectUri = redirect(route('shopify.callback'));
+
+        // Step 2: Authenticate with the API
+        $accessToken = getAccessToken($apiKey, $apiPassword, $storeUrl);
+        $scopes = ["read_products", "write_products"];
+//        $redirectUri = "https://your-app.com/auth/callback";
+        $installationUrl = ShopifyApp::createAuthUrl($shopDomain, $apiKey, $scopes, $redirectUri);
+        header("Location: $installationUrl");
+        exit;
+
+        $auth = new OAuth($shopDomain, $apiKey, $apiSecret, $redirectUri);
+        $installUrl = $auth->getAuthorizeUrl();
+
+        dd($installUrl);
+
+        $accessToken = $shopifyAuth->getAccessToken($_GET['code']);
+        dd($accessToken);*/
+
         $stores = Store::where('status', 'approved')->orderBy('created_at', 'desc')->take(3)->get();
         $featured_business = Store::where('status', 'approved')->take(3)->get();
         return view('FrontEnd.index', ['stores' => $stores, 'featured_business' => $featured_business]);

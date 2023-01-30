@@ -257,17 +257,21 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div id="pagination-div">
-                            <a rel="0" class="active">1</a> 
+{{--                        {{ $stores->links() }}--}}
+                        {{ $stores->links('vendor.pagination.default') }}
+
+                        <!--                        <div id="pagination-div">
+                            <a class="previous" rel="8"><<</a>
+                            <a rel="0" class="active">1</a>
                             <a rel="1">2</a>
-                            <a rel="2">3</a> 
+                            <a rel="2">3</a>
                             <a rel="3">4</a>
-                            <a rel="4">5</a> 
+                            <a rel="4">5</a>
                             <a rel="5">6</a>
                             <a rel="6">7</a>
                             <a rel="7">8</a>
-                            <a class="next" rel="8">&gt;&gt;</a> 
-                        </div>
+                            <a class="next" rel="8">&gt;&gt;</a>
+                        </div>-->
                     </div>
 
                 </div>
