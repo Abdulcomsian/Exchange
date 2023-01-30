@@ -257,6 +257,17 @@
                                 </div> -->
                             </div>
                         </div>
+                        <div id="pagination-div">
+                            <a rel="0" class="active">1</a> 
+                            <a rel="1">2</a>
+                            <a rel="2">3</a> 
+                            <a rel="3">4</a>
+                            <a rel="4">5</a> 
+                            <a rel="5">6</a>
+                            <a rel="6">7</a>
+                            <a rel="7">8</a>
+                            <a class="next" rel="8">&gt;&gt;</a> 
+                        </div>
                     </div>
 
                 </div>
@@ -370,29 +381,29 @@
         });
 
 
-        $(document).ready(function () {
-            $('.listing-list-common').after('<div id="pagination-div"></div>');
-            var rowsShown = 15;
-            var rowsTotal = $('.listing-list-common .row .col-lg-12').length;
-            var numPages = rowsTotal / rowsShown;
-            // $('#pagination-div').append('<a class="previous" rel="' + i + '">' + "<<" + '</a> ');
-            for (i = 0; i < 8; i++) {
-                var pageNum = i + 1;
-                $('#pagination-div').append('<a rel="' + i + '">' + pageNum + '</a> ');
-            }
-            $('#pagination-div').append('<a class="next" rel="' + i + '">' + ">>" + '</a> ');
-            $('.listing-list-common .row .col-lg-12').hide();
-            $('.listing-list-common .row .col-lg-12').slice(0, rowsShown).show();
-            $('#pagination-div a:first').addClass('active');
-            $('#pagination-div a').bind('click', function () {
+        // $(document).ready(function () {
+        //     $('.listing-list-common').after('<div id="pagination-div"></div>');
+        //     var rowsShown = 15;
+        //     var rowsTotal = $('.listing-list-common .row .col-lg-12').length;
+        //     var numPages = rowsTotal / rowsShown;
+        //     // $('#pagination-div').append('<a class="previous" rel="' + i + '">' + "<<" + '</a> ');
+        //     for (i = 0; i < 8; i++) {
+        //         var pageNum = i + 1;
+        //         $('#pagination-div').append('<a rel="' + i + '">' + pageNum + '</a> ');
+        //     }
+        //     $('#pagination-div').append('<a class="next" rel="' + i + '">' + ">>" + '</a> ');
+        //     $('.listing-list-common .row .col-lg-12').hide();
+        //     $('.listing-list-common .row .col-lg-12').slice(0, rowsShown).show();
+        //     $('#pagination-div a:first').addClass('active');
+        //     $('#pagination-div a').bind('click', function () {
 
-                $('#pagination-div a').removeClass('active');
-                $(this).addClass('active');
-                var currPage = $(this).attr('rel');
-                var startItem = currPage * rowsShown;
-                var endItem = startItem + rowsShown;
-                $('.listing-list-common .row .col-lg-12').css('opacity', '0.0').hide().slice(startItem, endItem).css('display', 'table-row').animate({opacity: 1}, 300);
-            });
-        });
+        //         $('#pagination-div a').removeClass('active');
+        //         $(this).addClass('active');
+        //         var currPage = $(this).attr('rel');
+        //         var startItem = currPage * rowsShown;
+        //         var endItem = startItem + rowsShown;
+        //         $('.listing-list-common .row .col-lg-12').css('opacity', '0.0').hide().slice(startItem, endItem).css('display', 'table-row').animate({opacity: 1}, 300);
+        //     });
+        // });
     </script>
 @endsection
