@@ -258,7 +258,8 @@
                             </div>
                         </div>
 {{--                        {{ $stores->links() }}--}}
-                        {{ $stores->links('vendor.pagination.default') }}
+{{--                        @dd(session('selectedFilters'))--}}
+                        {{ $stores->appends(session('selectedFilters'))->links('vendor.pagination.default') }}
 
                         <!--                        <div id="pagination-div">
                             <a class="previous" rel="8"><<</a>

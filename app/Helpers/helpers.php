@@ -126,17 +126,24 @@ function filterStores(Request $request)
 {
     $query = Store::query();
 
+    $selectedFilters = [];
+
     if ($request->has('price')) {
         filterByPrice($query, $request->get('price'));
+        $selectedFilters['price'] = $request->get('price');
     }
 
     if ($request->has('revenue')) {
         filterByRevenue($query, $request->get('revenue'));
+        $selectedFilters['revenue'] = $request->get('revenue');
     }
 
     if ($request->has('industry')) {
         filterByIndustry($query, $request->get('industry'));
+        $selectedFilters['industry'] = $request->get('industry');
     }
+
+    session(['selectedFilters' => $selectedFilters]);
 
     $stores = $query->where('status', 'approved')->latest()->paginate(10);
 
