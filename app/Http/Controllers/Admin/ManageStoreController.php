@@ -125,4 +125,18 @@ class ManageStoreController extends Controller
         $store->save();
         return redirect()->back();
     }
+
+    public function change_revenue_status($id, $status){
+        $store = Store::find($id);
+        $store->revenue_status = $status;
+        $store->save();
+        return redirect()->back();
+    }
+
+    public function change_session_status($id, $status){
+        $store = Store::find($id);
+        $store->session_status = $status;
+        $store->save();
+        return redirect()->back();
+    }
 }

@@ -114,6 +114,8 @@ Route::group([
     Route::get('manage-stores/delete/{id}',  [ManageStoreController::class, 'destroy'])->name('store-delete');
     Route::post('delete-selected-manage-stores',  [ManageStoreController::class, 'DeleteSelectedManageStores'])->name('delete-selected-stores');
     Route::get('/change-status/{id}/{status}',[ManageStoreController::class,'change_status'])->name('change_status');
+    Route::get('/change-revenue-status/{id}/{status}',[ManageStoreController::class,'change_revenue_status'])->name('change_revenue_status');
+    Route::get('/change-session-status/{id}/{status}',[ManageStoreController::class,'change_session_status'])->name('change_session_status');
 
     //Roles Controller
     Route::resource('roles', RoleController::class);

@@ -19,22 +19,48 @@
         </th>
         <tr>
             <th>Business Story</th>
-            <td>{{ strip_tags($store->business_story }}</td>
+            <td>{{ strip_tags($store->business_story) }}</td>
         </tr>
         <tr>
             <th>Description</th>
-            <td>{{ strip_tags($store->description }}</td>
+            <td>{{ strip_tags($store->description) }}</td>
         </tr>
         <th colspan="2" class="text-center">
             Traffiic and Performance
         </th>
         <tr>
             <th>Avg. revenue /month</th>
-            <td>${{ $store->revenue }}</td>
+            <td>
+                ${{ $store->revenue }}
+                @if($store->revenue_status == 'verified')
+                    <span class="badge badge-success">Verified</span>
+                @else
+                    <span class="badge badge-danger">Unverified</span>
+                @endif
+                <a href="{{route('change_revenue_status', ['id' => $store->id, 'status' => 'verified'])}}" title="unverify revenue" class="btn btn-success btn-sm float-right mx-1">
+                    <i class="fa fa-check"></i>
+                </a>
+                <a href="{{route('change_revenue_status', ['id' => $store->id, 'status' => 'unverified'])}}" title="verify revenue" class="btn btn-danger btn-sm float-right">
+                    <i class="fa fa-times"></i>
+                </a>
+            </td>
         </tr>
         <tr>
             <th>Avg. sessions /month</th>
-            <td>{{ $store->session }}</td>
+            <td>
+               ${{ $store->session }}
+                @if($store->session_status == 'verified')
+                    <span class="badge badge-success">Verified</span>
+                @else
+                    <span class="badge badge-danger">Unverified</span>
+                @endif
+                <a href="{{route('change_session_status', ['id' => $store->id, 'status' => 'verified'])}}" title="unverify revenue" class="btn btn-success btn-sm float-right mx-1">
+                    <i class="fa fa-check"></i>
+                </a>
+                <a href="{{route('change_session_status', ['id' => $store->id, 'status' => 'unverified'])}}" title="verify revenue" class="btn btn-danger btn-sm float-right">
+                    <i class="fa fa-times"></i>
+                </a>
+            </td>
         </tr>
         <tr>
             <th>Avg. profit /month</th>

@@ -97,19 +97,33 @@
                                         --}}
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="pills-performance" role="tabpanel" aria-labelledby="pills-performance-tab">
+                                        <div class="tab-pane fade" id="pills-performance" role="tabpanel"
+                                             aria-labelledby="pills-performance-tab">
                                             <div class="performance-div">
                                                 <h5 class="common-detail-heading">TRAFFIC AND PERFORMANCE</h5>
                                                 <hr>
                                                 <div class="multiple-reading">
                                                     <div class="common-div position-relative">
-                                                        <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
+                                                        @if($store->revenue_status == 'verified')
+                                                            <span class="badge">
+                                                                <img
+                                                                    src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}"
+                                                                    alt="" class="img-fluid">
+                                                                Verified
+                                                            </span>
+                                                        @endif
                                                         <h4>Avg. revenue /month</h4>
-
                                                         <p>${{$store->revenue}}</p>
                                                     </div>
                                                     <div class="common-div position-relative">
-                                                        <span class="badge"><img src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}" alt="" class="img-fluid"> Verified</span>
+                                                        @if($store->session_status == 'verified')
+                                                            <span class="badge">
+                                                                <img
+                                                                    src="{{asset('FrontEnd/img/shopify_xtcf17qcmyoq.svg')}}"
+                                                                    alt="" class="img-fluid">
+                                                                Verified
+                                                            </span>
+                                                        @endif
                                                         <h4>Avg. sessions /month</h4>
                                                         <p>${{$store->session}}</p>
                                                     </div>
