@@ -131,9 +131,14 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     @foreach($stores as $store)
+                                                        @if($store->image)
+                                                            @php $image_path = 'images/'.$store->image @endphp
+                                                        @else
+                                                            @php $image_path = 'FrontEnd/img/image_processing20191116-5475-d3p1pb-750x430.png'; @endphp
+                                                        @endif
                                                     <div class="common-listing-box d-flex align-items-center">
                                                         <div class="listing-img">
-                                                            <img src="{{asset('FrontEnd/img/image_processing20200126-6689-ulcmi2-750x430.png')}}" alt="" class="img-fluid">
+                                                            <img src="{{asset($image_path)}}" alt="" class="img-fluid">
                                                             <span class="badge">Offer Support</span>
                                                         </div>
                                                         <div class="listing-content ms-4">

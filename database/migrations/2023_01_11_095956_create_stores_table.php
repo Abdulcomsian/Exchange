@@ -36,6 +36,7 @@ class CreateStoresTable extends Migration
             $table->string('status')->default('pending');
             $table->string('revenue_status')->default('unverified');
             $table->string('session_status')->default('unverified');
+            $table->string('payment_status')->default('pending');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('user_id')->nullable();

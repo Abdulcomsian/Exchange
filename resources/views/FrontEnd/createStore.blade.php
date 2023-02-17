@@ -55,6 +55,16 @@
                                             <img id="image-preview" src="" alt="" width="100px" height="100px" style="display:none;">
                                     @endif
                                 </div>
+                                <div class="col">
+                                    <div class="mb-3 mt-4">
+                                        <select class="form-control" name="payment" id="payment">
+                                            <option value="">Select Subscription Package</option>
+                                                <option value="1">$40/Month</option>
+                                        </select>
+                                    </div>
+                                    <div class="text-danger" id="payment_error"></div>
+                                    <div class="text-danger" id="payment_status_error"></div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
@@ -374,6 +384,49 @@
                   "
                             id="step-six"
                             class="marketing-button btn-forward"
+                        >Next</a
+                        >
+                    </div>
+                </form>
+            </div>
+            <div class="tab tab-7">
+                <!-- tab6 Body-->
+                <h2 class="tab-title text-center">Payment</h2>
+                <form class="tf--form" action="" accept-charset="UTF-8" method="" id="stepseven_form">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="card-element">Credit or debit card</label>
+                                <div id="card-element">
+                                    <!-- A Stripe Element will be inserted here. -->
+                                </div>
+
+                                <!-- Used to display Element errors. -->
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button type="button" id="pay" class="btn btn-primary">Pay $40</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tf-footer">
+                        <a
+                            href="#"
+                            style="text-align: center; margin-top: 25px; color: white"
+                            class="marketing-button btn-back-tab7"
+                        >Back</a
+                        >
+                        <a
+                            href="#"
+                            style="
+                    text-align: center;
+                    margin-top: 25px;
+                    margin-left: 20px;
+                  "
+                            id="step-seven"
+                            class="marketing-button btn-forward"
                         >Submit</a
                         >
                     </div>
@@ -411,6 +464,84 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/s7elsci59jchj3dky00b296gqc0917u7oa78oha5si1mp2pe/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Create a Stripe client.
+        var stripe = Stripe('{{ env('STRIPE_KEY') }}');
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+
+        cardElement.mount('#card-element');
+
+        var form = document.getElementById('pay');
+        var errorElement = document.getElementById('card-errors');
+
+        form.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            stripe.createToken(cardElement).then(function(result) {
+                if (result.error) {
+                    // Display error message in the errorElement
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to the server
+                    fetch('/checkout', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({
+                            stripeToken: result.token.id
+                        })
+                    }).then(function(response) {
+                        return response.json();
+                    }).then(function(data) {
+                        if (data.requires_action) {
+                            // Use Stripe.js to handle the 3D Secure authentication
+                            stripe.handleCardAction(data.payment_intent_client_secret).then(function(result) {
+                                if (result.error) {
+                                    // Display error message in the errorElement
+                                    errorElement.textContent = result.error.message;
+                                } else {
+                                    // Send the PaymentIntent ID to the server to confirm the payment
+                                    fetch('/checkout', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                        },
+                                        body: JSON.stringify({
+                                            payment_intent_id: result.paymentIntent.id
+                                        })
+                                    }).then(function(confirmResponse) {
+                                        console.log(confirmResponse)
+                                        return confirmResponse.json();
+                                    }).then(function(confirmData) {
+                                        console.log(confirmData)
+                                        if (confirmData.success) {
+                                            // Display success message to the user
+                                            alert('Payment succeeded!');
+                                        } else {
+                                            // Display error message in the errorElement
+                                            errorElement.textContent = 'Payment failed.';
+                                        }
+                                    });
+                                }
+                            });
+                        } else if (data.success) {
+                            // Display success message to the user
+                            alert('Payment succeeded!');
+                        } else {
+                            // Display error message in the errorElement
+                            errorElement.textContent = 'Payment failed.';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
     <script type="text/javascript">
             tinymce.init({
             selector: 'textarea.tinymce-editor',
@@ -471,6 +602,7 @@
             const step4 = document.querySelector('.tab-4');
             const step5 = document.querySelector('.tab-5');
             const step6 = document.querySelector('.tab-6');
+            const step7 = document.querySelector('.tab-7');
 
 
             // Back Buttons Element
@@ -479,6 +611,7 @@
             const btnback4 = document.querySelector('.btn-back-tab4');
             const btnback5 = document.querySelector('.btn-back-tab5');
             const btnback6 = document.querySelector('.btn-back-tab6');
+            const btnback7 = document.querySelector('.btn-back-tab7');
 
 
 
@@ -709,9 +842,9 @@
                     success: function (response) {
                         console.log(response);
                         if (response.success) {
-                            window.location.href = "{{route('dashboard')}}";
-                            step5.classList.remove('active');
-                            step6.classList.add('active');
+                            {{--window.location.href = "{{route('dashboard')}}";--}}
+                            step6.classList.remove('active');
+                            step7.classList.add('active');
                             sellProcedure_toggler();
                         }
                     },
@@ -730,6 +863,44 @@
             btnback6.addEventListener('click', function(){
                 step6.classList.remove('active');
                 step5.classList.add('active');
+                sellProcedure_toggler();
+            })
+
+            // step 6
+            $(document).on('click', '#step-seven', function(){
+                var formData = $("#stepseven_form").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('stores.step_seven') }}",
+                    data: formData,
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                        Accept: "application/json",
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success) {
+                            window.location.href = "{{route('dashboard')}}";
+                            step5.classList.remove('active');
+                            step6.classList.add('active');
+                            sellProcedure_toggler();
+                        }
+                    },
+                    error: function (response) {
+                        if (response.status == 422) {
+                            var errors = response.responseJSON.errors;
+                            $.each(errors, function (key, value) {
+                                $("#" + key + "_error").html(value);
+                            });
+                        }
+                    },
+                });
+
+            })
+
+            btnback7.addEventListener('click', function(){
+                step7.classList.remove('active');
+                step6.classList.add('active');
                 sellProcedure_toggler();
             })
 

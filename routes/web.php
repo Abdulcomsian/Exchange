@@ -45,9 +45,16 @@ Route::get('logout',[SocialController::class,'logout'])->name('logout');
 
 Route::get('/',[FrontController::class,'home'])->name('home');
 
+Route::get('/test',[FrontController::class,'test'])->name('test');
+
+
 Route::get('/apply-filter',[FrontController::class,'applyFilter'])->name('apply_filter');
 
 Route::get('/all-business',[FrontController::class,'allBusiness'])->name('all_business');
+
+Route::get('payment',[FrontController::class,'paymentIntent'])->name('payment_intent');
+Route::post('checkout', [FrontController::class, 'checkout'])->name('checkout');
+
 
 /*Route::get('/all-business', function () {
     $stores = Store::get();
@@ -84,6 +91,7 @@ Route::group([
     Route::post('stores/step-four',  [StoreController::class, 'stepFour'])->name('stores.step_four');
     Route::post('stores/step-five',  [StoreController::class, 'stepFive'])->name('stores.step_five');
     Route::post('stores/step-six',  [StoreController::class, 'stepSix'])->name('stores.step_six');
+    Route::post('stores/step-seven',  [StoreController::class, 'stepSeven'])->name('stores.step_seven');
 
     Route::get('dashboard',[FrontController::class,'dashboard'])->name('dashboard');
 

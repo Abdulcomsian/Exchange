@@ -74,7 +74,7 @@ class StoreController extends Controller
             ]);
         }
 
-        if($request->edit_form == ''){
+        if($request->edit_form == null){
             $store = new Store();
         } else {
             $store = Store::findorfail($request->edit_form);
@@ -192,11 +192,22 @@ class StoreController extends Controller
             ]);
         }
         session(['store_id' => $store->id]);
-        session()->forget('store_id');
+//        session()->forget('store_id');
 
 
         return response()->json(['success' => 'Data is successfully added']);
 
+    }
+
+    public function stepSeven(Request $request)
+    {
+        $store = Store::find(session('store_id'));
+        if($store->payment_status != 'completed'){
+            $validatedData = $request->validate([
+                'payment_status' => 'required|max:500',
+            ]);
+        }
+        return response()->json(['success' => 'Data is successfully added']);
     }
 
 

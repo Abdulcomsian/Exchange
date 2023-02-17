@@ -51,7 +51,7 @@ class SocialController extends Controller
 
             Auth::login($newUser);
 
-            return redirect('http://127.0.0.1:8000/');
+            return redirect(route(('dashboard')));
         }
     }
 
@@ -77,7 +77,7 @@ class SocialController extends Controller
 
                 Auth::login($finduser);
 
-                return redirect('/5');
+                return redirect(route(('dashboard')));
 
             }else{
                 $newUser = User::create([
@@ -90,7 +90,7 @@ class SocialController extends Controller
 
                 Auth::login($newUser);
 
-                return redirect('/5');
+                return redirect(route(('dashboard')));
             }
 
         } catch (Exception $e) {
