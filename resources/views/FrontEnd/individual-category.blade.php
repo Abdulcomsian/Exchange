@@ -599,7 +599,7 @@
     <script>
         $('.multiple-client').slick({
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 1,
             slidesToScroll: 3
         });
     </script>

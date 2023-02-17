@@ -13,7 +13,7 @@
             <div class="tab tab-1 active">
                 <!-- tab 1 -->
                 <div class="sellBusinessForm">
-                    <form class="" id="stepone_form" action="" style="width: 80%; margin: auto;" enctype="multipart/form-data">
+                    <form class="" id="stepone_form" action="" style="width: 55%; margin: auto;" enctype="multipart/form-data">
                         <div class="fieldContainer" style="width: 100%">
                             <input type="hidden" name="edit_form" id="edit_form" value="{{$store->id ?? ''}}" />
                             <div class="row">

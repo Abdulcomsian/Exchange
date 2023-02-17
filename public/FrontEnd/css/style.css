@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #2091eb;
+    --secondary-color: #fbde70;
+}
+
 body,
 h1,
 h2,
@@ -57,7 +62,7 @@ hr {
     width: fit-content;
 }
 .common-btn:hover {
-    color: #fff;
+    color: #000;
 }
 
 .select2-container--default {
@@ -76,7 +81,7 @@ hr {
     padding: 10px 0 15px 10px !important;
 }
 .badge {
-    background-color: #eb2866;
+    background-color: var(--primary-color);
     display: inline-block;
     padding: 5px;
     border-radius: 4px;
@@ -98,12 +103,12 @@ hr {
     text-transform: capitalize !important;
 }
 .tab-list li button.active {
-    background-color: #eb2866 !important;
-    color: #fff !important;
+    background-color: var(--secondary-color) !important;
+    color: #000 !important;
 }
 .accordion-button:not(.collapsed) {
     background-color: transparent;
-    color: #eb2866;
+    color: var(--primary-color);
     font-weight: 600;
     border-bottom: 1px solid #eee !important;
 }
@@ -122,7 +127,13 @@ header {
     position: relative;
     width: 100%;
     padding: 20px;
-    background: #62357a;
+    background: var(--primary-color);
+}
+/* button, */
+.common-btn,
+#main-banner .banner-left button {
+    background-color: var(--secondary-color) !important;
+    color: #333;
 }
 header #dropdownMenuButton {
     color: #fff;
@@ -174,7 +185,7 @@ header #dropdownMenuButton {
 /***************************** Main - Banner - CSS */
 #main-banner {
     min-height: 100vh;
-    background-image: url("../img/3.png");
+    background-image: url("../img/main_banner.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -191,7 +202,7 @@ header #dropdownMenuButton {
     background-color: #eb2866;
     padding: 15px;
     border-radius: 50px;
-    color: #fff;
+    color: #000;
     border: 0;
     display: inline-block;
     box-shadow: 0px 30px 70px 0px rgb(137 139 142 / 15%);
@@ -305,22 +316,22 @@ header #dropdownMenuButton {
 }
 #seller-support .listing-seller .common-listing-box .price-div a,
 .listing-list-common .common-listing-box .price-div a {
-    border: 1px solid #eb2866;
+    border: 1px solid var(--secondary-color);
     border-radius: 50px;
     padding: 10px 50px;
     display: inline-block;
-    color: #eb2866;
+    color: #000;
     font-weight: 700;
     transition: all 0.5s linear;
 }
 #seller-support .listing-seller .common-listing-box:hover .price-div a,
 .listing-list-common .common-listing-box:hover .price-div a {
-    background-color: #eb2866;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: #000;
 }
 #seller-support .listing-seller .common-listing-box:hover .listing-detail h5,
 .listing-list-common .common-listing-box:hover .listing-detail h5 {
-    color: #eb2866;
+    color: var(--primary-color);
 }
 
 /******************************* Counter - Section - CSs */
@@ -332,7 +343,7 @@ header #dropdownMenuButton {
     width: 100px;
     height: 100px;
     border-radius: 100%;
-    border: 1px solid #eb2866;
+    border: 1px solid var(--primary-color);
     margin: auto;
     margin-bottom: 20px;
 }
@@ -363,7 +374,7 @@ header #dropdownMenuButton {
 #how-it-work .multiple-works .common-work-div .img-div {
     width: 80px;
     height: 80px;
-    background: #62357a;
+    background: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -444,7 +455,7 @@ footer .footer-widgets ul li a {
 }
 footer .footer-widgets ul li a:hover,
 footer .footer-top-list ul li a:hover {
-    color: #eb2866;
+    color: darkblue;
 }
 /******************** Signle - Business - Banner - CSS */
 #single-common-banner {
@@ -698,11 +709,11 @@ footer .footer-top-list ul li a:hover {
     a {
     font-size: 12px;
     display: flex;
-    background: #ec2866;
+    background: var(--secondary-color);
     align-items: center;
     padding: 5px 10px;
     border-radius: 50px;
-    color: #fff;
+    color: #000;
     font-weight: 700;
     cursor: pointer;
     flex-shrink: 0;
@@ -722,7 +733,7 @@ footer .footer-top-list ul li a:hover {
     overflow: scroll;
 }
 .business-right-div .echange-trust {
-    background-color: #613376;
+    background-color: var(--primary-color);
     padding: 30px;
 }
 .business-right-div .echange-trust p {
@@ -755,7 +766,7 @@ footer .footer-top-list ul li a:hover {
 #why-use-us .multiple-div .common-div .icon-div {
     width: 80px;
     height: 80px;
-    background: #62357a;
+    background: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -892,24 +903,25 @@ footer .footer-top-list ul li a:hover {
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    color: #ec2866;
+    color: var(--primary-color);
     margin-left: 10px;
 }
 #pagination-div a.active,
 #pagination-div a:hover {
-    background-color: #ec2866;
+    background-color: var(--primary-color);
     color: #fff;
 }
 #pills-tab li {
     padding: 5px;
 }
 .nav-pills .nav-link.active {
-    border: 2px solid #ec2866 !important;
+    border: 2px solid var(--secondary-color) !important;
+    color: #000;
 }
 
 .next,
 .previous {
-    border: 2px solid #ec2866;
+    border: 2px solid var(--primary-color);
     font-size: 15px;
 }
 
@@ -937,6 +949,7 @@ footer .footer-top-list ul li a:hover {
     }
     .listing-content .listing-detail h5 {
         font-size: 16px;
+        color: var(--primary-color);
     }
     .sale-profit-revenew {
         margin-left: 20px;
@@ -1193,8 +1206,8 @@ footer .footer-top-list ul li a:hover {
     text-align: center;
     cursor: pointer;
     box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
-    background-color: #eb2766;
-    color: #ffffff;
+    background-color: var(--secondary-color);
+    color: #000;
     border-width: 0;
     border-style: solid;
     border-color: transparent;
@@ -1250,7 +1263,7 @@ footer .footer-top-list ul li a:hover {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: #432056;
+    background: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1426,16 +1439,17 @@ footer .footer-top-list ul li a:hover {
     display: inline-block;
 }
 .bdg--primary {
-    background-color: dodgerblue;
-    color: white;
+    background-color: var(--secondary-color);
+    color: black;
 }
 .bdg--danger {
     background-color: brown;
     color: white;
 }
 .list-group-item.active {
-    background-color: #eb2766;
-    border: 1px solid #eb2766;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    color: #000;
 }
 
 @media screen and (min-width: 768px) {
@@ -1469,4 +1483,9 @@ footer .footer-top-list ul li a:hover {
     #faq-section {
         padding: 10px 30px;
     }
+}
+
+#join-us-today,
+footer {
+    background-color: var(--primary-color);
 }

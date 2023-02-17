@@ -249,7 +249,7 @@
                         <div class="col-lg-3">
                             <div class="common-counter-div text-center">
                                 <div class="icon-div d-flex align-items-center justify-content-center">
-                                    <img src="{{asset('FrontEnd/img/item_yc4rkacu1ua5.svg')}}" alt="" class="img-fluid">
+                                    <img src="{{asset('FrontEnd/img/img_1.svg')}}" alt="" class="img-fluid">
                                 </div>
                                 <h5>1032</h5>
                                 <p>Total Items</p>
@@ -258,7 +258,7 @@
                         <div class="col-lg-3">
                             <div class="common-counter-div text-center">
                                 <div class="icon-div d-flex align-items-center justify-content-center">
-                                    <img src="{{asset('FrontEnd/img/sell_li1fqcigfwk2.svg')}}" alt="" class="img-fluid">
+                                    <img src="{{asset('FrontEnd/img/img_2.png')}}" alt="" class="img-fluid">
                                 </div>
                                 <h5>1032</h5>
                                 <p>Total Sells</p>
@@ -267,7 +267,7 @@
                         <div class="col-lg-3">
                             <div class="common-counter-div text-center">
                                 <div class="icon-div d-flex align-items-center justify-content-center">
-                                    <img src="{{asset('FrontEnd/img/customer_rv6lw3vuvkaw.svg')}}" alt="" class="img-fluid">
+                                    <img src="{{asset('FrontEnd/img/img_3.png')}}" alt="" class="img-fluid">
                                 </div>
                                 <h5>1032</h5>
                                 <p>Customers</p>
@@ -276,7 +276,7 @@
                         <div class="col-lg-3">
                             <div class="common-counter-div text-center">
                                 <div class="icon-div d-flex align-items-center justify-content-center">
-                                    <img src="{{asset('FrontEnd/img/rating_n0h8ea9ija7p.svg')}}" alt="" class="img-fluid">
+                                    <img src="{{asset('FrontEnd/img/img_4.png')}}" alt="" class="img-fluid">
                                 </div>
                                 <h5>1032</h5>
                                 <p>Ratings</p>
