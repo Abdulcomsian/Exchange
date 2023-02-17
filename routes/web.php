@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\PaypalController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UsersController;
@@ -55,6 +56,9 @@ Route::get('/all-business',[FrontController::class,'allBusiness'])->name('all_bu
 Route::get('payment',[FrontController::class,'paymentIntent'])->name('payment_intent');
 Route::post('checkout', [FrontController::class, 'checkout'])->name('checkout');
 
+Route::get('/pay-with-paypal', [PaypalController::class,'payWithPaypal'])->name('pay-with-paypal');
+Route::get('/payment/success', [PaypalController::class,'paymentSuccess'])->name('payment-success');
+Route::get('/payment/cancel', [PaypalController::class,'paymentCancel'])->name('payment-cancel');
 
 /*Route::get('/all-business', function () {
     $stores = Store::get();
