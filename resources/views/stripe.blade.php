@@ -46,7 +46,7 @@
                     errorElement.textContent = result.error.message;
                 } else {
                     // Send the token to the server
-                    fetch('/checkout', {
+                    fetch('{{route("checkout")}}', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
