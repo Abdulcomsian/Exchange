@@ -1,14 +1,14 @@
 @extends('layouts.frontEnd.master')
 @section('content')
     @include('layouts.frontEnd.header')
-<div class="container col-md-5">
+<div class="container m-md-5">
     <div class="row">
         <div class="col-md-6">
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-12">
+{{--            <div class="row justify-content-center mt-5">--}}
+{{--                <div class="col-md-12">--}}
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Payment Options</h4>
+                            <h4 class="card-title">Stripe</h4>
                             <hr>
                             <div class="d-flex justify-content-center">
                                 <a href="{{route('stripe_payment')}}" target="_blank">
@@ -21,15 +21,15 @@
                             <hr>
                         </div>
                     </div>
-                </div>
-            </div>
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         <div class="col-md-6">
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-12">
+{{--            <div class="row justify-content-center mt-5">--}}
+{{--                <div class="col-md-12">--}}
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Payment Options</h4>
+                            <h4 class="card-title">Paypal</h4>
                             <hr>
                             <div class="d-flex justify-content-center">
                                 <!--                        <a href="https://stripe.com/" target="_blank">
@@ -40,12 +40,9 @@
                                 </a>
                             </div>
                             <hr>
-                            <form action="" method="POST">
-                                <!-- Form Fields Here -->
-                            </form>
                         </div>
-                    </div>
-                </div>
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
