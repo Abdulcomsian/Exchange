@@ -44,6 +44,7 @@ class StoreSeeder extends Seeder
             'category_id' => rand(1, 8),
             'user_id' => rand(1, 5),
             'status' => $faker->randomElement(['pending', 'approved', 'rejected']),
+            'form_status' => $faker->randomElement(['incomplete', 'completed']),
             ]);
         }
 

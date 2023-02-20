@@ -134,28 +134,6 @@
                     class="_3OvEm d-flex"
                 >
                     <a
-                        class="_1vr1v continueLinker_stru"
-                        href="#"
-                    >
-                        <div
-                            style="
-                flex-wrap: nowrap;
-                align-items: center;
-                justify-content: center;
-              "
-                            class="_2ajZR d-flex"
-                        >
-                            <img
-                                alt=""
-                                height="22"
-                                width="22"
-                                src="//web.archive.org/web/20220517102251im_/https://cdn.shopifycloud.com/exchange/bundles/21006611d0d8d131ba27fdb7bd59cbd7.svg"
-                            />
-                        </div>
-                        <span class="text-center _3c7Mo _1-Yji spVWc _2zw_s"
-                        >Continue with Shopify</span
-                        ></a
-                    ><a
                         class="_1vr1v _3X2l4 continueLinker_stru"
                         style="background-color: dodgerblue;"
                         href="{{route('auth.google')}}"
@@ -180,32 +158,32 @@
                               style="color: white;">Continue with Google</span
                         ></a
                     >
-{{--                    <a--}}
-{{--                        class="_1vr1v _3HL25 continueLinker_stru"--}}
-{{--                        style="background: #3b5998;"--}}
-{{--                        href="{{route('auth.facebook')}}"--}}
-{{--                    >--}}
-{{--                        <div--}}
-{{--                            style="--}}
-{{--                flex-wrap: nowrap;--}}
-{{--                align-items: center;--}}
-{{--                justify-content: center;--}}
-{{--                background: #304a86;--}}
+                    {{--                    <a--}}
+                    {{--                        class="_1vr1v _3HL25 continueLinker_stru"--}}
+                    {{--                        style="background: #3b5998;"--}}
+                    {{--                        href="{{route('auth.facebook')}}"--}}
+                    {{--                    >--}}
+                    {{--                        <div--}}
+                    {{--                            style="--}}
+                    {{--                flex-wrap: nowrap;--}}
+                    {{--                align-items: center;--}}
+                    {{--                justify-content: center;--}}
+                    {{--                background: #304a86;--}}
 
-{{--              "--}}
-{{--                            class="_2ajZR d-flex"--}}
-{{--                        >--}}
-{{--                            <!-- <img--}}
-{{--                    alt=""--}}
-{{--                    height="22"--}}
-{{--                    width="22"--}}
-{{--                    src="{{asset('FrontEnd/icons/facebookIcon.svg')}}"--}}
-{{--                  /> -->--}}
-{{--                            <i class="fa-brands fa-square-facebook" style="color: white; font-size:1.3rem"></i>--}}
-{{--                        </div>--}}
-{{--                        <span class="text-center" style="color: white">Continue with Facebook</span></a--}}
-{{--                    ><span class="footer d-flex">--}}
-                        <!-- <input
+                    {{--              "--}}
+                    {{--                            class="_2ajZR d-flex"--}}
+                    {{--                        >--}}
+                    {{--                            <!-- <img--}}
+                    {{--                    alt=""--}}
+                    {{--                    height="22"--}}
+                    {{--                    width="22"--}}
+                    {{--                    src="{{asset('FrontEnd/icons/facebookIcon.svg')}}"--}}
+                    {{--                  /> -->--}}
+                    {{--                            <i class="fa-brands fa-square-facebook" style="color: white; font-size:1.3rem"></i>--}}
+                    {{--                        </div>--}}
+                    {{--                        <span class="text-center" style="color: white">Continue with Facebook</span></a--}}
+                    {{--                    ><span class="footer d-flex">--}}
+                    <!-- <input
                             type="checkbox"
                             class="marketing-checkbox"
                             id="subscribe"

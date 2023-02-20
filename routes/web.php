@@ -102,6 +102,9 @@ Route::group([
     Route::get('/sell-your-business',[FrontController::class,'sell_your_business'])->name('sell_your_business');
     Route::get('/sell-your-business/{id}',[FrontController::class,'edit_sell_your_business'])->name('sell_your_business.edit');
     Route::get('/tags', [FrontController::class, 'tags'])->name('tags');
+    Route::get('payment-page/{id}', [FrontController::class, 'paymentPage'])->name('payment_page');
+    Route::get('stripe-payment', [FrontController::class, 'stripePayment'])->name('stripe_payment');
+
 });
 
 Route::group([

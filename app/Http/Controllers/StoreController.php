@@ -182,10 +182,16 @@ class StoreController extends Controller
         $store->sale_include_4 = $request->sale_include_4;
         $store->price = $request->price;
         $store->category_id = $request->category;
+        $store->form_status = 'completed';
         $store->save();
+//        $store->tags->destroy();
 //        $tagsArray = explode(',', $request->tags);
         foreach($request->tags as $key=>$value)
         {
+            $tag = Tag::find($key);
+            if($tag){
+                $tag->delete();
+            }
             $tags= Tag::create([
                 'store_id'=> $store->id,
                 'name'=> $value
@@ -195,11 +201,11 @@ class StoreController extends Controller
 //        session()->forget('store_id');
 
 
-        return response()->json(['success' => 'Data is successfully added']);
+        return response()->json(['success' => 'Data is successfully added','store_id'=>$store->id]);
 
     }
 
-    public function stepSeven(Request $request)
+    /*public function stepSeven(Request $request)
     {
         $store = Store::find(session('store_id'));
         if($store->payment_status != 'completed'){
@@ -208,7 +214,7 @@ class StoreController extends Controller
             ]);
         }
         return response()->json(['success' => 'Data is successfully added']);
-    }
+    }*/
 
 
     /**

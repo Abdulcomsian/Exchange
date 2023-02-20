@@ -105,7 +105,7 @@ class PaypalController extends Controller
             $result = $payment->execute($execution, $this->apiContext);
 
             if ($result->getState() == 'approved') {
-                return redirect()->route('home')->with('success', 'Payment completed successfully!');
+                return redirect()->route('dashboard')->with('success', 'Payment completed successfully!');
             } else {
                 return redirect()->route('payment-cancel')->with('error', 'Payment failed!');
             }

@@ -45,12 +45,17 @@ class FrontController extends Controller
 
     public function sell_your_business()
     {
+        $user = Auth::user();
+        $store = Store::where('user_id', $user->id)->where('form_status', 'incomplete')->first();
+        if($store){
+            return redirect()->route('sell_your_business.edit', $store->id);
+        }
         return view('FrontEnd.createStore');
     }
 
     public function edit_sell_your_business($id)
     {
-        $store = Store::find($id);
+        $store = Store::with('tags','category')->find($id);
         return view('FrontEnd.createStore', compact('store'));
     }
 
@@ -238,6 +243,80 @@ class FrontController extends Controller
                 'error' => $e->getMessage(),
             ]);
         }
+    }
+
+    public function paypal()
+    {
+        $payer = new Payer();
+        $payer->setPaymentMethod('paypal');
+
+        $item1 = new Item();
+        $item1->setName('Item 1')
+            ->setCurrency('USD')
+            ->setQuantity(1)
+            ->setPrice(10);
+
+        $item2 = new Item();
+        $item2->setName('Item 2')
+            ->setCurrency('USD')
+            ->setQuantity(1)
+            ->setPrice(5);
+
+        $itemList = new ItemList();
+        $itemList->setItems([$item1, $item2]);
+
+        $details = new Details();
+        $details->setSubtotal(15);
+
+        $amount = new Amount();
+        $amount->setCurrency('USD')
+            ->setTotal(15)
+            ->setDetails($details);
+
+        $transaction = new Transaction();
+        $transaction->setAmount($amount)
+            ->setItemList($itemList)
+            ->setDescription('Payment description')
+            ->setInvoiceNumber(uniqid());
+
+        $redirectUrls = new RedirectUrls();
+        $redirectUrls->setReturnUrl(url('/payment/complete'))
+            ->setCancelUrl(url('/payment/cancel'));
+
+        $payment = new Payment();
+        $payment->setIntent('sale')
+            ->setPayer($payer)
+            ->setRedirectUrls($redirectUrls)
+            ->setTransactions([$transaction]);
+
+        $response = $payment->create($this->apiContext);
+        $redirectUrl = $response->links[1]->href;
+    }
+
+    public function completePayment(Request $request)
+    {
+        $paymentId = $request->input('paymentId');
+        $payerId = $request->input('PayerID');
+        $payment = Payment::get($paymentId, $this->apiContext);
+        $execute = new PaymentExecution();
+        $execute->setPayerId($payerId);
+        $payment->execute($execute, $this->apiContext);
+        return redirect('/payment/success');
+    }
+
+    public function paymentPage($store_id)
+    {
+        $store = Store::find(session('store_id'));
+        if($store->payment_status == 'pending'){
+            return view('FrontEnd.payments', compact('store_id'));
+        } else{
+            return redirect()->route('dashboard');
+        }
+    }
+
+    public function stripePayment()
+    {
+        return view('stripe');
     }
 }
 //https://api_key:api_secret@exchange-accrual4.myshopify.com/admin/api/2023-01/products.json

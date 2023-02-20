@@ -1,6 +1,8 @@
 @extends('layouts.frontEnd.master')
     @section('content')
     @include('layouts.frontEnd.header')
+    @foreach($categories as $category)
+    @endforeach
     <div class="container sellSection--container">
         <div>
             <div class="sellSection-header text-center">
@@ -59,7 +61,7 @@
                                     <div class="mb-3 mt-4">
                                         <select class="form-control" name="payment" id="payment">
                                             <option value="">Select Subscription Package</option>
-                                                <option value="1">$40/Month</option>
+                                                <option value="1" selected>$40/Month</option>
                                         </select>
                                     </div>
                                     <div class="text-danger" id="payment_error"></div>
@@ -89,7 +91,7 @@
 
                         <input type="hidden" name="store_id" id="store_id" value="{{session('store_id') ?? ''}}">
                         <div class="row createStory">
-                            <textarea id="editor" name="business_story" value="{{$store->business_story ?? ''}}"></textarea>
+                            <textarea id="editor" name="business_story">{{$store->business_story ?? ''}}</textarea>
                             <!-- <div class="col-12" id="editor"></div> -->
                         </div>
                         <div class="text-danger" id="business_story_error"></div>
@@ -114,7 +116,7 @@
                 <div class="form">
                     <form class="form-centered" id="stepthree_form">
                         <div class="row createStory" id="editor1">
-                            <textarea  name="description"></textarea>
+                            <textarea  name="description">{{$store->description ?? ''}}</textarea>
                             <!-- <div class="col-12" id="editor"></div> -->
                         </div>
                         <div class="text-danger" id="description_error"></div>
@@ -345,7 +347,7 @@
                             <select class="form-select marketing-input" aria-label="Default select example" name="category">
                                 <option selected disabled>Open this select menu</option>
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}" @if(isset($store)){{($category->id == $store->id) ? 'selected' : ''}}@endif>{{$category->name}}</option>
+                                    <option value="{{$category->id}}" @if(isset($store)){{($category->id == $store->category_id) ? 'selected' : ''}}@endif>{{$category->name}}</option>
                                 @endforeach
                             </select>
                             <span class="text-danger" id="category_error"></span>
@@ -364,7 +366,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 mb-3">
-                            <select id="tags" class="form-control tags marketing-input" name="tags[]" multiple="multiple"></select>
+                            <select id="tags" class="form-control tags marketing-input" name="tags[]" multiple="multiple">
+                                @if(isset($store) AND $store->tags !=null AND count($store->tags) > 0)
+                                    @foreach($store->tags as $tag)
+                                        <option value="{{$tag->id}}" selected>{{$tag->name}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                             <span class="text-danger" id="tags_error"></span>
                         </div>
                     </div>
@@ -384,7 +392,7 @@
                   "
                             id="step-six"
                             class="marketing-button btn-forward"
-                        >Next</a
+                        >Submit</a
                         >
                     </div>
                 </form>
@@ -602,7 +610,7 @@
             const step4 = document.querySelector('.tab-4');
             const step5 = document.querySelector('.tab-5');
             const step6 = document.querySelector('.tab-6');
-            const step7 = document.querySelector('.tab-7');
+            // const step7 = document.querySelector('.tab-7');
 
 
             // Back Buttons Element
@@ -611,7 +619,7 @@
             const btnback4 = document.querySelector('.btn-back-tab4');
             const btnback5 = document.querySelector('.btn-back-tab5');
             const btnback6 = document.querySelector('.btn-back-tab6');
-            const btnback7 = document.querySelector('.btn-back-tab7');
+            // const btnback7 = document.querySelector('.btn-back-tab7');
 
 
 
@@ -710,7 +718,7 @@
             {
                 ckEditor2_value="";
             }
-            console.log(ckEditor2_text);
+            // console.log(ckEditor2_text);
             $.ajax({
                 type: "POST",
                 url: "{{route('stores.step_three') }}",
@@ -840,10 +848,9 @@
                         Accept: "application/json",
                     },
                     success: function (response) {
-                        console.log(response);
                         if (response.success) {
-                            {{--window.location.href = "{{route('dashboard')}}";--}}
-                            step6.classList.remove('active');
+                            var storeId = response.store_id; // Add this line to get the store_id from the JSON response
+                            window.location.href = "{{ url('/user/payment-page') }}/" + storeId; // Use the store_id in the URL                            step6.classList.remove('active');
                             step7.classList.add('active');
                             sellProcedure_toggler();
                         }
@@ -867,7 +874,7 @@
             })
 
             // step 6
-            $(document).on('click', '#step-seven', function(){
+            /*$(document).on('click', '#step-seven', function(){
                 var formData = $("#stepseven_form").serialize();
                 $.ajax({
                     type: "POST",
@@ -896,13 +903,13 @@
                     },
                 });
 
-            })
+            })*/
 
-            btnback7.addEventListener('click', function(){
+            /*btnback7.addEventListener('click', function(){
                 step7.classList.remove('active');
                 step6.classList.add('active');
                 sellProcedure_toggler();
-            })
+            })*/
 
 
             function sellProcedure_toggler(){
