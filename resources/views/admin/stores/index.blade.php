@@ -52,6 +52,7 @@
                                             <th>Name</th>
                                             <th>Store Address</th>
                                             <th>Status</th>
+                                            <th>Payment Status</th>
                                             <th>Created at</th>
                                             <th>Action</th>
                                         </tr>
@@ -69,10 +70,17 @@
                                                 <td>{{ $store->store_name }}</td>
                                                 <td>{{ $store->store_address }}</td>
                                                 <td>
-                                                    @if($store->status == 'approved')
+                                                    @if($store->status == 'pending')
                                                         <span class="badge badge-success">Active</span>
                                                     @elseif($store->status == 'rejected')
                                                         <span class="badge badge-danger">Rejected</span>
+                                                    @else
+                                                        <span class="badge badge-warning">Pending</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($store->payment_status == 'completed')
+                                                        <span class="badge badge-success">Completed</span>
                                                     @else
                                                         <span class="badge badge-warning">Pending</span>
                                                     @endif
