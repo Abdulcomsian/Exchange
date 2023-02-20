@@ -59,7 +59,7 @@ class PaypalController extends Controller
         $itemList->setItems([$item1, $item2]);
 
         $details = new Details();
-        $details->setSubtotal(15);
+        $details->setSubtotal(40);
 
         $amount = new Amount();
         $amount->setCurrency('USD')
